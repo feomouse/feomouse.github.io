@@ -80,5 +80,5 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/feomouse/feomouse.github.io.git
-  branch: gh-pages
+  branch: master
   message: 
