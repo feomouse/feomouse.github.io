@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Experimental development based on mapping rule between requirements analysis model and web framework specific design model | 失去才是得到</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原作者 Hirotaka Okuda Shinpei Ogata Saeko Matsuura  原文链接https://springerplus.springeropen.com/articles/10.1186/2193-1801-2-123 摘要模型驱动开发是开发出高质量软件系统的一种可靠的方式。我们已经提议一种利用Unified Modeling Language(UML)来作为模型驱动的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Experimental development based on mapping rule between requirements analysis model and web framework specific design model">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/require-framework-model/index.html">
+<meta property="og:site_name" content="失去才是得到">
+<meta property="og:description" content="原作者 Hirotaka Okuda Shinpei Ogata Saeko Matsuura  原文链接https://springerplus.springeropen.com/articles/10.1186/2193-1801-2-123 摘要模型驱动开发是开发出高质量软件系统的一种可靠的方式。我们已经提议一种利用Unified Modeling Language(UML)来作为模型驱动的">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-08-21T16:39:04.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Experimental development based on mapping rule between requirements analysis model and web framework specific design model">
+<meta name="twitter:description" content="原作者 Hirotaka Okuda Shinpei Ogata Saeko Matsuura  原文链接https://springerplus.springeropen.com/articles/10.1186/2193-1801-2-123 摘要模型驱动开发是开发出高质量软件系统的一种可靠的方式。我们已经提议一种利用Unified Modeling Language(UML)来作为模型驱动的">
+  
+    <link rel="alternate" href="/atom.xml" title="失去才是得到" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">失去才是得到</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-require-framework-model" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/22/require-framework-model/" class="article-date">
+  <time datetime="2019-08-21T16:39:04.365Z" itemprop="datePublished">2019-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Experimental development based on mapping rule between requirements analysis model and web framework specific design model
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="原作者"><a href="#原作者" class="headerlink" title="原作者"></a>原作者</h3><ul>
+<li>Hirotaka Okuda</li>
+<li>Shinpei Ogata</li>
+<li>Saeko Matsuura</li>
+</ul>
+<h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><p><a href="https://springerplus.springeropen.com/articles/10.1186/2193-1801-2-123" target="_blank" rel="noopener">https://springerplus.springeropen.com/articles/10.1186/2193-1801-2-123</a></p>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>模型驱动开发是开发出高质量软件系统的一种可靠的方式。我们已经提议一种利用Unified Modeling Language(UML)来作为模型驱动的需求分析方式。我们的方法的主要特性是通过UML需求分析模型来自动生成一个web用户接口原型，以此我们可以确定我们输入输出数据的有效性以及通过直接操作原型确定页面之间的转换。我们提议在基于需求分析模型的基础上，对不同的web应用框架实现上有一个映射规则，也为了提高从一个有效需求分析模型到最终产品的可追踪性。这篇论文讨论了通过此方式开发出的，最近工作在我们公寓的团队工作支持系统。</p>
+<h5 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h5><p>web frameworks, unified modeling language, requirements analysis model</p>
+<h5 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h5><p>当今许多有用的服务和产品像是计算机系统需要开发者有效地开发一个高质量的系统，所以他们可以迎合不同的知识背景的用户，不同的使用情况，不同的输入输出设备像是智能电话和个人计算机。为了确保这样的一种开发，软件在整个生命周期的可追踪性是很重要的，而且模型驱动开发方式是一种可靠的方式。</p>
+<p>我们已经提议一种使用UML的基于模型驱动的需求分析方法(Ogata &amp; Matsuura 2008; 2010a)。我们方法的主要的特性是通过UML需求分析模型来自动生成web用户接口原型，所以我们通过直接操作原型，可以确保对每个页面和页面转换的输入输出数据的有效性。我们已经展示出通过实现需求分析模型使最终产品的需求分析拥有可追踪性(Ogata &amp; Matsuura 2010b),但是这样一种系统性方法需要需求分析模型和设计模型的一个映射规则。</p>
+<p>近些时间，大多数web应用是通过这种web应用程序框架，好似struts, play framesworks来开发的。一个web应用程序框架是一系列可重用的指定web应用构造类库。通过开发者定义应用程序具体的类从而开发出最后的web应用程序。因此开发者被要求针对每种具体的框架像是struts来了解知道特定的web应用构建机制。这样的一种具体的基于每个框架实现的知识依赖好像打扰了有效率的高质量开发。</p>
+<p>这篇论文旨在基于需求分析模型的设计信息来得到一个映射规则，而不依赖于指定的web应用程序框架实现，甚至可以自动为每个框架生成指定代码。</p>
+<h5 id="需求分析方法"><a href="#需求分析方法" class="headerlink" title="需求分析方法"></a>需求分析方法</h5><h6 id="需求分析方法的模型特性"><a href="#需求分析方法的模型特性" class="headerlink" title="需求分析方法的模型特性"></a>需求分析方法的模型特性</h6><p>在需求分析的情况下，开发者从消费者那提取出系统开发的需求，通过制作非正式文档来指定这些需求。近些时间，许多开发者已经开始使用UML，所以需求可以被更加正式地定义。我们已经提议一种使用UML来得到模型驱动的需求分析方法。我们在使用用例分析的同时也分析服务的功能需求。特别是因为用户最想要做的很明显地表现在用户和系统的交互中，我们的方法目的就是清楚地模型化这种交互。</p>
+<p>为了正确地展示，我通过以下四个观点，来指定一个作为服务的事务过程。</p>
+<ul>
+<li>基于事务规则，为了使服务正确地执行，需要哪些输入数据和条件？</li>
+<li>为了观察事务规则，哪种类型的条件应该需要以防止系统不执行服务。更具体，系统应该怎么对待这些异常情况？</li>
+<li>通过这些条件，为了执行服务，什么类型的行为是需要的？</li>
+<li>这些行为会产生什么类型的数据？</li>
+</ul>
+<p>基于以上提及的四点，为了完成需要的目标事务的输入业务流程和事务实体数据，我们通过UML活动图和类图来表示。</p>
+<p>一个活动图不止指定了通常的和异常的行为流程，而且还指定了和其相关的数据流。一个行为通过行为节点来定义，数据通过在类图里被分类了的类的对象节点表示。通过这两种图，我们可以将业务流程和数据建立联系。这是我们的方法关于活动图和流程图的众多特性之一。特别是为了正确地执行服务，在用户和系统交互过程中，用户输入，条件判断，输出涉及到很多不同的流程和数据。</p>
+<p>第二个特性是活动图有三种区分，分别为用户，交互和系统。这是因为这些区分是我们能过分辨以下活动；用户输入活动，用户和系统不同条件下的交互活动和结果输出。</p>
+<p>第三个特性是对于每个活动，我们都用对象图来定义具体的数据，因为具体有效的数据使确定业务处理过程更容易。</p>
+<p>第四个特性是组成用html编写的web页面的原型使自动从这些图表中产生的。这样一种最终产品的原型使消费者顾客可以很容易地将事务流和数据建立连接。生成的原型描述了需要的目标系统，除了用户接口表现和内部业务逻辑处理。再者，原型使开发者更坚定地理解模型和最终系统的一致性。开发者伴随着需求分析定义了三种类型的图表，通过不同的观点来表示行为流，数据流和结构，和具体的值。自动生成的原型使顾客可以很容易地理解顾客的模型和目标系统之间的一致性。为了能够完全理解每一种图表和目标系统间的一致性，一个原型可以被生成以满足开发者任何时候对需求分析理解。需求分析模型通过使用一种模型工具来被定义。</p>
+<p>在顾客满意地表示出他们对需求原型的肯定的阶段后，我们可以说顾客通过实际的用处的角度来验证规格说明书是否满足他们的期望。</p>
+<p>但是，对开发者来说可以验证规格说明书以此来确定规格书的可行性是十分重要的。为了做到这一点，开发者必须确保一系列行为和数据流在系统活动图分区中能够从指定的输入数据产生期望的输出数据。系统原型帮助开发者确定以下事实。</p>
+<ul>
+<li>用户定义的输入数据能够转换成系统中的实体数据</li>
+<li>已经存在的实体数据必须通过其他使用用例产生，还有以上提及的实体数据能够通过指定的行为序列产生目标输出数据</li>
+</ul>
+<p>如果可以这样考虑，开发者便能够定义实体类了。</p>
+<h6 id="需求分析模型指定的组件"><a href="#需求分析模型指定的组件" class="headerlink" title="需求分析模型指定的组件"></a>需求分析模型指定的组件</h6><p>在使用我们的需求分析方法过后，我们可以获取以下指定的组件。</p>
+<ol>
+<li>实体类：一集合实体类在全部系统活动图分区中变成持久化数据的继任者。</li>
+<li>输入输出数据类：一集合输入输出数据类在用户或交互活动图分区中决定服务的一系列页面和每个页面的结构。</li>
+<li>触发和处理流程：每个活动图决定一系列活动服务处理流程。一个处理流程被通过在一个输入类中的触发事件执行时调用的一系列在系统分区的动作节点和对象节点</li>
+<li>异常流：当对于一个输入数据发生异常时，活动图决定系统的处理流程。</li>
+</ol>
+<h5 id="web应用开发中的问题"><a href="#web应用开发中的问题" class="headerlink" title="web应用开发中的问题"></a>web应用开发中的问题</h5><p>当今许多web应用程序给予我们更加富有的客户端服务技术像是css,Flash,Java Script and Ajax, etc.服务端服务也是通过像是PHP,JSP,ASP.NET,CGI,etc技术开发。再者，数据持久化机制已经通过DBMS,RDBMS开发。web应用框架旨在减轻大量和普通活动相关的功能，例如提供模板框架库，数据库访问，安全管理等。结果是我们能够不关心web应用，而关注于应用的逻辑。大多数web应用由客户端，服务端，持久端，也就是被称为’Model-View-Controller’模式来提升应用的相互独立性。</p>
+<p>但是不同的框架拥有不同的库，所以开发者有责任利用不同的表达来实现系统。再者，用法依赖于开发者的意图，所以有时他们会定义一些不明晰的MVC model实现并影响到可维护性。特别是他们有时由于缺少清晰的引导而没法给出一个合适的，用户和系统间交互角色。为了提高频繁改动的web应用的可维护性，便需要以一个清晰的映射规则规定需求组件和框架热点间的关系。</p>
+<p>我们建议在以上提及的组件应用一个映射规则。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/22/require-framework-model/" data-id="cjzlhmsm10002dcv5z2n8f7dj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/22/致每一个努力生活下去的人/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          致每一个努力生活下去的人
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/22/致每一个努力生活下去的人/">致每一个努力生活下去的人</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/22/require-framework-model/">Experimental development based on mapping rule between requirements analysis model and web framework specific design model</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
