@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="格物才能致知">
 <meta property="og:description" content="原作者 Martin Fowler  原文链接https://martinfowler.com/articles/injection.html 序在java社区，有很多帮助我们将多个来自不同项目的组件组装成单个内聚一致的应用程序的轻量级容器。下面这些容器的启动使用是一种以共同的模式，一种名叫“控制反转”的概念的应用。在这篇文章中，我深入挖掘这种模式是怎么工作的，在一个更具体的，特指的名字“控制反转">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-01T05:36:40.401Z">
+<meta property="og:updated_time" content="2019-10-04T15:14:01.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="反向控制容器和依赖注入模式">
 <meta name="twitter:description" content="原作者 Martin Fowler  原文链接https://martinfowler.com/articles/injection.html 序在java社区，有很多帮助我们将多个来自不同项目的组件组装成单个内聚一致的应用程序的轻量级容器。下面这些容器的启动使用是一种以共同的模式，一种名叫“控制反转”的概念的应用。在这篇文章中，我深入挖掘这种模式是怎么工作的，在一个更具体的，特指的名字“控制反转">
@@ -177,7 +177,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Tester...</span><br><span class="line">   public void testIface() &#123;</span><br><span class="line">     configureContainer();</span><br><span class="line">     MovieLister lister = (MovieLister)container.lookup(&quot;MovieLister&quot;);</span><br><span class="line">     Movie[] movies = lister.moviesDirectedBy(&quot;Sergio Leone&quot;);</span><br><span class="line">     assertEquals(&quot;Once Upon a Time in the West&quot;, movies[0].getTitle());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 <p>容器使用了申明了的注入器接口来发现依赖，于是注入器可以注入正确的依赖。（我这里特定的容器实现在技术方面来说不重要，我也不会写出来，以防你嘲笑我）。</p>
-<h3 id="使用一个服务定位器"><a href="#使用一个服务定位器" class="headerlink" title="使用一个服务定位器"></a>使用一个服务定位器</h3><p>依赖注入最核心的好处是将MovieLister类对具体的MovieFinder的实现的依赖移除了。这样我就可以将listers个朋友，然后他们可以根据他们的环境来加入合适的实现。注入不是解除这种依赖的唯一的方法，另一个便是服务定位器。</p>
+<h3 id="使用一个服务定位器"><a href="#使用一个服务定位器" class="headerlink" title="使用一个服务定位器"></a>使用一个服务定位器</h3><p>依赖注入最核心的好处是将MovieLister类对具体的MovieFinder的实现的依赖移除了。这样我就可以将listers给朋友，然后他们可以根据他们的环境来加入合适的实现。注入不是解除这种依赖的唯一的方法，另一个便是服务定位器。</p>
 <p>服务定位器最基本的想法是拥有一个应用需要的，知道如何获取和拥有所有服务的对象。所以对于这个应用一个服务定位器将会拥有一个方法，可以再需要的时候返回一个电影。当然这个转移了一下负担，我们任然必须在lister里得到定位器。</p>
 <p>在这个例子中，我将会使用服务定位器当成一个单例注册单位。lister能够在实例化之后用它来得到finder。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class MovieLister...</span><br><span class="line">   MovieFinder finder = ServiceLocator.movieFindedr();</span><br><span class="line"></span><br><span class="line">class ServiceLocator...</span><br><span class="line">   public static MovieFinder movieFinder() &#123;</span><br><span class="line">     return soleInstance.movieFinder;</span><br><span class="line">   &#125;</span><br><span class="line">   private static ServiceLocator soleInstance;</span><br><span class="line">   private MovieFinder movieDinder;</span><br></pre></td></tr></table></figure>
@@ -252,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/29/反向控制容器和依赖注入模式/" data-id="ck1c96ukc0004ckv5n9svri3h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/29/反向控制容器和依赖注入模式/" data-id="ck1cj3j580006p8v54e7bmy8m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -310,6 +310,14 @@
       <ul>
         
           <li>
+            <a href="/2019/10/05/面向对象之观察者模式/">面向对象之观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/面向对象之代理模式/">面向对象之代理模式</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/04/面向对象之策略模式和模板方法/">面向对象之策略模式和模板方法</a>
           </li>
         
@@ -319,14 +327,6 @@
         
           <li>
             <a href="/2019/10/04/面向对象之适配器模式/">面向对象之适配器模式</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/29/反向控制容器和依赖注入模式/">反向控制容器和依赖注入模式</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/22/require-framework-model/">基于在需求分析模型和web框架指定设计模型间的映射规则的开发经验</a>
           </li>
         
       </ul>

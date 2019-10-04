@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>面向对象之观察者模式 | 格物才能致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="为何观察者存在作为一个整体，不管是类库还是软件应用，其包含的类一定不止一个，控件也不止一个。而且，这些类和控件，有着看似复杂，又看似简单的联系。 其实，观察者这种面向对象模式应用的领域很特定，就是一对多的通知。也就是对象间某种形式的同步，而且只有一个是主动的，其余都是被动监听，并根据提醒消息采取行动。 实现逻辑一个通知者，必然有几个要求：  拥有一系列被通知者，也就是观察者的实例 实现提醒接口 在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象之观察者模式">
+<meta property="og:url" content="http://yoursite.com/2019/10/05/面向对象之观察者模式/index.html">
+<meta property="og:site_name" content="格物才能致知">
+<meta property="og:description" content="为何观察者存在作为一个整体，不管是类库还是软件应用，其包含的类一定不止一个，控件也不止一个。而且，这些类和控件，有着看似复杂，又看似简单的联系。 其实，观察者这种面向对象模式应用的领域很特定，就是一对多的通知。也就是对象间某种形式的同步，而且只有一个是主动的，其余都是被动监听，并根据提醒消息采取行动。 实现逻辑一个通知者，必然有几个要求：  拥有一系列被通知者，也就是观察者的实例 实现提醒接口 在">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-04T19:34:16.566Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象之观察者模式">
+<meta name="twitter:description" content="为何观察者存在作为一个整体，不管是类库还是软件应用，其包含的类一定不止一个，控件也不止一个。而且，这些类和控件，有着看似复杂，又看似简单的联系。 其实，观察者这种面向对象模式应用的领域很特定，就是一对多的通知。也就是对象间某种形式的同步，而且只有一个是主动的，其余都是被动监听，并根据提醒消息采取行动。 实现逻辑一个通知者，必然有几个要求：  拥有一系列被通知者，也就是观察者的实例 实现提醒接口 在">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才能致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">格物才能致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面向对象之观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/05/面向对象之观察者模式/" class="article-date">
+  <time datetime="2019-10-04T19:06:57.758Z" itemprop="datePublished">2019-10-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面向对象之观察者模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="为何观察者存在"><a href="#为何观察者存在" class="headerlink" title="为何观察者存在"></a>为何观察者存在</h3><p>作为一个整体，不管是类库还是软件应用，其包含的类一定不止一个，控件也不止一个。而且，这些类和控件，有着看似复杂，又看似简单的联系。</p>
+<p>其实，观察者这种面向对象模式应用的领域很特定，就是一对多的通知。也就是对象间某种形式的同步，而且只有一个是主动的，其余都是被动监听，并根据提醒消息采取行动。</p>
+<h3 id="实现逻辑"><a href="#实现逻辑" class="headerlink" title="实现逻辑"></a>实现逻辑</h3><p>一个通知者，必然有几个要求：</p>
+<ol>
+<li>拥有一系列被通知者，也就是观察者的实例</li>
+<li>实现提醒接口</li>
+<li>在提醒接口里调用观察者的更新接口</li>
+</ol>
+<p>一个观察者，必然有几个要求：</p>
+<ol>
+<li>一个共同的观察者抽象类，这样才能即被一个通知者拥有，又对应不同的类别，拥有不同的逻辑</li>
+<li>实现更新接口</li>
+</ol>
+<p>说直白点，通知者就是观察者的上帝，它拥有全部观察者实例，然后在自己想要的任何时候，通知观察者（调用观察者更新方法），实现一次通知。</p>
+<h3 id="现实问题"><a href="#现实问题" class="headerlink" title="现实问题"></a>现实问题</h3><p>在不同类型的观察者中，在非自己控制的类，或者难以更改适配抽象类的类时，实现同一个抽象类是有难度的。所以有了委托，也就是函数对象（也可理解为函数指针）的概念。只要是函数的签名相同，其就可以充当观察者的角色，在通知者通知时，将委托对象对应的方法当成是观察者需要实现的方法。</p>
+<p>再复杂的讨论，就是所谓的面向对象里的事件机制了。以后有深入研究在谈论吧。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>观察者模式在面向对象的概念里，主要的应用也就是事件机制了。这样从事件机制角度本身，可以看出面向对象体系在某种程度上的复杂，不论是对象本身，还是之间的关系，观察者模式提供了一种通信，同步，或完成业务逻辑的一种新的思想方式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/05/面向对象之观察者模式/" data-id="ck1cj3j4j0004p8v50u3w6l6a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/05/面向对象之代理模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面向对象之代理模式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/05/面向对象之观察者模式/">面向对象之观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/面向对象之代理模式/">面向对象之代理模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/面向对象之策略模式和模板方法/">面向对象之策略模式和模板方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/面向对象之装饰器与访问者模式/">面向对象之装饰器与访问者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/面向对象之适配器模式/">面向对象之适配器模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
