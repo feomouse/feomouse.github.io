@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>面向对象之装饰器与访问者模式 | 格物才能致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言每个人都在不断成长的过程中，每次成长，都要承担更多的职责，认识更多的事物，做出更多的实践，分化出不同的能力。 现在与未来标题起的很玄乎，但是要讲的却很正常。不论是任何范式编程，软件代码都是由少到多，由单一到多元。最原始对一个类别有一个需求，则有了相应的接口和类方法实现。然后对同一个类别又加了一个需求，然后再添加了相应的接口和类方法实现。之后几个，十几个，几十个需求，不论简单复杂，和那个类别的相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象之装饰器与访问者模式">
+<meta property="og:url" content="http://yoursite.com/2019/10/04/面向对象之装饰器与访问者模式/index.html">
+<meta property="og:site_name" content="格物才能致知">
+<meta property="og:description" content="前言每个人都在不断成长的过程中，每次成长，都要承担更多的职责，认识更多的事物，做出更多的实践，分化出不同的能力。 现在与未来标题起的很玄乎，但是要讲的却很正常。不论是任何范式编程，软件代码都是由少到多，由单一到多元。最原始对一个类别有一个需求，则有了相应的接口和类方法实现。然后对同一个类别又加了一个需求，然后再添加了相应的接口和类方法实现。之后几个，十几个，几十个需求，不论简单复杂，和那个类别的相">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-04T10:50:55.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象之装饰器与访问者模式">
+<meta name="twitter:description" content="前言每个人都在不断成长的过程中，每次成长，都要承担更多的职责，认识更多的事物，做出更多的实践，分化出不同的能力。 现在与未来标题起的很玄乎，但是要讲的却很正常。不论是任何范式编程，软件代码都是由少到多，由单一到多元。最原始对一个类别有一个需求，则有了相应的接口和类方法实现。然后对同一个类别又加了一个需求，然后再添加了相应的接口和类方法实现。之后几个，十几个，几十个需求，不论简单复杂，和那个类别的相">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才能致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">格物才能致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面向对象之装饰器与访问者模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/04/面向对象之装饰器与访问者模式/" class="article-date">
+  <time datetime="2019-10-04T09:39:33.113Z" itemprop="datePublished">2019-10-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面向对象之装饰器与访问者模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>每个人都在不断成长的过程中，每次成长，都要承担更多的职责，认识更多的事物，做出更多的实践，分化出不同的能力。</p>
+<h3 id="现在与未来"><a href="#现在与未来" class="headerlink" title="现在与未来"></a>现在与未来</h3><p>标题起的很玄乎，但是要讲的却很正常。不论是任何范式编程，软件代码都是由少到多，由单一到多元。最原始对一个类别有一个需求，则有了相应的接口和类方法实现。然后对同一个类别又加了一个需求，然后再添加了相应的接口和类方法实现。之后几个，十几个，几十个需求，不论简单复杂，和那个类别的相关程度有多大，每多一个需求，就在相应接口和类实现添加方法实现。在加了几十个需求后，发现这个类过于庞大，储存的转态过多，逻辑方法也过多且杂。</p>
+<p>纯从美观上，切实不敢恭维。而且如果不论什么需求，只要相关，都往相关的类里塞，这么可怕的类，确实怕后期维护无从下手。</p>
+<p>现在是很容易，可未来这个类。。。</p>
+<h3 id="相关问题-面向对象之继承"><a href="#相关问题-面向对象之继承" class="headerlink" title="相关问题-面向对象之继承"></a>相关问题-面向对象之继承</h3><p>在遇到上面的问题之后，如果新添加的需求和原来的类是相关，而且有一定的继承关系，也就是实现的接口方法是相同的，于是，我们可以利用继承，将具有些许自己特性的类给继承，然后覆盖基类的实现方法，从而将一些状态和逻辑实现给分离到继承子类的实现中。这样利用了面向对象的继承和多态，我们第一步实现了将和类相关，但不是核心的状态和逻辑给分离给了其他类，于是原来庞大而可怕的类则被分隔成多个部分了。</p>
+<p>于是在之后，每有一个与特定类相关，但又有些许不同的需求，分配给继承自特定父类的子类，由子类保存状态并实现逻辑。</p>
+<p>但在这里，我们又遇到了一个问题，或者是以重构的角度来分析类库代码，发现以继承的方式来分离逻辑和状态的方式发现，每个特定子类的方法需要覆盖父类相应的抽象方法或者非抽象方法，于是父类中对应的方法没有实现逻辑，而子类虽说有各自不同的状态和逻辑，但是却也有大量相关的状态和逻辑，以此导致了大量的重复代码。</p>
+<p>不管从美观，还是可维护，可修改角度分析代码，代码还是需要改进。</p>
+<h3 id="装饰者？"><a href="#装饰者？" class="headerlink" title="装饰者？"></a>装饰者？</h3><p>我是我，装饰是装饰。我离了装饰还是我，装饰不会改变我的转态或思想。但是有了装饰，我就又在我本身多了一些东西，这些东西本质上不是我，带却可以是附加到我身上的属性或价值。</p>
+<p>回到正题，老板又多了一个和某类相关的需求，但又有自己独特的地方，那现在，我们是直接加到类上，还是写一个继承类，还是怎样？</p>
+<p>通过以上分析，现在问题的痛点是，继承会有代码冗余，一部分重复的核心逻辑被分散到子类中。那，如果我们将核心代码写在父类中，然后再建一个继承自同一个接口的类，操作使用父类的实现，然后再添加自己的一些状态和逻辑（装饰），怎么样？</p>
+<p>其实就是利用了组合的方法实现了装饰者。每个装饰者保持者一个相关核心类的实例，在操作实例的同时，再添加自己的逻辑，从而实现了同一个接口，但是在不影响父类的情况下，添加了新的需求逻辑。</p>
+<p>而且，还可以将装饰者间的逻辑再进一步抽象，将重复的实现放置在装饰者基类中，再编写不同的装饰者类，以十分灵活地实现需求的添加和变更，而且十分利于维护。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>装饰者就是为了应对围绕某一方面需求变更和添加而出现的。在保持接口，基类稳定的情况下，通过组合基类的方式，使增添或修改不同的实现功能逻辑成为了可能。</p>
+<h3 id="等等，访问者呢？"><a href="#等等，访问者呢？" class="headerlink" title="等等，访问者呢？"></a>等等，访问者呢？</h3><p>我把访问者和装饰者放在一起讨论，是因为其在面向对象的编程范式下，有着相似的功能，就是在保持接口和基类稳定的情况下，通过添加一个accept的接口方法，接受特定的具有visit接口方法的访问者对象，从而实现将核心基类的大量变动的逻辑需求分离至访问者类上，而实现和装饰者类似的目的-保持接口和基类稳定下增加核心类的逻辑，从而在可维护性和可拓展性，灵活性等方面实现类库的非功能需求。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/04/面向对象之装饰器与访问者模式/" data-id="ck1c8xmjx0001pov5l1lldtou" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/04/面向对象之策略模式和模板方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          面向对象之装饰器与访问者模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/04/面向对象之适配器模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面向对象之适配器模式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/04/面向对象之策略模式和模板方法/">面向对象之装饰器与访问者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/面向对象之装饰器与访问者模式/">面向对象之装饰器与访问者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/面向对象之适配器模式/">面向对象之适配器模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/29/反向控制容器和依赖注入模式/">反向控制容器和依赖注入模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/22/require-framework-model/">基于在需求分析模型和web框架指定设计模型间的映射规则的开发经验</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
