@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>关于单元测试与TDD的存在 | 格物才能致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="测试存在的意义软件测试，有功能测试，集成测试，确认测试等。在软件的开发周期上，其都是出于一个软件开发周期的后半段，也就是一般都是在编码实现之后才进行的流程。虽然在概要设计的时候就要思考和计划后期软件测试，但是测试的主体，或者在某种程度上，唯一的目的是确保软件可以满足前期设计时的功能，以及一些非功能需求，比如性能，可用性等。 测试的方式传统的测试，几乎都是人工进行的。静态审查，动态运行，连调，集成，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于单元测试与TDD的存在">
+<meta property="og:url" content="http://yoursite.com/2019/10/08/关于单元测试与TDD的存在/index.html">
+<meta property="og:site_name" content="格物才能致知">
+<meta property="og:description" content="测试存在的意义软件测试，有功能测试，集成测试，确认测试等。在软件的开发周期上，其都是出于一个软件开发周期的后半段，也就是一般都是在编码实现之后才进行的流程。虽然在概要设计的时候就要思考和计划后期软件测试，但是测试的主体，或者在某种程度上，唯一的目的是确保软件可以满足前期设计时的功能，以及一些非功能需求，比如性能，可用性等。 测试的方式传统的测试，几乎都是人工进行的。静态审查，动态运行，连调，集成，">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-07T21:01:45.953Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于单元测试与TDD的存在">
+<meta name="twitter:description" content="测试存在的意义软件测试，有功能测试，集成测试，确认测试等。在软件的开发周期上，其都是出于一个软件开发周期的后半段，也就是一般都是在编码实现之后才进行的流程。虽然在概要设计的时候就要思考和计划后期软件测试，但是测试的主体，或者在某种程度上，唯一的目的是确保软件可以满足前期设计时的功能，以及一些非功能需求，比如性能，可用性等。 测试的方式传统的测试，几乎都是人工进行的。静态审查，动态运行，连调，集成，">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才能致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">格物才能致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-关于单元测试与TDD的存在" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/08/关于单元测试与TDD的存在/" class="article-date">
+  <time datetime="2019-10-07T19:32:16.552Z" itemprop="datePublished">2019-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件测试/">软件测试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于单元测试与TDD的存在
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="测试存在的意义"><a href="#测试存在的意义" class="headerlink" title="测试存在的意义"></a>测试存在的意义</h3><p>软件测试，有功能测试，集成测试，确认测试等。在软件的开发周期上，其都是出于一个软件开发周期的后半段，也就是一般都是在编码实现之后才进行的流程。虽然在概要设计的时候就要思考和计划后期软件测试，但是测试的主体，或者在某种程度上，唯一的目的是确保软件可以满足前期设计时的功能，以及一些非功能需求，比如性能，可用性等。</p>
+<h3 id="测试的方式"><a href="#测试的方式" class="headerlink" title="测试的方式"></a>测试的方式</h3><p>传统的测试，几乎都是人工进行的。静态审查，动态运行，连调，集成，用户确认。这一切的一切，从我的认识上，都是由类似项目组开发的组长，产品经理，或者测试部门的人来进行人工测试。这没什么毛病，比如组长可以用白盒测试，然后测试组可以用黑盒测试，然后其他更高层面的管理人员或用户来做最后的确认测试。</p>
+<h3 id="现在测试的概念"><a href="#现在测试的概念" class="headerlink" title="现在测试的概念"></a>现在测试的概念</h3><p>现在，测试不再是传统的“测试”。并不是不需要传统的测试，而是测试作为软件开发的流程之一，被赋予了一个新的使命。</p>
+<p>在敏捷编程作为主流软件开发思想实践的当下，软件的非功能需求越来越重要，其中包括可维护，可修改，可拓展性等。而从项目本身看来，其中包括项目多个方面的影响因素，比如成本，进度，质量等。</p>
+<p>于是人们在经历过软件危机过后，开始思考，如何开发软件，可以使软件的问题尽早暴露，尽早解决，而且解决的成本更小，也就是以相对最小的成本，收获较大的回报。于是测试驱动的概念出现了。</p>
+<h3 id="为何测试驱动"><a href="#为何测试驱动" class="headerlink" title="为何测试驱动"></a>为何测试驱动</h3><p>我的理解，测试驱动的第一要点不是测试，而是软件本身。也就是说，测试驱动主要不是为了得出软件执行的结果正确与否，而是测试带来的需求分析，功能确认的清晰化，系统结构本身的优化，自动化测试的可能，后期软件问题定位较容易，错误修改也更容易，也可以及时发现修改错误，更便于软件重构，以及软件维护，拓展等。</p>
+<h3 id="测试驱动的要点"><a href="#测试驱动的要点" class="headerlink" title="测试驱动的要点"></a>测试驱动的要点</h3><p>测试驱动是一种软件开发思想。他贯穿与软件开发的全过程，而且对软件开发的全员来说，也是要熟记于心的。</p>
+<p>测试驱动主要指的是单元测试。</p>
+<p>测试先于实现。因为测试驱动的主要核心不是为了测试功能的正确与否（当然，其实也是为了测试正确与否，但是为了和传统测试区分开），而是单元测试带来的，使需求分析功能实现的细化，也就是测试体现需求。而且最重要的是为了满足单元测试，功能实现不得不高度内聚，从而实现了软件结构的优化，便于维护，修改，后期重构。</p>
+<p>当然，测试驱动不能“拖后腿”。也就是，测试驱动不能使开发的进度明显下降，成本上升。如果编写单元测试时间成本甚至多于写功能代码，那说实话，测试驱动很可能被抛弃，也不会有人去实践。所以，从开发人员的角度上看，单元测试编写的速度一定要高，时间一定要控制，不能让软件开发好像多了个拖油瓶。</p>
+<p>测试驱动取代不了功能，集成，确认测试。因为他们的主要目的压根不同，所以也不可相互取代。但是当然，单元测试某种程度上充当了白盒测试的角色，所以其对之后的测试应该是起到了促进的作用。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这篇文章的核心是为了表明测试驱动核心并非为了“测试”，而是为了实现软件开发的某些非功能需求。最最核心的是，系统的结构会因为测试驱动而和之前有较大的改进。</p>
+<p>当然，现在有很多开发项目组都没有使用这种思想，大概因为一是缺乏经验，二是对开发人员的编程素质和思想要求较高，成本可能会较高吧。</p>
+<p>这边文章并没有深入讲解，甚至跟怎么实践都不搭边，之后会继续学习，深入理解和实践的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/08/关于单元测试与TDD的存在/" data-id="ck1gvgk6n0000bwv5jlyc0qqc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/05/面向对象之观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面向对象之观察者模式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/08/关于单元测试与TDD的存在/">关于单元测试与TDD的存在</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/面向对象之观察者模式/">面向对象之观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/面向对象之代理模式/">面向对象之代理模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/面向对象之策略模式和模板方法/">面向对象之策略模式和模板方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/面向对象之装饰器与访问者模式/">面向对象之装饰器与访问者模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
