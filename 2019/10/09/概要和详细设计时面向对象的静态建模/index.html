@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>概要和详细设计时面向对象的静态建模 | 格物才能致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象推动设计如果现在公司想要做个产品，这个产品可以是软硬件结合的嵌入式产品，也可以是像word这样的桌面软件，或者是像淘宝京东这样的电子商务网站。我们将这个产品作为单位，然后提出一系列的需求，这些需求我们可以进行分析，细化，然后接着进入下一阶段，也就是概要设计或详细设计。 此时，不管你的软件开发周期模型是类似瀑布，原型，迭代，统一过程，敏捷编程，软件驱动思想是架构驱动，还是领域驱动，还是数据驱">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概要和详细设计时面向对象的静态建模">
+<meta property="og:url" content="http://yoursite.com/2019/10/09/概要和详细设计时面向对象的静态建模/index.html">
+<meta property="og:site_name" content="格物才能致知">
+<meta property="og:description" content="面向对象推动设计如果现在公司想要做个产品，这个产品可以是软硬件结合的嵌入式产品，也可以是像word这样的桌面软件，或者是像淘宝京东这样的电子商务网站。我们将这个产品作为单位，然后提出一系列的需求，这些需求我们可以进行分析，细化，然后接着进入下一阶段，也就是概要设计或详细设计。 此时，不管你的软件开发周期模型是类似瀑布，原型，迭代，统一过程，敏捷编程，软件驱动思想是架构驱动，还是领域驱动，还是数据驱">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-09T14:31:49.971Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="概要和详细设计时面向对象的静态建模">
+<meta name="twitter:description" content="面向对象推动设计如果现在公司想要做个产品，这个产品可以是软硬件结合的嵌入式产品，也可以是像word这样的桌面软件，或者是像淘宝京东这样的电子商务网站。我们将这个产品作为单位，然后提出一系列的需求，这些需求我们可以进行分析，细化，然后接着进入下一阶段，也就是概要设计或详细设计。 此时，不管你的软件开发周期模型是类似瀑布，原型，迭代，统一过程，敏捷编程，软件驱动思想是架构驱动，还是领域驱动，还是数据驱">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才能致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">格物才能致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+<!--         
+          <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
+        
+          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
+        
+          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
+        
+          <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
+         -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-概要和详细设计时面向对象的静态建模" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/09/概要和详细设计时面向对象的静态建模/" class="article-date">
+  <time datetime="2019-10-09T12:45:33.480Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面向对象设计/">面向对象设计</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      概要和详细设计时面向对象的静态建模
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="面向对象推动设计"><a href="#面向对象推动设计" class="headerlink" title="面向对象推动设计"></a>面向对象推动设计</h3><p>如果现在公司想要做个产品，这个产品可以是软硬件结合的嵌入式产品，也可以是像word这样的桌面软件，或者是像淘宝京东这样的电子商务网站。我们将这个产品作为单位，然后提出一系列的需求，这些需求我们可以进行分析，细化，然后接着进入下一阶段，也就是概要设计或详细设计。</p>
+<p>此时，不管你的软件开发周期模型是类似瀑布，原型，迭代，统一过程，敏捷编程，软件驱动思想是架构驱动，还是领域驱动，还是数据驱动，只要是你以面向对象的设计思路而不是结构化设计的思路，你就必须以uml中用例，模块，类的结构设计的思想来对需求进行细化。</p>
+<p>而且对于uml方式对软件进行详细设计的话，就难免会分成静态建模和动态建模，也就是对软件在面向对象设计的范式下，需要考虑到静态结构的，还有软件运行时的动态交互。这篇文章主要介绍静态结构的设计。</p>
+<h3 id="静态模型构建流程"><a href="#静态模型构建流程" class="headerlink" title="静态模型构建流程"></a>静态模型构建流程</h3><p>在手拿用户提出的一条条需求过后，我们如何将需求映射成设计结构呢？uml里的用例图也许会派上用场。在利用用例图对需求进行建模过后，我们一般会得出软件的范围，上下文，内外环境和按一定思路分割成的一个个用例，用例间的关系，外界参与者与内部用例的关系。用例可以用用例图和用例描述来实现</p>
+<p>之后，我们根据用例再进行细化。此时我们会对每一个用例进行细化，对此用例功能角色进行进一步分析和分解，分化出一个个类。因为一个用例可以涉及的面会比较广，比如有数据接收，处理，转移，输出等，所以每个用例可能要对应分析设计出的类的角色可能会不止一个。</p>
+<p>之后，在大致知道每个用例会设计出什么角色的类之后，类之间的关系，组成的结构，承担的具体任务，是我们需要分析设计的。因为面向对象的封装继承多态特性为的便是可寻找各个看似散落的类之间的联系，并定义这种联系，然后复用信息和操作，封装信息和操作，最后得出软件在面向对象静态建模方式下的概要详细设计产生的，以类为单位的软件结构。</p>
+<p>以上的静态建模流程，好似分成了多步，但其是一个连续的步骤，好像是一只小鸡孵化出来的一系列不同的状态一样，不同的时间点看有不同的形状，但是以连续的视角看的话，其实这个设计流程应该是一气呵成，连续不断的。</p>
+<h3 id="细化"><a href="#细化" class="headerlink" title="细化"></a>细化</h3><p>用例分析，主要就是将文字形式的需求进行分析，形成组织过、分类过的功能需求或非功能需求。一是可以分清软件的内外界限和功能范围，二是对软件的上下文有更深入的理解，三是认识功能与功能间的联系，并利用面向对象的思想，将用例组织成包括和拓展的关系，从而对功能的分配进行分析。此时对于功能的分配还是十分粗粒度的，大体的也就知道参与者，约束，主序列等信息。</p>
+<p>在用例分析过后，每个用例需要继续细化，也就是需要分析出用例内，用例外，用例边界，每个地方，需要用类来代替。每一个地方的类，都有其指定的角色。</p>
+<p>在系统外部，有系统外部用户类，外部系统类，外部设备类，外部计时器类等。</p>
+<p>在系统边界，有与系统外部用户类对应的用户交互对象，有与外部系统类对应的代理对象，有与外部设备类对应的设备I/O边界对象。</p>
+<p>在系统内部，有实体类与对象，控制类与对象，应用逻辑类和对象。</p>
+<p>实体类是指持久化的数据类。</p>
+<p>控制类可以分为协调者类（对其他对象执行顺序的总体协调控制决策），状态相关控制类（更改其他对象状态），计时器类（被定时消息控制的对象或控制其他对象）。</p>
+<p>应用逻辑类分为业务逻辑类（封装逻辑，操作实体，为其他类提供操作），算法类（封装重要算法），服务类（为其他类提供服务）等。</p>
+<p>之后，可以根据面向对象的继承封装多态的特性，组织已经分好角色的类。</p>
+<p>利用关联（类中操作另一个类），泛化（继承），聚合（一个类包含另一个类但生命周期不一样），组合（一个类包含另一个类但生命周期一样），实现（接口与实现接口的类）等组织。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上是面向对象方式涉及的静态建模的初步认识。在上述内容，给我提供了设计软件的一种方案和思路，其与面向对象的思想结合比较紧密，可能会对软件本身架构等产生影响。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/09/概要和详细设计时面向对象的静态建模/" data-id="ck1jdici60004cwv5sfh62ycb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/09/反思英语小妙招/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">反思英语小妙招</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/09/概要和详细设计时面向对象的静态建模/">概要和详细设计时面向对象的静态建模</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/09/反思英语小妙招/">反思英语小妙招</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/08/软件有什么质量需求/">软件有什么质量需求</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/08/关于单元测试与TDD的存在/">关于单元测试与TDD的存在</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/面向对象之观察者模式/">面向对象之观察者模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+<!--   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+   -->
+  
+    <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
+  
+    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
+  
+    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
+  
+    <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
