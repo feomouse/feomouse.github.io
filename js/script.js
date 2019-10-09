@@ -134,4 +134,9 @@
 
     $container.removeClass('mobile-nav-on');
   });
+
+/*   $('#main-nav-toggle').on('click', function () {
+    if ($('#wrap').css('left') == '280px') $('#wrap').css('left', '0');
+    else $('#wrap').css('left', '280px');
+  }) */
 })(jQuery);
