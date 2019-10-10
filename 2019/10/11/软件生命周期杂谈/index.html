@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>软件生命周期杂谈 | 格物才能致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言我一直在想，作为一名软件开发人员，工作除了思考技术，业务，写代码之外，软件工程里面一些概念，比如生命周期之类的概念，是怎么插入到一个项目开发中。也就是说，任何东西如果都有其存在的意义的话，所谓生命周期，我们真的控制得了吗。 题外话，我一看到生命周期，好像有生命的只有动物，和植物，和微生物。每种生命，是都有其生命周期，周期指的是他的一生，出生，成型，青春期，成熟期，更年期，衰老，阿尔茨海默病，中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件生命周期杂谈">
+<meta property="og:url" content="http://yoursite.com/2019/10/11/软件生命周期杂谈/index.html">
+<meta property="og:site_name" content="格物才能致知">
+<meta property="og:description" content="前言我一直在想，作为一名软件开发人员，工作除了思考技术，业务，写代码之外，软件工程里面一些概念，比如生命周期之类的概念，是怎么插入到一个项目开发中。也就是说，任何东西如果都有其存在的意义的话，所谓生命周期，我们真的控制得了吗。 题外话，我一看到生命周期，好像有生命的只有动物，和植物，和微生物。每种生命，是都有其生命周期，周期指的是他的一生，出生，成型，青春期，成熟期，更年期，衰老，阿尔茨海默病，中">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-10T20:29:25.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件生命周期杂谈">
+<meta name="twitter:description" content="前言我一直在想，作为一名软件开发人员，工作除了思考技术，业务，写代码之外，软件工程里面一些概念，比如生命周期之类的概念，是怎么插入到一个项目开发中。也就是说，任何东西如果都有其存在的意义的话，所谓生命周期，我们真的控制得了吗。 题外话，我一看到生命周期，好像有生命的只有动物，和植物，和微生物。每种生命，是都有其生命周期，周期指的是他的一生，出生，成型，青春期，成熟期，更年期，衰老，阿尔茨海默病，中">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才能致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">格物才能致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+<!--         
+          <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+        
+          <a href="/categories/软件开发方法" class="main-nav-link">软件开发方法</a>
+        
+          <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
+        
+          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
+        
+          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
+        
+          <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
+         -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-软件生命周期杂谈" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/11/软件生命周期杂谈/" class="article-date">
+  <time datetime="2019-10-10T17:49:07.621Z" itemprop="datePublished">2019-10-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件开发方法/">软件开发方法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      软件生命周期杂谈
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我一直在想，作为一名软件开发人员，工作除了思考技术，业务，写代码之外，软件工程里面一些概念，比如生命周期之类的概念，是怎么插入到一个项目开发中。也就是说，任何东西如果都有其存在的意义的话，所谓生命周期，我们真的控制得了吗。</p>
+<p>题外话，我一看到生命周期，好像有生命的只有动物，和植物，和微生物。每种生命，是都有其生命周期，周期指的是他的一生，出生，成型，青春期，成熟期，更年期，衰老，阿尔茨海默病，中风，走进棺材。是的，只要是生物，都有其范式。所以生命周期，更像是宿命，还是一种存在的方式，像植物，没有思想的话，就在风中摇摆，顺其自然；像人类，有思想的话，就需要信仰了。信仰指导价值观，价值观指导行动，行动起来才能工作，然后做出任何东西，食物，服务，软件。</p>
+<p>于是，生命周期，好像是跟技术关系小一些的，但是却是跟项目，项目关系人，开发人，还有类似风险，成本，时间等围绕软件开发的要素关系大一些。就像人的核心是大脑的思想，但是围绕的却是亲人，朋友，爱人，疾病，食物等东西。</p>
+<h3 id="生命周期方法"><a href="#生命周期方法" class="headerlink" title="生命周期方法"></a>生命周期方法</h3><p>我们熟知的生命周期就有那几个-瀑布，演化，迭代，原型，螺旋，统一过程，敏捷编程等。其中敏捷编程又可分为像XP，水晶，特征驱动，Scrum等。还有比如新的像是构建组装，开放源码等方法。</p>
+<p>其上所述，大体上已经涵盖了大多数软件设计的生命周期模型。</p>
+<h3 id="细述"><a href="#细述" class="headerlink" title="细述"></a>细述</h3><ul>
+<li><p>瀑布：需求分析，总体设计，详细设计，编码调试，继承测试与系统测试，以顺序的方式依次发生，并且每一个阶段几乎只在此次软件开发中发生一次，每个阶段都有详细健全的文档，大概有种一次性干好此阶段的所有事情。所以每一阶段的失败都会导致整个项目的失败，而且如果后期软件有需求变更还是错误，回溯到过去会有很大的成本，不管经济上的还是时间上的。</p>
+</li>
+<li><p>演化，增量，原型，螺旋，统一过程：这几种生命周期方式我放在一起讨论，是因为其大体上都是一种快速迭代的思想的生命周期的变体。一个软件开发，可以执行一次瀑布开发的流程，也可以执行多次瀑布开发流程，然后在多次迭代中降低开发的风险，以及成本。</p>
+</li>
+</ul>
+<p>螺旋的一次迭代有需求定义，风险分析，工程实现，评审这几个步骤，其中的重点是风险，对应的是降低风险，但是也要有专业的风险评估人员参与开发。</p>
+<p>原型更多的是在用户对于需求不是太明确的情况下，通过每次构造出可以使用的软件原型，但是可以快速实现而不太过纠结于细节，以使用户得知原型，然后做出取舍，然后不断迭代，在这期间，用户可以逐渐了解软件，细化需求，并构造出比较符合需求的软件。</p>
+<p>增量则是将软件分为不同版本进行开发，每次开发出一个版本，此版本可以作为成型的软件投入使用，但是早期版本实现的都是最基础和重要的功能需求，然后再之后的版本迭代中，不断完善功能。</p>
+<p>对于统一过程，则是一个二维的开发生命周期。横轴是初始，细化（多次），构建（多次），交付（多次），纵轴有业务建模，需求分析设计，实施，测试，部署，配置与变更管理，项目管理，环境。在这种情况下，会发现，其也还是一个迭代模型，但是每次迭代，不论是在纵轴还是横轴，都是一个递进的过程，而且纵轴包含的方面很多，除了像常规的软件工程流程-需求分析，实施测试部署。还有像配置，变更管理，项目管理环境等，关系到软件项目管理，配置软件，还有开发环境的规范化等这方面需要我们花功夫细化。</p>
+<ul>
+<li>敏捷编程：敏捷编程现在正当时。有一些宣言体现了其价值观：</li>
+</ul>
+<ol>
+<li>持续尽早交付有价值软件</li>
+<li>有效适应变化</li>
+<li>经常交付</li>
+<li>业务人员与开发者紧密合作</li>
+<li>给开发人员自信，给其需要，给其环境，提高士气</li>
+<li>面对面交流</li>
+<li>通过可工作软件进行度量</li>
+<li>投资人，开发团队和用户应保持固定节奏</li>
+<li>最求良好优秀技术和良好的设计</li>
+<li>减少工作量</li>
+<li>架构，需求，设计来自同一个团队</li>
+<li>定期总结，自我调整，提高效率</li>
+</ol>
+<p>至于每种敏捷实践的细节，以后再谈。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>生命周期，其实关系到时间，成本，开发人员，项目关系人，很多关于软件开发管理的思想。</p>
+<p>最主要的是，其总结了软件开发，并上升到了一种开发哲学，并尝试指导。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/11/软件生命周期杂谈/" data-id="ck1l5q9c00006lcv54cbhibwu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/10/应用数据库设计流程简介/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">应用数据库设计流程简介</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件开发方法/">软件开发方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/11/软件生命周期杂谈/">软件生命周期杂谈</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/10/应用数据库设计流程简介/">应用数据库设计流程简介</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/09/概要和详细设计时面向对象的静态建模/">概要和详细设计时面向对象的静态建模</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/09/反思英语小妙招/">反思英语小妙招</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/08/软件有什么质量需求/">软件有什么质量需求</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+<!--   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+   -->
+  
+    <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+  
+    <a href="/categories/软件开发方法" class="mobile-nav-link">软件开发方法</a>
+  
+    <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
+  
+    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
+  
+    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
+  
+    <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
