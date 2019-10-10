@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="格物才能致知">
 <meta property="og:description" content="现实代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。 比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。 那此时，业务">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-09T17:21:20.221Z">
+<meta property="og:updated_time" content="2019-10-09T17:25:29.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象之代理模式">
 <meta name="twitter:description" content="现实代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。 比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。 那此时，业务">
@@ -52,6 +52,8 @@
         
 <!--         
           <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
         
           <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
         
@@ -105,14 +107,19 @@
 <p>比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。</p>
 <p>那此时，业务员可以自己在客户交代的任务中，掺杂自己的意志和行为，然后，再跟大佬打交道，看起来业务员和大佬对于客户来说，都完成的是同一样事情。但是最终背后事情是怎么完成的，谁都不知道。业务员按理来说都需要和大佬保持联络，但是事实，我们不得而知。</p>
 <h3 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h3><p>在面向对象里，代理模式更多就是一个概念-客户端和代理类交互。就完了。即使真实的需求实现也许在被代理的类中，但是这不是重点，重点是代理类。</p>
-<p>首先，代理类和被代理的类是实现了相同的接口或抽象类。二，和用户交互的永远是代理类。三，代理类需要保存一个被代理类的实例。四，代理类在某种程度上才是大佬，因为其可以实现自己的逻辑，而且其实活实话，代理类不一定需要通知被代理类，他在理论上可以忽略被代理类。</p>
+<ol>
+<li>代理类和被代理的类是实现了相同的接口或抽象类。</li>
+<li>和用户交互的永远是代理类。</li>
+<li>代理类需要保存一个被代理类的实例。</li>
+<li>代理类在某种程度上才是大佬，因为其可以实现自己的逻辑，而且其实活实话，代理类不一定需要通知被代理类，他在理论上可以忽略被代理类。</li>
+</ol>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在这里，代理者的用途就只是多了一层逻辑，然后让这多的一层去处理逻辑。</p>
 <p>代理者代理的任务可以很简单，也可以很复杂，他的应用场景，却是千奇百怪，而且十分复杂。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/05/面向对象之代理模式/" data-id="ck1jjbd2f000b0ov5wmj5w6c5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/05/面向对象之代理模式/" data-id="ck1ktzevp000aowv50bi1mu7u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -149,7 +156,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
     </div>
   </div>
 
@@ -177,6 +184,10 @@
       <ul>
         
           <li>
+            <a href="/2019/10/10/应用数据库设计流程简介/">概要和详细设计时面向对象的静态建模</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/09/概要和详细设计时面向对象的静态建模/">概要和详细设计时面向对象的静态建模</a>
           </li>
         
@@ -190,10 +201,6 @@
         
           <li>
             <a href="/2019/10/08/关于单元测试与TDD的存在/">关于单元测试与TDD的存在</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/05/面向对象之观察者模式/">面向对象之观察者模式</a>
           </li>
         
       </ul>
@@ -222,6 +229,8 @@
    -->
   
     <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
   
     <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
   

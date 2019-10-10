@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>概要和详细设计时面向对象的静态建模 | 格物才能致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言软件的用途一是可以代替人类进行逻辑操作，二是可以帮助人类储存信息。数据库用于处理软件关于数据存储的问题。但是数据库虽然有共性，但是具体到单个特定数据库，是有特殊性的，也就是不同数据库功能不单只是存储数据，而且提供了许多不一样的特性。而且数据可以是结构化的，也可以是非结构化的，但是是细化到每一个字段，还有每一个字段间的关系，约束，需要我们仔细思考。 分析数据存储的流程从公司打算成立项目，到最终可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概要和详细设计时面向对象的静态建模">
+<meta property="og:url" content="http://yoursite.com/2019/10/10/应用数据库设计流程简介/index.html">
+<meta property="og:site_name" content="格物才能致知">
+<meta property="og:description" content="前言软件的用途一是可以代替人类进行逻辑操作，二是可以帮助人类储存信息。数据库用于处理软件关于数据存储的问题。但是数据库虽然有共性，但是具体到单个特定数据库，是有特殊性的，也就是不同数据库功能不单只是存储数据，而且提供了许多不一样的特性。而且数据可以是结构化的，也可以是非结构化的，但是是细化到每一个字段，还有每一个字段间的关系，约束，需要我们仔细思考。 分析数据存储的流程从公司打算成立项目，到最终可">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-10T14:32:21.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="概要和详细设计时面向对象的静态建模">
+<meta name="twitter:description" content="前言软件的用途一是可以代替人类进行逻辑操作，二是可以帮助人类储存信息。数据库用于处理软件关于数据存储的问题。但是数据库虽然有共性，但是具体到单个特定数据库，是有特殊性的，也就是不同数据库功能不单只是存储数据，而且提供了许多不一样的特性。而且数据可以是结构化的，也可以是非结构化的，但是是细化到每一个字段，还有每一个字段间的关系，约束，需要我们仔细思考。 分析数据存储的流程从公司打算成立项目，到最终可">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才能致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">格物才能致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+<!--         
+          <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+        
+          <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
+        
+          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
+        
+          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
+        
+          <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
+         -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-应用数据库设计流程简介" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/10/应用数据库设计流程简介/" class="article-date">
+  <time datetime="2019-10-10T13:23:45.425Z" itemprop="datePublished">2019-10-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/数据库设计/">数据库设计</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      概要和详细设计时面向对象的静态建模
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>软件的用途一是可以代替人类进行逻辑操作，二是可以帮助人类储存信息。数据库用于处理软件关于数据存储的问题。但是数据库虽然有共性，但是具体到单个特定数据库，是有特殊性的，也就是不同数据库功能不单只是存储数据，而且提供了许多不一样的特性。而且数据可以是结构化的，也可以是非结构化的，但是是细化到每一个字段，还有每一个字段间的关系，约束，需要我们仔细思考。</p>
+<h3 id="分析数据存储的流程"><a href="#分析数据存储的流程" class="headerlink" title="分析数据存储的流程"></a>分析数据存储的流程</h3><p>从公司打算成立项目，到最终可以将应用中的全部需要持久化的数据存储到数据库中，这中间需要将需求进行分析，建模，细化，最后将具体的数据模型应用到物理数据库里。</p>
+<p>所以一般对数据模型的分析流程有：需求分析，概念分析，逻辑分析，最后物理分析。</p>
+<p>这以上的四个步骤看似是四步，但是是一个逐步渐进的过程，也就是环环相扣，逐渐细化的过程，这样从功能需求，然后对对功能分类，分区域，然后再细化，分析单位到实体，联系，属性，之后对实体进行组合合并，形成整个应用的实体关系图，再对实体关系图细化成关系模型，并使其符合三范式。只要得出最终的关系模型，其实就可以利用数据定义语言将字段定义至具体的数据库中。现在我们要关心的，也就只有关于物理层面的优化。</p>
+<h3 id="细化理解"><a href="#细化理解" class="headerlink" title="细化理解"></a>细化理解</h3><ul>
+<li><p>需求分析阶段是最开始的阶段，也是整个分析流程需要围绕的部分，因为任何数据的获得都是由需求得来的。我们需要对需求进行细化，然后得出最终确定的需求分析书。</p>
+</li>
+<li><p>在需求分析过后，我们进入概念分析阶段。在这个阶段，我们需要将文字需求转化成一些概念模型例如实体关系图。通过实体关系图，我们可以进一步将需求进行分析，建模，细化，为将数据具体化到每个数据表的字段（逻辑分析）做好准备。此时，我们将需求分界，然后对每一个界的需要持久化的数据以实体为单位进行组织，并找出关联关系，得出一个由实体，关系，实体属性组成的模型图。每一个模型图代表一个范围内的视图，所以需要了解整个应用的模型，还需要以区域视图为单位对数据模型进行结合。</p>
+</li>
+<li><p>在概念分析过后，便要进行逻辑分析，也就是将每个实体，关系，属性细化表达成关系模型，也就是分析得出每个数据表和对应的字段。然后再将三范式应用到到得出的关系模型中（不可分离字段，不可部分依赖主键，不可传递依赖主键等），从而得出最为优化的，没有冗余的数据模式。</p>
+</li>
+<li><p>最后需要将逻辑分析得出的关系模型应用到指定的数据库当中，而实际的数据库却也是有不同之处，关系到存储，I/O，网络通信等。所以我们需要进行物理分析，不但将关系模型应用到实际数据库中，还要根据实际的性能，安全性，成本等非功能需求，进行实际分析设计，比如分表分库，反范式的数据冗余，为减少计算的字段冗余等方式可以提升性能，但是也有可能增加存储成本。这些也都是物理设计阶段要考虑的。</p>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上是从需求功能分析到最终对应用需要持久化的数据的可用数据库的大体流程。每个步骤以后也还可能细化讨论。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/10/应用数据库设计流程简介/" data-id="ck1ktzesu0000owv589kmnge6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/09/概要和详细设计时面向对象的静态建模/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">概要和详细设计时面向对象的静态建模</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/10/应用数据库设计流程简介/">概要和详细设计时面向对象的静态建模</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/09/概要和详细设计时面向对象的静态建模/">概要和详细设计时面向对象的静态建模</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/09/反思英语小妙招/">反思英语小妙招</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/08/软件有什么质量需求/">软件有什么质量需求</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/08/关于单元测试与TDD的存在/">关于单元测试与TDD的存在</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+<!--   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+   -->
+  
+    <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+  
+    <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
+  
+    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
+  
+    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
+  
+    <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
