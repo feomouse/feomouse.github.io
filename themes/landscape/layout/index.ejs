@@ -1,1 +1,5 @@
-<%- partial('_partial/archive', {pagination: 1, index: true}) %>
+<% site.posts.each(function(post, i){ %>
+  <% if(post.title == "诗") { %>
+    <%- partial('_partial/article', {pagination: 1, index: true, post: post}) %>
+  <% } %>
+<% }) %>
