@@ -5,19 +5,19 @@
   
 
   
-  <title>应用数据库设计流程简介 | 格物才能致知</title>
+  <title>velocity总体概述 | 格物才能致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言软件的用途一是可以代替人类进行逻辑操作，二是可以帮助人类储存信息。数据库用于处理软件关于数据存储的问题。但是数据库虽然有共性，但是具体到单个特定数据库，是有特殊性的，也就是不同数据库功能不单只是存储数据，而且提供了许多不一样的特性。而且数据可以是结构化的，也可以是非结构化的，但是是细化到每一个字段，还有每一个字段间的关系，约束，需要我们仔细思考。 分析数据存储的流程从公司打算成立项目，到最终可">
+  <meta name="description" content="原文链接http://velocity.apache.org/engine/devel/overview.html 总体概述velocity是一个有很多用途的模板引擎。一些常用velocity的应用类型如下：  web应用。web设计者创建插入动态信息的HTML页面。页面被VelocityViewServket处理或者其他可以支持velocity的框架。这种web应用的开发方式叫模型-视图-控制器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="应用数据库设计流程简介">
-<meta property="og:url" content="http://yoursite.com/2019/10/10/应用数据库设计流程简介/index.html">
+<meta property="og:title" content="velocity总体概述">
+<meta property="og:url" content="http://yoursite.com/2019/10/12/velocity-overview/index.html">
 <meta property="og:site_name" content="格物才能致知">
-<meta property="og:description" content="前言软件的用途一是可以代替人类进行逻辑操作，二是可以帮助人类储存信息。数据库用于处理软件关于数据存储的问题。但是数据库虽然有共性，但是具体到单个特定数据库，是有特殊性的，也就是不同数据库功能不单只是存储数据，而且提供了许多不一样的特性。而且数据可以是结构化的，也可以是非结构化的，但是是细化到每一个字段，还有每一个字段间的关系，约束，需要我们仔细思考。 分析数据存储的流程从公司打算成立项目，到最终可">
+<meta property="og:description" content="原文链接http://velocity.apache.org/engine/devel/overview.html 总体概述velocity是一个有很多用途的模板引擎。一些常用velocity的应用类型如下：  web应用。web设计者创建插入动态信息的HTML页面。页面被VelocityViewServket处理或者其他可以支持velocity的框架。这种web应用的开发方式叫模型-视图-控制器">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-10T15:09:02.546Z">
+<meta property="og:updated_time" content="2019-10-12T07:07:12.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="应用数据库设计流程简介">
-<meta name="twitter:description" content="前言软件的用途一是可以代替人类进行逻辑操作，二是可以帮助人类储存信息。数据库用于处理软件关于数据存储的问题。但是数据库虽然有共性，但是具体到单个特定数据库，是有特殊性的，也就是不同数据库功能不单只是存储数据，而且提供了许多不一样的特性。而且数据可以是结构化的，也可以是非结构化的，但是是细化到每一个字段，还有每一个字段间的关系，约束，需要我们仔细思考。 分析数据存储的流程从公司打算成立项目，到最终可">
+<meta name="twitter:title" content="velocity总体概述">
+<meta name="twitter:description" content="原文链接http://velocity.apache.org/engine/devel/overview.html 总体概述velocity是一个有很多用途的模板引擎。一些常用velocity的应用类型如下：  web应用。web设计者创建插入动态信息的HTML页面。页面被VelocityViewServket处理或者其他可以支持velocity的框架。这种web应用的开发方式叫模型-视图-控制器">
   
     <link rel="alternate" href="/atom.xml" title="格物才能致知" type="application/atom+xml">
   
@@ -83,14 +83,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-应用数据库设计流程简介" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-velocity-overview" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/10/应用数据库设计流程简介/" class="article-date">
-  <time datetime="2019-10-10T13:23:45.425Z" itemprop="datePublished">2019-10-10</time>
+    <a href="/2019/10/12/velocity-overview/" class="article-date">
+  <time datetime="2019-10-12T06:14:39.849Z" itemprop="datePublished">2019-10-12</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/数据库设计/">数据库设计</a>
+    <a class="article-category-link" href="/categories/视图模板技术/">视图模板技术</a>
   </div>
 
   </div>
@@ -101,7 +101,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      应用数据库设计流程简介
+      velocity总体概述
     </h1>
   
 
@@ -109,26 +109,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>软件的用途一是可以代替人类进行逻辑操作，二是可以帮助人类储存信息。数据库用于处理软件关于数据存储的问题。但是数据库虽然有共性，但是具体到单个特定数据库，是有特殊性的，也就是不同数据库功能不单只是存储数据，而且提供了许多不一样的特性。而且数据可以是结构化的，也可以是非结构化的，但是是细化到每一个字段，还有每一个字段间的关系，约束，需要我们仔细思考。</p>
-<h3 id="分析数据存储的流程"><a href="#分析数据存储的流程" class="headerlink" title="分析数据存储的流程"></a>分析数据存储的流程</h3><p>从公司打算成立项目，到最终可以将应用中的全部需要持久化的数据存储到数据库中，这中间需要将需求进行分析，建模，细化，最后将具体的数据模型应用到物理数据库里。</p>
-<p>所以一般对数据模型的分析流程有：需求分析，概念分析，逻辑分析，最后物理分析。</p>
-<p>这以上的四个步骤看似是四步，但是是一个逐步渐进的过程，也就是环环相扣，逐渐细化的过程，这样从功能需求，然后对对功能分类，分区域，然后再细化，分析单位到实体，联系，属性，之后对实体进行组合合并，形成整个应用的实体关系图，再对实体关系图细化成关系模型，并使其符合三范式。只要得出最终的关系模型，其实就可以利用数据定义语言将字段定义至具体的数据库中。现在我们要关心的，也就只有关于物理层面的优化。</p>
-<h3 id="细化理解"><a href="#细化理解" class="headerlink" title="细化理解"></a>细化理解</h3><ul>
-<li><p>需求分析阶段是最开始的阶段，也是整个分析流程需要围绕的部分，因为任何数据的获得都是由需求得来的。我们需要对需求进行细化，然后得出最终确定的需求分析书。</p>
+        <h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><p><a href="http://velocity.apache.org/engine/devel/overview.html" target="_blank" rel="noopener">http://velocity.apache.org/engine/devel/overview.html</a></p>
+<h3 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h3><p>velocity是一个有很多用途的模板引擎。一些常用velocity的应用类型如下：</p>
+<ul>
+<li><p>web应用。web设计者创建插入动态信息的HTML页面。页面被VelocityViewServket处理或者其他可以支持velocity的框架。这种web应用的开发方式叫模型-视图-控制器，也是为了一个对于运用Java Server Pages或者PHP开发的直接替换。</p>
 </li>
-<li><p>在需求分析过后，我们进入概念分析阶段。在这个阶段，我们需要将文字需求转化成一些概念模型例如实体关系图。通过实体关系图，我们可以进一步将需求进行分析，建模，细化，为将数据具体化到每个数据表的字段（逻辑分析）做好准备。此时，我们将需求分界，然后对每一个界的需要持久化的数据以实体为单位进行组织，并找出关联关系，得出一个由实体，关系，实体属性组成的模型图。每一个模型图代表一个范围内的视图，所以需要了解整个应用的模型，还需要以区域视图为单位对数据模型进行结合。</p>
+<li><p>源码生成：velocity能基于模板被用来生成Java源代码，SQL,或者PostScript。PowerdByVelocity页面列出了许多开源和商业开发软件包用velocity生成源码。</p>
 </li>
-<li><p>在概念分析过后，便要进行逻辑分析，也就是将每个实体，关系，属性细化表达成关系模型，也就是分析得出每个数据表和对应的字段。然后再将三范式应用到到得出的关系模型中（不可分离字段，不可部分依赖主键，不可传递依赖主键等），从而得出最为优化的，没有冗余的数据模式。</p>
+<li><p>自动邮件。许多应用为账号注册，密码修改或自动发送消息生成自动邮件。使用velocity，邮件模板能够被储存为文本文件模式而不是之间嵌入到你的java代码里。</p>
 </li>
-<li><p>最后需要将逻辑分析得出的关系模型应用到指定的数据库当中，而实际的数据库却也是有不同之处，关系到存储，I/O，网络通信等。所以我们需要进行物理分析，不但将关系模型应用到实际数据库中，还要根据实际的性能，安全性，成本等非功能需求，进行实际分析设计，比如分表分库，反范式的数据冗余，为减少计算的字段冗余等方式可以提升性能，但是也有可能增加存储成本。这些也都是物理设计阶段要考虑的。</p>
+<li><p>XML转化：velocity提供了ant任务，名为Anakia来读取XML文件然后将其转化成velocity模板。一个普通的应用是为了转化普通“xdoc”文档成样式化的HTML文档。</p>
 </li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上是从需求功能分析到最终对应用需要持久化的数据的可用数据库的大体流程。每个步骤以后也还可能细化讨论。</p>
+<h3 id="怎么工作"><a href="#怎么工作" class="headerlink" title="怎么工作"></a>怎么工作</h3><p>velocity允许web页面设计者和其他模板编写者包含名为“引用”的标注表达式到页面中。这些引用是从上下文对象中拉来的-本质上是一个用来提供获取和设置检索和设置对象的方法的哈希表-于是相应一致的值会被直接插入到页面当中。velocity提供了基本控制表达式，用来循环迭代一个集合的值或者条件展示一块文本。其有调用任意一个java方法的能力，包括其他文件，也可以创建用来重复使用的宏变量-这也是一个用来创建动态web页面和其他文本的强大的也是容易使用的方法。</p>
+<p>velocity强制使用通过从html模板代码分离java代码的MVC风格开发方式。不像JSPs，velocity不允许将java代码嵌入到页面当中。不像PHP，velocity不同其他方法实现一些特性。MVC开发方法式一个velocity最大的长处，也允许更多可维护和更好的设计的web页面。</p>
+<p>即使MVC风格的开发有时可以导致web网站前期开发时长较大，特别是如果开发者刚接触MVC，这种方式从长远来看是节省时间的（相信我们，我们这样做已经很长时间了）。MVC抽象阻止web页面设计者与软件工程师的java代码，还有编程者过分地影响web网站的外观。velocity强制使用一个规定-什么人在网站开发过程的角色是清晰和分离的。</p>
+<h3 id="拓展velocity的功能"><a href="#拓展velocity的功能" class="headerlink" title="拓展velocity的功能"></a>拓展velocity的功能</h3><p>velocity在应用开发中是十分有用的，其也能拓展出许多功能。</p>
+<ul>
+<li><p>指定对象的类型，通常称“Tools”，能包含没有数据的方法。当将这个放入velocity的上下文当中时，模板可以调用这些方法来执行基本的任务，像是格式化数字或者摆脱HTML实体。</p>
+</li>
+<li><p>velocity提供了一个资源加载器的选择，以此从文本文件，类路径，甚至数据库检索模板。但是如果还不能够基于用户的方式来编写其自己的资源加载器。</p>
+</li>
+<li><p>事件处理器提供了一个钩子，用来展示指定事件的用户动作，比如将一个引用插入文本当中。</p>
+</li>
+<li><p>用户可以编写用户反射器，以检索引用的属性和方法。例如，你可以创建一个反射器来检索Lucene或者其他查引擎引索的数据。</p>
+</li>
+<li><p>最终，velocity的语法被一个从JavaCC生成的解析器处理，使用JJTree拓展生成抽象语法树。通过更改JavaCC指定文件和重编译，velocity语法自生能被改变。</p>
+</li>
+</ul>
+<h3 id="确认宣告"><a href="#确认宣告" class="headerlink" title="确认宣告"></a>确认宣告</h3><p>velocity的设计概念时借助WebMacro。那些被包含入velocity项目的声明中，合适的开发和设计工作被包含在WebMacro项目中。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/10/应用数据库设计流程简介/" data-id="ck1mcaxi50003icv5zbvbk0zt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/12/velocity-overview/" data-id="ck1nlmk560000qgv5i8777fko" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,19 +151,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/11/软件生命周期杂谈/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/12/velocity-userguide/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          软件生命周期杂谈
+          velocity用户引导
         
       </div>
     </a>
   
   
-    <a href="/2019/10/09/概要和详细设计时面向对象的静态建模/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/12/诗/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">概要和详细设计时面向对象的静态建模</div>
+      <div class="article-nav-title">春去秋来，花谢花开</div>
     </a>
   
 </nav>
