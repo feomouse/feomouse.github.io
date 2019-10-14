@@ -32,7 +32,7 @@ categories: javaweb
 
 再贴spring和springmvc结合的最基本的配置文件：
 
-web.xml
+src/main/webapp/WEB-INF/web.xml
 
 ```
 <!DOCTYPE web-app PUBLIC
@@ -65,7 +65,7 @@ web.xml
 
 ```
 
-spring-mvc.xml
+src/main/resources/spring-mvc.xml
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -94,6 +94,93 @@ spring-mvc.xml
       <property name="suffix" value=".jsp"/>
     </bean>
 </beans>
+```
+
+src/main/java/controllers/NameController.java
+
+```
+package controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import services.IPersonService;
+
+@Controller
+public class NameController {
+	@Autowired
+	private IPersonService pservice;
+	
+    @RequestMapping(value="/get-name")
+    public String getName() {
+    	return pservice.getPersonName();
+    }
+}
+
+```
+
+src/main/java/domin/Person.java
+
+```
+package domin;
+
+public class Person {
+  private String name;
+  
+  public String getName() {
+	  return name;
+  }
+  
+  public void setName(String name) {
+	  this.name = name;
+  }
+}
+
+```
+
+src/main/java/services/IPersonService.java
+
+```
+package services;
+
+public interface IPersonService {
+  public String getPersonName();
+}
+
+```
+
+src/main/java/services/PersonService.java
+
+```
+package services;
+
+import org.springframework.stereotype.Service;
+
+import domin.Person;
+
+@Service
+public class PersonService implements IPersonService {
+	public String getPersonName() {
+		Person person = new Person();
+		
+		person.setName("feomouse");
+		
+		return person.getName();
+	}
+}
+```
+
+src/webapp/WEB-INF/view/feomouse.jsp
+
+```
+<!DOCTYPE HTML>
+<<html>
+	<body>
+	<h2>Hello feo!</h2>
+	</body>
+</html>
+
 ```
 
 ### 总结
