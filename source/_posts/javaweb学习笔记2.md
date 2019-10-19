@@ -268,8 +268,6 @@ public interface IHibernateDoa {
     public String getPersonSexByName(String name);
     
     public String setPersonName(String oldName, String newName);
-    
-    public String getNameById(Integer id);
 }
 ```
 
@@ -287,7 +285,6 @@ import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-import Models.LovePerson;
 import domin.Person;
 
 @Repository
