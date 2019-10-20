@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>javaweb学习笔记4 | 格物才可致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言在之前，我实现了基本的springmvc，spring，hibernate和mybatis组合的javaweb增删改查。现在，在mvc框架方面，还有一个struts2的框架，其也是用来处理servlet请求并返回渲染视图的框架。 实现对于struts2，其配置比springmvc配置复杂一些，需要写专门的配置文件。在web.xml文件里，需要指定将 请求处理转移到StrutsPrepareAn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaweb学习笔记4">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/javaweb学习笔记4/index.html">
+<meta property="og:site_name" content="格物才可致知">
+<meta property="og:description" content="前言在之前，我实现了基本的springmvc，spring，hibernate和mybatis组合的javaweb增删改查。现在，在mvc框架方面，还有一个struts2的框架，其也是用来处理servlet请求并返回渲染视图的框架。 实现对于struts2，其配置比springmvc配置复杂一些，需要写专门的配置文件。在web.xml文件里，需要指定将 请求处理转移到StrutsPrepareAn">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-20T20:36:46.094Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaweb学习笔记4">
+<meta name="twitter:description" content="前言在之前，我实现了基本的springmvc，spring，hibernate和mybatis组合的javaweb增删改查。现在，在mvc框架方面，还有一个struts2的框架，其也是用来处理servlet请求并返回渲染视图的框架。 实现对于struts2，其配置比springmvc配置复杂一些，需要写专门的配置文件。在web.xml文件里，需要指定将 请求处理转移到StrutsPrepareAn">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="feologo"></div>
+        <a href="/" id="logo">格物才可致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+<!--         
+          <a href="/categories/javaweb" class="main-nav-link">javaweb</a>
+        
+          <a href="/categories/哲学" class="main-nav-link">哲学</a>
+        
+          <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+        
+          <a href="/categories/视图模板技术" class="main-nav-link">视图模板技术</a>
+        
+          <a href="/categories/软件开发方法" class="main-nav-link">软件开发方法</a>
+        
+          <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
+        
+          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
+        
+          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
+        
+          <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
+         -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javaweb学习笔记4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/21/javaweb学习笔记4/" class="article-date">
+  <time datetime="2019-10-20T20:10:10.125Z" itemprop="datePublished">2019-10-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javaweb/">javaweb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javaweb学习笔记4
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在之前，我实现了基本的springmvc，spring，hibernate和mybatis组合的javaweb增删改查。现在，在mvc框架方面，还有一个struts2的框架，其也是用来处理servlet请求并返回渲染视图的框架。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>对于struts2，其配置比springmvc配置复杂一些，需要写专门的配置文件。在web.xml文件里，需要指定将 请求处理转移到StrutsPrepareAndExecuteFilter类中以使用struts2框架。在配置文件里，因为我使用的是注解而不是配置文件类来配置action（相当于controller），所以要加上    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;constant name=&quot;struts.convention.action.packages&quot; value=&quot;controllers&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>还有需要在配置文件里指定返回视图的根目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;constant name=&quot;struts.convention.result.path&quot; value=&quot;/WEB-INF/view/struts2View/&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>还有便是struts2接收请求参数的话，如果是get请求，放在query里的字段，需要在action里添加相应的同名字段和get set方法。</p>
+<p>如果是post方法，将json放在body里的话，需要添加struts2-json-plugin插件以解析json数据，对应的键值也要添加至action的字段和get set方法里。对应的，还需要在action添加@ParentPackage(“json-default”)注解和对应方法添加的Action注解里添加interceptorRefs= {@InterceptorRef(“json”)}以表示接收body里的json数据并解析。</p>
+<p>以下是实现代码：</p>
+<p>src/main/webapp/WEB-INF/web.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE web-app PUBLIC</span><br><span class="line"> &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span><br><span class="line"> &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;</span><br><span class="line"></span><br><span class="line">&lt;web-app&gt;</span><br><span class="line">	&lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;</span><br><span class="line">	&lt;listener&gt;</span><br><span class="line">		&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</span><br><span class="line">	&lt;/listener&gt;</span><br><span class="line">	&lt;context-param&gt;</span><br><span class="line">		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">		&lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt;</span><br><span class="line">	&lt;/context-param&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 适配struts2框架配置 --&gt;</span><br><span class="line">	&lt;filter&gt;</span><br><span class="line">		&lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">		&lt;filter-class&gt;</span><br><span class="line">			org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</span><br><span class="line">		&lt;/filter-class&gt;</span><br><span class="line">	&lt;/filter&gt;</span><br><span class="line">	&lt;filter-mapping&gt;</span><br><span class="line">		&lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">		&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">	&lt;/filter-mapping&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+
+<p>src/main/resources/struts.xml（struts2配置文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE struts PUBLIC</span><br><span class="line">    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.5//EN&quot;</span><br><span class="line">    &quot;http://struts.apache.org/dtds/struts-2.5.dtd&quot;&gt;</span><br><span class="line">    </span><br><span class="line">&lt;struts&gt;</span><br><span class="line">    &lt;constant name=&quot;struts.enable.DynamicMethodInvocation&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">    &lt;constant name=&quot;struts.devMode&quot; value=&quot;false&quot; /&gt;</span><br><span class="line">    &lt;constant name=&quot;struts.i18n.encoding&quot; value=&quot;UTF-8&quot;/&gt;</span><br><span class="line">	&lt;constant name=&quot;struts.convention.action.packages&quot; value=&quot;controllers&quot; /&gt;</span><br><span class="line">	&lt;constant name=&quot;struts.convention.result.path&quot; value=&quot;/WEB-INF/view/struts2View/&quot; /&gt;</span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure>
+
+<p>src/main/resources/spring-mvc.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;</span><br><span class="line">        http://www.springframework.org/schema/beans</span><br><span class="line">        https://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">        http://www.springframework.org/schema/mvc</span><br><span class="line">        https://www.springframework.org/schema/mvc/spring-mvc.xsd</span><br><span class="line">        http://www.springframework.org/schema/context</span><br><span class="line">        http://www.springframework.org/schema/context/spring-context.xsd&quot;</span><br><span class="line">        &gt;</span><br><span class="line"></span><br><span class="line">    &lt;context:component-scan base-package=&quot;controllers&quot;/&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;domin&quot;/&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;services&quot;/&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;doa&quot; /&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 开启注解处理器 --&gt;</span><br><span class="line">    &lt;context:annotation-config /&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;mvc:annotation-driven/&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p>src/main/java/controllers/NameAction.java（struts2控制器）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">package controllers;</span><br><span class="line"></span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">import org.apache.struts2.convention.annotation.Action;</span><br><span class="line">import org.apache.struts2.convention.annotation.InterceptorRef;</span><br><span class="line">import org.apache.struts2.convention.annotation.ParentPackage;</span><br><span class="line">import org.apache.struts2.convention.annotation.Result;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.context.annotation.Scope;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line"></span><br><span class="line">import com.opensymphony.xwork2.ActionContext;</span><br><span class="line">import com.opensymphony.xwork2.ActionSupport;</span><br><span class="line"></span><br><span class="line">import domin.Person;</span><br><span class="line">import services.IPersonService;</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">@Scope(&quot;prototype&quot;)</span><br><span class="line">@ParentPackage(&quot;json-default&quot;)</span><br><span class="line">public class NameAction extends ActionSupport &#123;</span><br><span class="line">	@Autowired</span><br><span class="line">	private IPersonService pservice;</span><br><span class="line">	</span><br><span class="line">	private String name;</span><br><span class="line">	private Integer id;</span><br><span class="line">	private String sex;</span><br><span class="line">	private String oldName;</span><br><span class="line">	private String newName;</span><br><span class="line">	</span><br><span class="line">	public void setOldName(String oldName) &#123;</span><br><span class="line">		this.oldName = oldName;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void setNewName(String newName) &#123;</span><br><span class="line">		this.newName = newName;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public String getOldName() &#123;</span><br><span class="line">		return oldName;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public String getNewName() &#123;</span><br><span class="line">		return newName;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void setId(Integer id) &#123;</span><br><span class="line">		this.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void setSex(String sex) &#123;</span><br><span class="line">		this.sex = sex;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public Integer getId() &#123;</span><br><span class="line">		return this.id;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return this.name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public String getSex() &#123;</span><br><span class="line">		return this.sex;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Action(value=&quot;/&quot;, results= &#123;@Result(name=&quot;getIndex&quot;, location=&quot;index.jsp&quot;)&#125;)</span><br><span class="line">    public String getIndex() &#123;</span><br><span class="line">        return &quot;getIndex&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	@Action(value=&quot;/get-sex&quot;, results= &#123;@Result(name=&quot;getPersonSex&quot;, location=&quot;getsex.jsp&quot;)&#125;)</span><br><span class="line">    public String getPersonSex() &#123;</span><br><span class="line">		ActionContext context = ActionContext.getContext();</span><br><span class="line">		String res = pservice.getPersonSexByName(this.name);</span><br><span class="line">		Map&lt;String,Object&gt; request = (Map) context.get(&quot;request&quot;);		</span><br><span class="line">		request.put(&quot;res&quot;, res);</span><br><span class="line">    	return &quot;getPersonSex&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	@Action(value=&quot;/insert-person&quot;, </span><br><span class="line">			results= &#123;@Result(name=&quot;insertPerson&quot;, location=&quot;insertperson.jsp&quot;)&#125;,</span><br><span class="line">	 		interceptorRefs= &#123;@InterceptorRef(&quot;json&quot;)&#125;)</span><br><span class="line">	public String insertPerson() &#123;</span><br><span class="line">		ActionContext context = ActionContext.getContext();</span><br><span class="line">    	boolean res = pservice.insertPerson(new Person(this.id, this.name, this.sex));</span><br><span class="line">    	context.put(&quot;res&quot;, res);</span><br><span class="line">       	return &quot;insertPerson&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	@Action(value=&quot;/delete-person&quot;, </span><br><span class="line">			results= &#123;@Result(name=&quot;deletePerson&quot;, location=&quot;deleteperson.jsp&quot;)&#125;,</span><br><span class="line">	 		interceptorRefs= &#123;@InterceptorRef(&quot;json&quot;)&#125;)</span><br><span class="line">    public String deletePerson() &#123;</span><br><span class="line">		ActionContext context = ActionContext.getContext();</span><br><span class="line">    	String res = pservice.deletePerson(this.name) == false ? &quot;no&quot; : &quot;sus&quot;;</span><br><span class="line">    	context.put(&quot;res&quot;, res);</span><br><span class="line">       	return &quot;deletePerson&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Action(value=&quot;/update-name&quot;, </span><br><span class="line">			results= &#123;@Result(name=&quot;updatePersonName&quot;, location=&quot;updatepersonname.jsp&quot;)&#125;,</span><br><span class="line">	 		interceptorRefs= &#123;@InterceptorRef(&quot;json&quot;)&#125;)</span><br><span class="line">    public String updatePersonName() &#123;</span><br><span class="line">		ActionContext context = ActionContext.getContext();</span><br><span class="line">    	String res = pservice.setPersonName(this.oldName, this.newName);</span><br><span class="line">       	context.put(&quot;res&quot;, res);</span><br><span class="line">    	return &quot;updatePersonName&quot;;    </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上对应的jsp视图代码没有贴出来，因为不是重点。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上是基本的struts2是控制器实现，在jsp视图方面，我会继续花时间去学习和实践。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/21/javaweb学习笔记4/" data-id="ck1zgdfgr0004ywv510z4ifua" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/21/javaweb学习笔记3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">javaweb学习笔记3</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javaweb/">javaweb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/视图模板技术/">视图模板技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件开发方法/">软件开发方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">时间</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/21/javaweb学习笔记4/">javaweb学习笔记4</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/21/javaweb学习笔记3/">javaweb学习笔记3</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/21/软件建模认知7/">软件建模认知6（基于实时与并发）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/21/软件建模认知6/">软件建模认知6（基于构件）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/21/软件建模认知5/">软件建模认知5（面向服务）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+<!--   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+   -->
+  
+    <a href="/categories/javaweb" class="mobile-nav-link">javaweb</a>
+  
+    <a href="/categories/哲学" class="mobile-nav-link">哲学</a>
+  
+    <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+  
+    <a href="/categories/视图模板技术" class="mobile-nav-link">视图模板技术</a>
+  
+    <a href="/categories/软件开发方法" class="mobile-nav-link">软件开发方法</a>
+  
+    <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
+  
+    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
+  
+    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
+  
+    <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
