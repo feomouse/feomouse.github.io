@@ -5,15 +5,19 @@
   
 
   
-  <title>Category: 软件质量 | 格物才可致知</title>
+  <title>软件建模认知6（基于实时与并发） | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="格物才可致知">
-<meta property="og:url" content="http://yoursite.com/categories/软件质量/index.html">
+  <meta name="description" content="前言实时系统具有时间约束的系统，广泛应用于工业商业以及军事应用中。通常包括了实时应用系统，实时操作系统和实时io子系统的等的整个系统，拥有与各种传感器和执行器相交互的专用设备驱动程序。 实时系统通常都很复杂，必须处理多个相互独立的输入事件流并产生多个独立的输出。 实时系统分为硬实时和软实时。硬实时必须满足关键性时限以防止灾难性系统失效。软实时系统也具有不希望被违反的时限要求，但是偶尔超出时限不会造">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件建模认知6（基于实时与并发）">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/软件建模认知7/index.html">
 <meta property="og:site_name" content="格物才可致知">
+<meta property="og:description" content="前言实时系统具有时间约束的系统，广泛应用于工业商业以及军事应用中。通常包括了实时应用系统，实时操作系统和实时io子系统的等的整个系统，拥有与各种传感器和执行器相交互的专用设备驱动程序。 实时系统通常都很复杂，必须处理多个相互独立的输入事件流并产生多个独立的输出。 实时系统分为硬实时和软实时。硬实时必须满足关键性时限以防止灾难性系统失效。软实时系统也具有不希望被违反的时限要求，但是偶尔超出时限不会造">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-20T19:20:23.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="格物才可致知">
+<meta name="twitter:title" content="软件建模认知6（基于实时与并发）">
+<meta name="twitter:description" content="前言实时系统具有时间约束的系统，广泛应用于工业商业以及军事应用中。通常包括了实时应用系统，实时操作系统和实时io子系统的等的整个系统，拥有与各种传感器和执行器相交互的专用设备驱动程序。 实时系统通常都很复杂，必须处理多个相互独立的输入事件流并产生多个独立的输出。 实时系统分为硬实时和软实时。硬实时必须满足关键性时限以防止灾难性系统失效。软实时系统也具有不希望被违反的时限要求，但是偶尔超出时限不会造">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -82,40 +86,61 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/categories/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/10/08/软件有什么质量需求/" class="archive-article-date">
-  <time datetime="2019-10-08T13:18:21.446Z" itemprop="datePublished">10月 8</time>
+        <section id="main"><article id="post-软件建模认知7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/21/软件建模认知7/" class="article-date">
+  <time datetime="2019-10-20T18:50:03.022Z" itemprop="datePublished">2019-10-21</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件构造思想/">软件构造思想</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/08/软件有什么质量需求/">软件有什么质量需求</a>
+    <h1 class="article-title" itemprop="name">
+      软件建模认知6（基于实时与并发）
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>实时系统具有时间约束的系统，广泛应用于工业商业以及军事应用中。通常包括了实时应用系统，实时操作系统和实时io子系统的等的整个系统，拥有与各种传感器和执行器相交互的专用设备驱动程序。</p>
+<p>实时系统通常都很复杂，必须处理多个相互独立的输入事件流并产生多个独立的输出。</p>
+<p>实时系统分为硬实时和软实时。硬实时必须满足关键性时限以防止灾难性系统失效。软实时系统也具有不希望被违反的时限要求，但是偶尔超出时限不会造成灾难性的后果，可以容忍。</p>
+<h3 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h3><p>实时并发系统对系统的控制，IO任务，内部任务，任务的通信与同步都有比较具体的规定和认识。</p>
+<h5 id="控制模式"><a href="#控制模式" class="headerlink" title="控制模式"></a>控制模式</h5><p>实时软件系统可分为集中式，分布式，层次化等控制体系结构模式。</p>
+<p>集中式只有单个控制构件。</p>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/21/软件建模认知7/" data-id="ck1zdoick000kpov55ig8yuh9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/21/软件建模认知6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">软件建模认知6（基于构件）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

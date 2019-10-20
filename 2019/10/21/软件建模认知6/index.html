@@ -5,15 +5,19 @@
   
 
   
-  <title>Category: 软件质量 | 格物才可致知</title>
+  <title>软件建模认知6（基于构件） | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="格物才可致知">
-<meta property="og:url" content="http://yoursite.com/categories/软件质量/index.html">
+  <meta name="description" content="前言在基于构件的开发方法中，每一个子系统都被设计成一个分布式的独立构件，从而有助于实现分布式的、高度可配置的和基于消息的设计目标。 一个分布式构件是一个具有明确定义接口的并发对象，也是分布和部署的逻辑单元。一个良好设定的构件是能够在不同的应用中复用，而非只能在其原本所属的应用中使用。 复合构件可由其他构件组成，简单构件不由其他构件组成。 设计步骤 设计分布式软件体系结构。可在分布式单个节点上运行，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件建模认知6（基于构件）">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/软件建模认知6/index.html">
 <meta property="og:site_name" content="格物才可致知">
+<meta property="og:description" content="前言在基于构件的开发方法中，每一个子系统都被设计成一个分布式的独立构件，从而有助于实现分布式的、高度可配置的和基于消息的设计目标。 一个分布式构件是一个具有明确定义接口的并发对象，也是分布和部署的逻辑单元。一个良好设定的构件是能够在不同的应用中复用，而非只能在其原本所属的应用中使用。 复合构件可由其他构件组成，简单构件不由其他构件组成。 设计步骤 设计分布式软件体系结构。可在分布式单个节点上运行，">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-20T18:49:32.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="格物才可致知">
+<meta name="twitter:title" content="软件建模认知6（基于构件）">
+<meta name="twitter:description" content="前言在基于构件的开发方法中，每一个子系统都被设计成一个分布式的独立构件，从而有助于实现分布式的、高度可配置的和基于消息的设计目标。 一个分布式构件是一个具有明确定义接口的并发对象，也是分布和部署的逻辑单元。一个良好设定的构件是能够在不同的应用中复用，而非只能在其原本所属的应用中使用。 复合构件可由其他构件组成，简单构件不由其他构件组成。 设计步骤 设计分布式软件体系结构。可在分布式单个节点上运行，">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -82,40 +86,97 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/categories/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/10/08/软件有什么质量需求/" class="archive-article-date">
-  <time datetime="2019-10-08T13:18:21.446Z" itemprop="datePublished">10月 8</time>
+        <section id="main"><article id="post-软件建模认知6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/21/软件建模认知6/" class="article-date">
+  <time datetime="2019-10-20T17:49:18.472Z" itemprop="datePublished">2019-10-21</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件构造思想/">软件构造思想</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/08/软件有什么质量需求/">软件有什么质量需求</a>
+    <h1 class="article-title" itemprop="name">
+      软件建模认知6（基于构件）
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在基于构件的开发方法中，每一个子系统都被设计成一个分布式的独立构件，从而有助于实现分布式的、高度可配置的和基于消息的设计目标。</p>
+<p>一个分布式构件是一个具有明确定义接口的并发对象，也是分布和部署的逻辑单元。一个良好设定的构件是能够在不同的应用中复用，而非只能在其原本所属的应用中使用。</p>
+<p>复合构件可由其他构件组成，简单构件不由其他构件组成。</p>
+<h3 id="设计步骤"><a href="#设计步骤" class="headerlink" title="设计步骤"></a>设计步骤</h3><ol>
+<li><p>设计分布式软件体系结构。可在分布式单个节点上运行，构件间所有通信限制为消息通信。构件间的接口要进行定义。</p>
+</li>
+<li><p>根据面向对象体系结构方式设计简单构建内部。</p>
+</li>
+<li><p>部署应用。定义应用构建实例，相互连接，映射到包含分布式物理节点的硬件配置上。</p>
+</li>
+</ol>
+<h3 id="复合子系统和构件"><a href="#复合子系统和构件" class="headerlink" title="复合子系统和构件"></a>复合子系统和构件</h3><p>复合子系统是封装了他所有内部构件的构件。这个构件是逻辑和物理上的容器，无增加功能。也是物理部署的单位。</p>
+<p>复合子系统构件内，外都是采用消息的方式进行通信。</p>
+<h3 id="构件组织准则"><a href="#构件组织准则" class="headerlink" title="构件组织准则"></a>构件组织准则</h3><ol>
+<li><p>物理临近性：需要设计让构件靠近它的物理数据源以保证能快速获取数据，在构件对数据获取速率要求很高时这一点尤为重要。</p>
+</li>
+<li><p>局部自治性：每个构件实例将部署在一个独立节点上，拥有更多的局部自治性。如果某节点上构件的行为与其他节点相对独立，那么当其他节点失效时，他仍然可以工作。</p>
+</li>
+<li><p>性能：一个节点内提供了对时间有高要求的功能，构件的性能也会更好并更有预测性。</p>
+</li>
+<li><p>特定硬件：某些构件的更能实现需要依赖有特殊功能的硬件。</p>
+</li>
+<li><p>IO构件：是对与外部环境交互的构件的统称，包括输入构件，输出构件，IO构件，网络接口构件和系统界面构件。通常设计为有高自治性和靠近物理数据源。通常由多个设备接口对象组成，但也可能包含用于局部控制的控制对象和用于存储本地数据的实体对象。</p>
+</li>
+</ol>
+<h3 id="组消息通信模式"><a href="#组消息通信模式" class="headerlink" title="组消息通信模式"></a>组消息通信模式</h3><p>构件间的通信涉及一对一与一对多通信。</p>
+<p>其中一对多通信称为组播通信，分为广播通信和消息订阅通信。</p>
+<p>广播通信所有的构件都可以接收到消息。消息订阅通信只有订阅消息的消费者才可以接到生产者的消息。</p>
+<h3 id="应用部署"><a href="#应用部署" class="headerlink" title="应用部署"></a>应用部署</h3><ol>
+<li>确定构件实例；</li>
+<li>连接构件实例；</li>
+<li>映射构件实例为物理节点。</li>
+</ol>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/21/软件建模认知6/" data-id="ck1zdoic6000bpov5zexcpe00" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/21/软件建模认知7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          软件建模认知6（基于实时与并发）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/21/软件建模认知5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">软件建模认知5（面向服务）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

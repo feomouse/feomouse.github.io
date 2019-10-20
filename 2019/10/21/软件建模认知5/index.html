@@ -5,19 +5,19 @@
   
 
   
-  <title>velocity总体概述 | 格物才可致知</title>
+  <title>软件建模认知5（面向服务） | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文链接http://velocity.apache.org/engine/devel/overview.html 总体概述velocity是一个有很多用途的模板引擎。一些常用velocity的应用类型如下：  web应用。web设计者创建插入动态信息的HTML页面。页面被VelocityViewServket处理或者其他可以支持velocity的框架。这种web应用的开发方式叫模型-视图-控制器">
+  <meta name="description" content="面向服务的体系结构定义面向服务的体系结构是一种由多个自治的服务组成的分布式软件体系结构。这些服务是分布式的，可以在不同的节点上运行并且由不同的服务提供者来提供。各个服务可以在不同平台上运行，并且能够用不同语言实现。服务间使用标准的协议支持服务间的通信和信息交换。为了使应用能够发现并与服务进行通信，每一个服务都有一个服务描述。这些描述定义了服务的名字、服务的位置以及服务的数据交换要求。 原则 松耦合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="velocity总体概述">
-<meta property="og:url" content="http://yoursite.com/2019/10/12/velocity-overview/index.html">
+<meta property="og:title" content="软件建模认知5（面向服务）">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/软件建模认知5/index.html">
 <meta property="og:site_name" content="格物才可致知">
-<meta property="og:description" content="原文链接http://velocity.apache.org/engine/devel/overview.html 总体概述velocity是一个有很多用途的模板引擎。一些常用velocity的应用类型如下：  web应用。web设计者创建插入动态信息的HTML页面。页面被VelocityViewServket处理或者其他可以支持velocity的框架。这种web应用的开发方式叫模型-视图-控制器">
+<meta property="og:description" content="面向服务的体系结构定义面向服务的体系结构是一种由多个自治的服务组成的分布式软件体系结构。这些服务是分布式的，可以在不同的节点上运行并且由不同的服务提供者来提供。各个服务可以在不同平台上运行，并且能够用不同语言实现。服务间使用标准的协议支持服务间的通信和信息交换。为了使应用能够发现并与服务进行通信，每一个服务都有一个服务描述。这些描述定义了服务的名字、服务的位置以及服务的数据交换要求。 原则 松耦合">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-12T07:07:12.923Z">
+<meta property="og:updated_time" content="2019-10-20T18:49:18.608Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="velocity总体概述">
-<meta name="twitter:description" content="原文链接http://velocity.apache.org/engine/devel/overview.html 总体概述velocity是一个有很多用途的模板引擎。一些常用velocity的应用类型如下：  web应用。web设计者创建插入动态信息的HTML页面。页面被VelocityViewServket处理或者其他可以支持velocity的框架。这种web应用的开发方式叫模型-视图-控制器">
+<meta name="twitter:title" content="软件建模认知5（面向服务）">
+<meta name="twitter:description" content="面向服务的体系结构定义面向服务的体系结构是一种由多个自治的服务组成的分布式软件体系结构。这些服务是分布式的，可以在不同的节点上运行并且由不同的服务提供者来提供。各个服务可以在不同平台上运行，并且能够用不同语言实现。服务间使用标准的协议支持服务间的通信和信息交换。为了使应用能够发现并与服务进行通信，每一个服务都有一个服务描述。这些描述定义了服务的名字、服务的位置以及服务的数据交换要求。 原则 松耦合">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -86,14 +86,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-velocity-overview" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-软件建模认知5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/12/velocity-overview/" class="article-date">
-  <time datetime="2019-10-12T06:14:39.849Z" itemprop="datePublished">2019-10-12</time>
+    <a href="/2019/10/21/软件建模认知5/" class="article-date">
+  <time datetime="2019-10-20T16:05:59.172Z" itemprop="datePublished">2019-10-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/视图模板技术/">视图模板技术</a>
+    <a class="article-category-link" href="/categories/软件构造思想/">软件构造思想</a>
   </div>
 
   </div>
@@ -104,7 +104,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      velocity总体概述
+      软件建模认知5（面向服务）
     </h1>
   
 
@@ -112,40 +112,71 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><p><a href="http://velocity.apache.org/engine/devel/overview.html" target="_blank" rel="noopener">http://velocity.apache.org/engine/devel/overview.html</a></p>
-<h3 id="总体概述"><a href="#总体概述" class="headerlink" title="总体概述"></a>总体概述</h3><p>velocity是一个有很多用途的模板引擎。一些常用velocity的应用类型如下：</p>
-<ul>
-<li><p>web应用。web设计者创建插入动态信息的HTML页面。页面被VelocityViewServket处理或者其他可以支持velocity的框架。这种web应用的开发方式叫模型-视图-控制器，也是为了一个对于运用Java Server Pages或者PHP开发的直接替换。</p>
+        <h3 id="面向服务的体系结构定义"><a href="#面向服务的体系结构定义" class="headerlink" title="面向服务的体系结构定义"></a>面向服务的体系结构定义</h3><p>面向服务的体系结构是一种由多个自治的服务组成的分布式软件体系结构。这些服务是分布式的，可以在不同的节点上运行并且由不同的服务提供者来提供。各个服务可以在不同平台上运行，并且能够用不同语言实现。服务间使用标准的协议支持服务间的通信和信息交换。为了使应用能够发现并与服务进行通信，每一个服务都有一个服务描述。这些描述定义了服务的名字、服务的位置以及服务的数据交换要求。</p>
+<h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><ul>
+<li>松耦合</li>
+<li>服务契约</li>
+<li>自治</li>
+<li>抽象</li>
+<li>可复用性</li>
+<li>可组合性</li>
+<li>无状态性</li>
+<li>可发现性</li>
+</ul>
+<h3 id="代理者"><a href="#代理者" class="headerlink" title="代理者"></a>代理者</h3><ul>
+<li>服务须向代理者注册</li>
+<li>客户请求服务需要通过代理者转发</li>
+<li>代理者提供客户发现服务的方式</li>
+<li>白页代理提供特定服务地址，黄页代理提供服务类型信息列表</li>
+</ul>
+<h3 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h3><ul>
+<li><p>构件间通信协议：SOAP简单对象访问协议。定义了发送XML编码数据的统一方法：一个信封，定义了一个描述消息内容以及消息处理方式的框架；一组编码规则，描述了特定应用的数据类型实例；一个表示远程过程调用和响应的协定。</p>
 </li>
-<li><p>源码生成：velocity能基于模板被用来生成Java源代码，SQL,或者PostScript。PowerdByVelocity页面列出了许多开源和商业开发软件包用velocity生成源码。</p>
+<li><p>发布注册服务。服务库被提供用于支持基于万维网的服务发布和定位。服务提供者将服务注册到服务库中。WSDL是一种基于XML的语言，用于描述一个服务做什么，在哪里和如何调用它。</p>
 </li>
-<li><p>自动邮件。许多应用为账号注册，密码修改或自动发送消息生成自动邮件。使用velocity，邮件模板能够被储存为文本文件模式而不是之间嵌入到你的java代码里。</p>
-</li>
-<li><p>XML转化：velocity提供了ant任务，名为Anakia来读取XML文件然后将其转化成velocity模板。一个普通的应用是为了转化普通“xdoc”文档成样式化的HTML文档。</p>
+<li><p>代理和发现服务。在分布式环境中，对象代理者是客户端和服务间的交互中介。关于web服务的信息能够通过用于web服务集成的统一描述、发现和集成UDDI框架来定义。一个UDDI规约由几个相关的文档和一个XML模式组成，该XML模式定义了一种基于SOAP的用于web服务注册和发现的协议。weh服务代理者可以使用UDDI框架为客户端提供一种在web上动态发现服务的机制。</p>
 </li>
 </ul>
-<h3 id="怎么工作"><a href="#怎么工作" class="headerlink" title="怎么工作"></a>怎么工作</h3><p>velocity允许web页面设计者和其他模板编写者包含名为“引用”的标注表达式到页面中。这些引用是从上下文对象中拉来的-本质上是一个用来提供获取和设置检索和设置对象的方法的哈希表-于是相应一致的值会被直接插入到页面当中。velocity提供了基本控制表达式，用来循环迭代一个集合的值或者条件展示一块文本。其有调用任意一个java方法的能力，包括其他文件，也可以创建用来重复使用的宏变量-这也是一个用来创建动态web页面和其他文本的强大的也是容易使用的方法。</p>
-<p>velocity强制使用通过从html模板代码分离java代码的MVC风格开发方式。不像JSPs，velocity不允许将java代码嵌入到页面当中。不像PHP，velocity不同其他方法实现一些特性。MVC开发方法式一个velocity最大的长处，也允许更多可维护和更好的设计的web页面。</p>
-<p>即使MVC风格的开发有时可以导致web网站前期开发时长较大，特别是如果开发者刚接触MVC，这种方式从长远来看是节省时间的（相信我们，我们这样做已经很长时间了）。MVC抽象阻止web页面设计者与软件工程师的java代码，还有编程者过分地影响web网站的外观。velocity强制使用一个规定-什么人在网站开发过程的角色是清晰和分离的。</p>
-<h3 id="拓展velocity的功能"><a href="#拓展velocity的功能" class="headerlink" title="拓展velocity的功能"></a>拓展velocity的功能</h3><p>velocity在应用开发中是十分有用的，其也能拓展出许多功能。</p>
-<ul>
-<li><p>指定对象的类型，通常称“Tools”，能包含没有数据的方法。当将这个放入velocity的上下文当中时，模板可以调用这些方法来执行基本的任务，像是格式化数字或者摆脱HTML实体。</p>
+<h3 id="服务事务"><a href="#服务事务" class="headerlink" title="服务事务"></a>服务事务</h3><ul>
+<li><p>原子性。</p>
 </li>
-<li><p>velocity提供了一个资源加载器的选择，以此从文本文件，类路径，甚至数据库检索模板。但是如果还不能够基于用户的方式来编写其自己的资源加载器。</p>
+<li><p>一致性。</p>
 </li>
-<li><p>事件处理器提供了一个钩子，用来展示指定事件的用户动作，比如将一个引用插入文本当中。</p>
+<li><p>隔离性。</p>
 </li>
-<li><p>用户可以编写用户反射器，以检索引用的属性和方法。例如，你可以创建一个反射器来检索Lucene或者其他查引擎引索的数据。</p>
+<li><p>持续性。</p>
 </li>
-<li><p>最终，velocity的语法被一个从JavaCC生成的解析器处理，使用JJTree拓展生成抽象语法树。通过更改JavaCC指定文件和重编译，velocity语法自生能被改变。</p>
+<li><p>两段式提交协议模式：事务要么被提交，要么被终止。</p>
+</li>
+<li><p>复合事务模式：一个复合事务可以被分解成多个原子性事务，每个原子性事务可以单独执行和回滚。</p>
+</li>
+<li><p>长事务模式：将一些用户参与的长事务分割成两个或多个单独的服务，使得人的决策发生在连续的事务对之间。</p>
 </li>
 </ul>
-<h3 id="确认宣告"><a href="#确认宣告" class="headerlink" title="确认宣告"></a>确认宣告</h3><p>velocity的设计概念时借助WebMacro。那些被包含入velocity项目的声明中，合适的开发和设计工作被包含在WebMacro项目中。</p>
+<h3 id="协商模式"><a href="#协商模式" class="headerlink" title="协商模式"></a>协商模式</h3><p>客户主体作为客户代表：</p>
+<ul>
+<li>提出一个服务。</li>
+<li>请求一个服务。</li>
+<li>拒绝一个服务报价。</li>
+</ul>
+<p>服务主体代表着服务：</p>
+<ul>
+<li>报价一个服务。</li>
+<li>拒绝一个客户请求/提议。</li>
+<li>接受一个客户请求/提议。</li>
+</ul>
+<h3 id="服务协调"><a href="#服务协调" class="headerlink" title="服务协调"></a>服务协调</h3><p>涉及多个服务的面向服务的体系结构应用需要在服务之间进行协调。为了确保服务间松耦合，将协调的实现细节和各个服务的功能相分离会比较好。面向服务的体系结构提供了不同类型的协调机制，包括编排和编制。</p>
+<ul>
+<li>编制：集中式控制工作流协调逻辑。在此基础上可以通过将已有的服务引入到新的服务应用中来实现服务的复用。</li>
+<li>编排：分布式服务之间的协调。可以用于针对来自不同服务提供商，由不同业务组织提供的服务之间的协作。</li>
+</ul>
+<h3 id="服务复用"><a href="#服务复用" class="headerlink" title="服务复用"></a>服务复用</h3><p>为提升服务复用，服务只提供供给接口，没有请求接口。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>面向服务体系结构的应用，更多的是以服务为概念提供了可复用的构件，以及其使用的方式等。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/12/velocity-overview/" data-id="ck1zdoibz0005pov5lb3rg2uh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/21/软件建模认知5/" data-id="ck1zdoicc000gpov5th9kv8uq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,19 +185,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/12/velocity-userguide/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/21/软件建模认知6/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          velocity用户引导
+          软件建模认知6（基于构件）
         
       </div>
     </a>
   
   
-    <a href="/2019/10/12/智慧的老人/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/20/软件建模认知4/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">智慧的老人</div>
+      <div class="article-nav-title">软件建模认知4（客户端和服务器端）</div>
     </a>
   
 </nav>

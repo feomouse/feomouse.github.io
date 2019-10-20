@@ -5,19 +5,19 @@
   
 
   
-  <title>面向对象之代理模式 | 格物才可致知</title>
+  <title>软件建模认知3（面向对象） | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现实代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。 比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。 那此时，业务">
+  <meta name="description" content="前言在架构的设计上，构件粒度的大小是不一定的，也就是说，我们设计思考的单位可以是很大，像前一篇所说的子系统，也可以很小，小到不可继续拆分的类。 所以这一篇主要讨论的是面向对象角度上的架构设计。 运用场景面向对象设计既然是最小粒度的设计单位，那么其构成的很大程度上便是构成我们之前所说的构件。也就是说通过对面向对象设计的方式，我们可以设计出构件，子系统等。 实现对面向对象设计的构件，主要便是分辨运行时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象之代理模式">
-<meta property="og:url" content="http://yoursite.com/2019/10/05/面向对象之代理模式/index.html">
+<meta property="og:title" content="软件建模认知3（面向对象）">
+<meta property="og:url" content="http://yoursite.com/2019/10/20/软件建模认知3/index.html">
 <meta property="og:site_name" content="格物才可致知">
-<meta property="og:description" content="现实代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。 比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。 那此时，业务">
+<meta property="og:description" content="前言在架构的设计上，构件粒度的大小是不一定的，也就是说，我们设计思考的单位可以是很大，像前一篇所说的子系统，也可以很小，小到不可继续拆分的类。 所以这一篇主要讨论的是面向对象角度上的架构设计。 运用场景面向对象设计既然是最小粒度的设计单位，那么其构成的很大程度上便是构成我们之前所说的构件。也就是说通过对面向对象设计的方式，我们可以设计出构件，子系统等。 实现对面向对象设计的构件，主要便是分辨运行时">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-09T17:25:29.028Z">
+<meta property="og:updated_time" content="2019-10-20T18:48:59.127Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象之代理模式">
-<meta name="twitter:description" content="现实代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。 比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。 那此时，业务">
+<meta name="twitter:title" content="软件建模认知3（面向对象）">
+<meta name="twitter:description" content="前言在架构的设计上，构件粒度的大小是不一定的，也就是说，我们设计思考的单位可以是很大，像前一篇所说的子系统，也可以很小，小到不可继续拆分的类。 所以这一篇主要讨论的是面向对象角度上的架构设计。 运用场景面向对象设计既然是最小粒度的设计单位，那么其构成的很大程度上便是构成我们之前所说的构件。也就是说通过对面向对象设计的方式，我们可以设计出构件，子系统等。 实现对面向对象设计的构件，主要便是分辨运行时">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -86,14 +86,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-面向对象之代理模式" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-软件建模认知3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/05/面向对象之代理模式/" class="article-date">
-  <time datetime="2019-10-04T18:26:44.952Z" itemprop="datePublished">2019-10-05</time>
+    <a href="/2019/10/20/软件建模认知3/" class="article-date">
+  <time datetime="2019-10-20T10:49:16.914Z" itemprop="datePublished">2019-10-20</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/面向对象设计/">面向对象设计</a>
+    <a class="article-category-link" href="/categories/软件构造思想/">软件构造思想</a>
   </div>
 
   </div>
@@ -104,7 +104,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      面向对象之代理模式
+      软件建模认知3（面向对象）
     </h1>
   
 
@@ -112,23 +112,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="现实"><a href="#现实" class="headerlink" title="现实"></a>现实</h3><p>代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。</p>
-<p>比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。</p>
-<p>那此时，业务员可以自己在客户交代的任务中，掺杂自己的意志和行为，然后，再跟大佬打交道，看起来业务员和大佬对于客户来说，都完成的是同一样事情。但是最终背后事情是怎么完成的，谁都不知道。业务员按理来说都需要和大佬保持联络，但是事实，我们不得而知。</p>
-<h3 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h3><p>在面向对象里，代理模式更多就是一个概念-客户端和代理类交互。就完了。即使真实的需求实现也许在被代理的类中，但是这不是重点，重点是代理类。</p>
-<ol>
-<li>代理类和被代理的类是实现了相同的接口或抽象类。</li>
-<li>和用户交互的永远是代理类。</li>
-<li>代理类需要保存一个被代理类的实例。</li>
-<li>代理类在某种程度上才是大佬，因为其可以实现自己的逻辑，而且其实活实话，代理类不一定需要通知被代理类，他在理论上可以忽略被代理类。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在这里，代理者的用途就只是多了一层逻辑，然后让这多的一层去处理逻辑。</p>
-<p>代理者代理的任务可以很简单，也可以很复杂，他的应用场景，却是千奇百怪，而且十分复杂。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在架构的设计上，构件粒度的大小是不一定的，也就是说，我们设计思考的单位可以是很大，像前一篇所说的子系统，也可以很小，小到不可继续拆分的类。</p>
+<p>所以这一篇主要讨论的是面向对象角度上的架构设计。</p>
+<h3 id="运用场景"><a href="#运用场景" class="headerlink" title="运用场景"></a>运用场景</h3><p>面向对象设计既然是最小粒度的设计单位，那么其构成的很大程度上便是构成我们之前所说的构件。也就是说通过对面向对象设计的方式，我们可以设计出构件，子系统等。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>对面向对象设计的构件，主要便是分辨运行时对象承担的职责，以及对象间的通信。</p>
+<p>面向对象无非便是隐藏信息，组织操作，协调交互，然后完成功能。所以分析时，比较主要的便是分辨出不同的对象需要承担的角色，还有通信时的调用关系。</p>
+<p>可以按通信的主动性，将类分类成主动型和被动型。</p>
+<p>按类的角色，可以分类成实体类，边界类，控制类，应用逻辑类。</p>
+<h5 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h5><p>此种类的类主要是承担封装持久化数据和操作持久化数据的类。也就是说，对应于数据库里的表，还有对表的操作，是被封装在实体类中的。</p>
+<p>而实体类又可以分为数据抽象类和包装器类。两者主要的不同是数据抽象类可以将数据和对应数据的操作都封装在数据抽象类里。而包装器类会把<br>数据当成数据模型类分化出去，而自己只包含定义对数据的操作。</p>
+<p>但不管怎样，实体类的角色大体就是封装定义的数据还有对应数据的持久化操作。</p>
+<h5 id="边界类"><a href="#边界类" class="headerlink" title="边界类"></a>边界类</h5><p>边界类主要是系统构件的边界位置上的类。其主要的功能是处理输入输出和内外界的通信。</p>
+<p>一般从被动型的角度上看，有GUI类；从主动型的角度上看，有输入输出类和代理类。那GUI类一般指的是用户交互的界面控件，被动地接收用户的操作。而输入输出类和代理类，一般都是处理外接IO设备信息输入，然后对信息进行响应，继续处理，再到输出等，或者接收其他系统的消息信息的代理类。</p>
+<p>从以上分析来看，边界类一般都是处理IO任务和用户交互任务。</p>
+<h5 id="控制类"><a href="#控制类" class="headerlink" title="控制类"></a>控制类</h5><p>控制类主要的工作是对全体或局部总体上的任务进行协调控制，或者维持状态信息。</p>
+<p>从被动型的角度看，有状态机类；从主动型的角度看，有协调者类，计时器类等。对于状态机类，其被动地接收事件而改变自己的状态信息，从而间接地对系统的其他部分进行控制。而对于协调者类和计时器类，都是主动发出控制信息，协调系统其他角色的构件的工作，或者更改其他角色构件的状态。</p>
+<p>也就是说，控制类首先是从系统整体协调的角度上来看，控制类为的是使其他类对象有序地，可控地处理任务。</p>
+<h5 id="业务逻辑类"><a href="#业务逻辑类" class="headerlink" title="业务逻辑类"></a>业务逻辑类</h5><p>业务逻辑类主要封装独立的业务逻辑，会比较频繁地操作构建中其他的实体类，以满足自身的业务逻辑规则与任务。</p>
+<h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><p>对象间的通信，大多采用的是方法调用的形式，也就是如果一个对象想要和另一个对象进行通信，大多都是调用其接口。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上主要是从面向对象的粒度，来对软件进行架构设计时考虑的内容，主要便是对象需要承担功能的，在系统中对应的角色。</p>
+<p>虽说之前我把软件架构的粒度实体定义为构件，但是在最最小的分割粒度下，面向对象设计运用在软件架构方面，也可以将类或对象当成是系统的构件进行认知和思考。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/05/面向对象之代理模式/" data-id="ck1zdoicn000npov5j01ex10r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/20/软件建模认知3/" data-id="ck1zdoic9000fpov5wh0eiybv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,19 +145,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/05/面向对象之观察者模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/20/软件建模认知4/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          面向对象之观察者模式
+          软件建模认知4（客户端和服务器端）
         
       </div>
     </a>
   
   
-    <a href="/2019/10/04/面向对象之策略模式和模板方法/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/19/软件建模认知2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">面向对象之策略模式和模板方法</div>
+      <div class="article-nav-title">软件建模认知2（主/子系统）</div>
     </a>
   
 </nav>
