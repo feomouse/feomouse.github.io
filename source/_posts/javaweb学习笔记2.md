@@ -1,5 +1,5 @@
 ---
-title: javaweb学习笔记2
+title: javaweb之hibernate基本实现
 categories: javaweb
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: javaweb学习笔记3
+title: javaweb之mybatis基本实现
 categories: javaweb
 ---
 

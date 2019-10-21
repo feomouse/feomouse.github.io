@@ -1,5 +1,5 @@
 ---
-title: javaweb学习笔记1
+title: javaweb之spring与springmvc
 categories: javaweb
 ---
 
@@ -185,4 +185,4 @@ src/webapp/WEB-INF/view/feomouse.jsp
 
 ### 总结
 
-以上只是学习笔记，而且对于maven的pom.xml文件的编写我没有写入，但是其中有个难点，就是将maven，ssh，和tomcat项目自动构建，生成，部署结合。这也会是我之后下功夫的一点。
+以上只是学习笔记，大体重点是实现了基本的视图层和控制器层，至于服务层和持久层，之后会继续学习。
