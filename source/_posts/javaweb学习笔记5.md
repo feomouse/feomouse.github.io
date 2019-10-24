@@ -1,6 +1,6 @@
 ---
 title: javaweb之hibernate表关系创建
-categories: javaweb
+categories: java
 ---
 
 ### 前言

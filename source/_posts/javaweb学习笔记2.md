@@ -1,6 +1,6 @@
 ---
 title: javaweb之hibernate基本实现
-categories: javaweb
+categories: java
 ---
 
 ### 前言
