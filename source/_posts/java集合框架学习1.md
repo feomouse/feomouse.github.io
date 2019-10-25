@@ -11,43 +11,100 @@ categories: java
 
 ### 存在的数据结构
 
-##### 学java前学过的数据结构
+##### 存在的形容词或名词
 
-学过数据结构这门课的，其实也都很清楚，数据结构只有那几种。
+* Abstract
+* Collection
+* List
+* Map
+* Queue
+* Sequential
+* Set
+* Deque
+* Linked
+* Array
+* Base64
+* Bit
+* Calendar
+* Comparable
+* Comparator
+* Currency
+* Date
+* Dictionary
+* Enum
+* Event
+* Formattable
+* formatter
+* table
+* Identity
+* Hash
+* Iterator
+* Navigable
+* Obervable
+* Oberver
+* Optional
+* Primitive
+* Property
+* Permission
+* Resource
+* Bundle
+* Random
+* Access
+* Sub
+* Scanner
+* ServiceLoader
+* TimeZone
+* Sorted
+* Spliterator
+* Stack
+* Joiner
+* Tokenizer
+* Task
+* Tree
+* UUID
+* Vector
+* Weak
 
-* 数组
-* 链表
-* 树
-* 图
+以上是我从java.util里提炼出来的，关于集合类库的形容词或名词。
 
-##### 在java里的数据结构
+有一些在数据结构里比较常见的存在，我想列出：
 
-这几种概念在java里，提取出来的实现虽变了些许样子，但是核心的概念还是有的。
+* Collection
+* List
+* Map
+* Queue
+* Set
+* Deque
+* Linked
+* Array
+* Comparable
+* Comparator
+* Dictionary
+* Enum
+* table
+* Hash
+* Iterator
+* Property
+* Sub
+* Sorted
+* Stack
+* Tree
+* Vector
 
-* 列表（List结尾）
-* 队列（Queue或Deque结尾）
-* 集合（Set结尾）
-* 映射（Map结尾）
+以上这些数据结构的概念，有名词：集合（Collection，Set），列表（List），映射（Map），队列（Queue），数组（Array），字典（Dictionary），栈（Stack），树（Tree）等。
 
-以上四种，在我暂时的理解中，可以将Queue和Set两种概念改成以List结尾的，也就是其实他们两种是在基础的List上，添加了一些特性，比如ele first in first out，或unique等。
+其中除了栈和数和数组，其他都有相对应的接口定义。
 
-而映射则是类似键值对和字典的概念，其实本质上也还是列表，只不过是两个有一对一关系的两个列表的合成。
+而数组和树在这其实是个形容词概念。栈虽然是个继承自Vector的具体类，但是其自身定义也是跟简单，也只有push，pop，peek，empty，search这几个方法的简单实现。
 
-### 再进一步
+所以在现阶段，对java集合框架的大体基础理解，可以从以上列出了数据结构中的，名词概念的接口开始入手学习与研究。
 
-java集合框架在定义好以上几种基本结构后，便在其上运用了许多特性，使其在操作上，存储上，或功能上有着不一样的实现，从而形成不一样的存在。
+然后还有一些形容的：链接，对比，枚举，哈希，迭代，子集，树，排序等，都是在运用或实现数据结构时的一些概念。这些概念可以充当特性添加到以上基本数据结构名词当中，作为具体类的实现以拓展数据结构接口。
 
-###### 添加的特性
+所以，下一次，会从这几个最基础的接口开始研究。
 
-我总结一下添加的特性。
+### 总结
 
-* Array（数组）
-* Linked（链表）
-* Hash（哈希）
-* Tree（树）
-* Enum（枚举）
-* Priority（主权）
-* Weak（弱）
-* Identity（标识）
+当然，在我列出的集合框架的全部存在中，有很多我刚才讨论时是没有提到的，占了至少多余五成。其实纯属小人不才，在没遇到具体的应用场景之前，不敢往下断论。
 
-以上一些特性，虽然大多是名词，但是在表达的意思上，更多地是用作形容词。也就是说，这些在数据结构这门课被广泛传播的，还是java特有的，都作为实现集合的一种标签属性而作为原来的列表、队列、集合、映射的概念的一种拓展。
+而我觉得解决我已经讨论的内容，对于平时应用java数据结构来编写业务代码或者是普通算法时，已经足够用了。
