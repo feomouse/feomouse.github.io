@@ -7,17 +7,17 @@
   
   <title>java集合框架学习1 | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言数据结构，从计算机诞生之日便存在，其最直接的存在原因便是储存数据，并方便对存储的数据进行操作，从而实现业务需求。 现代高级编程语言，特别是在面向对象语言中，配套的数据结构实现已经是必然。java这门面向对象的高级语言也是。通过面向对象的结构，抽象类，和类继承，封装，多态概念，从而实现了对不同概念的数据结构的封装。 存在的数据结构学java前学过的数据结构学过数据结构这门课的，其实也都很清楚，数">
+  <meta name="description" content="前言数据结构，从计算机诞生之日便存在，其最直接的存在原因便是储存数据，并方便对存储的数据进行操作，从而实现业务需求。 现代高级编程语言，特别是在面向对象语言中，配套的数据结构实现已经是必然。java这门面向对象的高级语言也是。通过面向对象的结构，抽象类，和类继承，封装，多态概念，从而实现了对不同概念的数据结构的封装。 存在的数据结构存在的形容词或名词 Abstract Collection Lis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java集合框架学习1">
 <meta property="og:url" content="http://yoursite.com/2019/10/25/java集合框架学习1/index.html">
 <meta property="og:site_name" content="格物才可致知">
-<meta property="og:description" content="前言数据结构，从计算机诞生之日便存在，其最直接的存在原因便是储存数据，并方便对存储的数据进行操作，从而实现业务需求。 现代高级编程语言，特别是在面向对象语言中，配套的数据结构实现已经是必然。java这门面向对象的高级语言也是。通过面向对象的结构，抽象类，和类继承，封装，多态概念，从而实现了对不同概念的数据结构的封装。 存在的数据结构学java前学过的数据结构学过数据结构这门课的，其实也都很清楚，数">
+<meta property="og:description" content="前言数据结构，从计算机诞生之日便存在，其最直接的存在原因便是储存数据，并方便对存储的数据进行操作，从而实现业务需求。 现代高级编程语言，特别是在面向对象语言中，配套的数据结构实现已经是必然。java这门面向对象的高级语言也是。通过面向对象的结构，抽象类，和类继承，封装，多态概念，从而实现了对不同概念的数据结构的封装。 存在的数据结构存在的形容词或名词 Abstract Collection Lis">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-24T18:46:32.174Z">
+<meta property="og:updated_time" content="2019-10-25T13:42:44.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java集合框架学习1">
-<meta name="twitter:description" content="前言数据结构，从计算机诞生之日便存在，其最直接的存在原因便是储存数据，并方便对存储的数据进行操作，从而实现业务需求。 现代高级编程语言，特别是在面向对象语言中，配套的数据结构实现已经是必然。java这门面向对象的高级语言也是。通过面向对象的结构，抽象类，和类继承，封装，多态概念，从而实现了对不同概念的数据结构的封装。 存在的数据结构学java前学过的数据结构学过数据结构这门课的，其实也都很清楚，数">
+<meta name="twitter:description" content="前言数据结构，从计算机诞生之日便存在，其最直接的存在原因便是储存数据，并方便对存储的数据进行操作，从而实现业务需求。 现代高级编程语言，特别是在面向对象语言中，配套的数据结构实现已经是必然。java这门面向对象的高级语言也是。通过面向对象的结构，抽象类，和类继承，封装，多态概念，从而实现了对不同概念的数据结构的封装。 存在的数据结构存在的形容词或名词 Abstract Collection Lis">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -114,40 +114,97 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>数据结构，从计算机诞生之日便存在，其最直接的存在原因便是储存数据，并方便对存储的数据进行操作，从而实现业务需求。</p>
 <p>现代高级编程语言，特别是在面向对象语言中，配套的数据结构实现已经是必然。java这门面向对象的高级语言也是。通过面向对象的结构，抽象类，和类继承，封装，多态概念，从而实现了对不同概念的数据结构的封装。</p>
-<h3 id="存在的数据结构"><a href="#存在的数据结构" class="headerlink" title="存在的数据结构"></a>存在的数据结构</h3><h5 id="学java前学过的数据结构"><a href="#学java前学过的数据结构" class="headerlink" title="学java前学过的数据结构"></a>学java前学过的数据结构</h5><p>学过数据结构这门课的，其实也都很清楚，数据结构只有那几种。</p>
-<ul>
-<li>数组</li>
-<li>链表</li>
-<li>树</li>
-<li>图</li>
+<h3 id="存在的数据结构"><a href="#存在的数据结构" class="headerlink" title="存在的数据结构"></a>存在的数据结构</h3><h5 id="存在的形容词或名词"><a href="#存在的形容词或名词" class="headerlink" title="存在的形容词或名词"></a>存在的形容词或名词</h5><ul>
+<li>Abstract</li>
+<li>Collection</li>
+<li>List</li>
+<li>Map</li>
+<li>Queue</li>
+<li>Sequential</li>
+<li>Set</li>
+<li>Deque</li>
+<li>Linked</li>
+<li>Array</li>
+<li>Base64</li>
+<li>Bit</li>
+<li>Calendar</li>
+<li>Comparable</li>
+<li>Comparator</li>
+<li>Currency</li>
+<li>Date</li>
+<li>Dictionary</li>
+<li>Enum</li>
+<li>Event</li>
+<li>Formattable</li>
+<li>formatter</li>
+<li>table</li>
+<li>Identity</li>
+<li>Hash</li>
+<li>Iterator</li>
+<li>Navigable</li>
+<li>Obervable</li>
+<li>Oberver</li>
+<li>Optional</li>
+<li>Primitive</li>
+<li>Property</li>
+<li>Permission</li>
+<li>Resource</li>
+<li>Bundle</li>
+<li>Random</li>
+<li>Access</li>
+<li>Sub</li>
+<li>Scanner</li>
+<li>ServiceLoader</li>
+<li>TimeZone</li>
+<li>Sorted</li>
+<li>Spliterator</li>
+<li>Stack</li>
+<li>Joiner</li>
+<li>Tokenizer</li>
+<li>Task</li>
+<li>Tree</li>
+<li>UUID</li>
+<li>Vector</li>
+<li>Weak</li>
 </ul>
-<h5 id="在java里的数据结构"><a href="#在java里的数据结构" class="headerlink" title="在java里的数据结构"></a>在java里的数据结构</h5><p>这几种概念在java里，提取出来的实现虽变了些许样子，但是核心的概念还是有的。</p>
+<p>以上是我从java.util里提炼出来的，关于集合类库的形容词或名词。</p>
+<p>有一些在数据结构里比较常见的存在，我想列出：</p>
 <ul>
-<li>列表（List结尾）</li>
-<li>队列（Queue或Deque结尾）</li>
-<li>集合（Set结尾）</li>
-<li>映射（Map结尾）</li>
+<li>Collection</li>
+<li>List</li>
+<li>Map</li>
+<li>Queue</li>
+<li>Set</li>
+<li>Deque</li>
+<li>Linked</li>
+<li>Array</li>
+<li>Comparable</li>
+<li>Comparator</li>
+<li>Dictionary</li>
+<li>Enum</li>
+<li>table</li>
+<li>Hash</li>
+<li>Iterator</li>
+<li>Property</li>
+<li>Sub</li>
+<li>Sorted</li>
+<li>Stack</li>
+<li>Tree</li>
+<li>Vector</li>
 </ul>
-<p>以上四种，在我暂时的理解中，可以将Queue和Set两种概念改成以List结尾的，也就是其实他们两种是在基础的List上，添加了一些特性，比如ele first in first out，或unique等。</p>
-<p>而映射则是类似键值对和字典的概念，其实本质上也还是列表，只不过是两个有一对一关系的两个列表的合成。</p>
-<h3 id="再进一步"><a href="#再进一步" class="headerlink" title="再进一步"></a>再进一步</h3><p>java集合框架在定义好以上几种基本结构后，便在其上运用了许多特性，使其在操作上，存储上，或功能上有着不一样的实现，从而形成不一样的存在。</p>
-<h6 id="添加的特性"><a href="#添加的特性" class="headerlink" title="添加的特性"></a>添加的特性</h6><p>我总结一下添加的特性。</p>
-<ul>
-<li>Array（数组）</li>
-<li>Linked（链表）</li>
-<li>Hash（哈希）</li>
-<li>Tree（树）</li>
-<li>Enum（枚举）</li>
-<li>Priority（主权）</li>
-<li>Weak（弱）</li>
-<li>Identity（标识）</li>
-</ul>
-<p>以上一些特性，虽然大多是名词，但是在表达的意思上，更多地是用作形容词。也就是说，这些在数据结构这门课被广泛传播的，还是java特有的，都作为实现集合的一种标签属性而作为原来的列表、队列、集合、映射的概念的一种拓展。</p>
+<p>以上这些数据结构的概念，有名词：集合（Collection，Set），列表（List），映射（Map），队列（Queue），数组（Array），字典（Dictionary），栈（Stack），树（Tree）等。</p>
+<p>其中除了栈和数和数组，其他都有相对应的接口定义。</p>
+<p>而数组和树在这其实是个形容词概念。栈虽然是个继承自Vector的具体类，但是其自身定义也是跟简单，也只有push，pop，peek，empty，search这几个方法的简单实现。</p>
+<p>所以在现阶段，对java集合框架的大体基础理解，可以从以上列出了数据结构中的，名词概念的接口开始入手学习与研究。</p>
+<p>然后还有一些形容的：链接，对比，枚举，哈希，迭代，子集，树，排序等，都是在运用或实现数据结构时的一些概念。这些概念可以充当特性添加到以上基本数据结构名词当中，作为具体类的实现以拓展数据结构接口。</p>
+<p>所以，下一次，会从这几个最基础的接口开始研究。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>当然，在我列出的集合框架的全部存在中，有很多我刚才讨论时是没有提到的，占了至少多余五成。其实纯属小人不才，在没遇到具体的应用场景之前，不敢往下断论。</p>
+<p>而我觉得解决我已经讨论的内容，对于平时应用java数据结构来编写业务代码或者是普通算法时，已经足够用了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/java集合框架学习1/" data-id="ck252zir000063kv568olohq6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/25/java集合框架学习1/" data-id="ck26ed0e40001xcv51g65d06l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -155,6 +212,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/10/25/java集合框架学习2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          java集合框架学习2-Collection,Set,List,Queue,Deque
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/25/黑格尔/" id="article-nav-older" class="article-nav-link-wrap">
@@ -203,6 +269,14 @@
       <ul>
         
           <li>
+            <a href="/2019/10/26/java集合框架学习3/">java集合框架学习3-Map,Dictionary,Stack</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/25/java集合框架学习2/">java集合框架学习2-Collection,Set,List,Queue,Deque</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/25/java集合框架学习1/">java集合框架学习1</a>
           </li>
         
@@ -212,14 +286,6 @@
         
           <li>
             <a href="/2019/10/22/诗/">诗</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/21/javaweb学习笔记5/">javaweb之hibernate表关系创建</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/21/javaweb学习笔记4/">javaweb之struts2基本实现</a>
           </li>
         
       </ul>

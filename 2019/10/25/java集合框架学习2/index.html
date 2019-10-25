@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>java集合框架学习2-Collection,Set,List,Queue,Deque | 格物才可致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言我之前一篇提到过，框架里的大体数据结构实体概念都有对应接口定义。今天我来大体了解其中一些。 Collection代码我就不贴了。 其中对他大体的了解，围绕的有以下接口：  数据结构结构存储元素的大小（size,isEmpty）； 迭代定义（iterator）； 转换成数组（toArray非泛型和泛型版本）； 添加去除单个或多个元素（add,remove,addAll,removeAll,rem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合框架学习2-Collection,Set,List,Queue,Deque">
+<meta property="og:url" content="http://yoursite.com/2019/10/25/java集合框架学习2/index.html">
+<meta property="og:site_name" content="格物才可致知">
+<meta property="og:description" content="前言我之前一篇提到过，框架里的大体数据结构实体概念都有对应接口定义。今天我来大体了解其中一些。 Collection代码我就不贴了。 其中对他大体的了解，围绕的有以下接口：  数据结构结构存储元素的大小（size,isEmpty）； 迭代定义（iterator）； 转换成数组（toArray非泛型和泛型版本）； 添加去除单个或多个元素（add,remove,addAll,removeAll,rem">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-25T17:00:58.556Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java集合框架学习2-Collection,Set,List,Queue,Deque">
+<meta name="twitter:description" content="前言我之前一篇提到过，框架里的大体数据结构实体概念都有对应接口定义。今天我来大体了解其中一些。 Collection代码我就不贴了。 其中对他大体的了解，围绕的有以下接口：  数据结构结构存储元素的大小（size,isEmpty）； 迭代定义（iterator）； 转换成数组（toArray非泛型和泛型版本）； 添加去除单个或多个元素（add,remove,addAll,removeAll,rem">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="feologo"></div>
+        <a href="/" id="logo">格物才可致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+<!--         
+          <a href="/categories/java" class="main-nav-link">java</a>
+        
+          <a href="/categories/哲学" class="main-nav-link">哲学</a>
+        
+          <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+        
+          <a href="/categories/视图模板技术" class="main-nav-link">视图模板技术</a>
+        
+          <a href="/categories/软件开发方法" class="main-nav-link">软件开发方法</a>
+        
+          <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
+        
+          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
+        
+          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
+        
+          <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
+         -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java集合框架学习2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/25/java集合框架学习2/" class="article-date">
+  <time datetime="2019-10-25T13:44:31.605Z" itemprop="datePublished">2019-10-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java集合框架学习2-Collection,Set,List,Queue,Deque
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我之前一篇提到过，框架里的大体数据结构实体概念都有对应接口定义。今天我来大体了解其中一些。</p>
+<h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>代码我就不贴了。</p>
+<p>其中对他大体的了解，围绕的有以下接口：</p>
+<ul>
+<li>数据结构结构存储元素的大小（size,isEmpty）；</li>
+<li>迭代定义（iterator）；</li>
+<li>转换成数组（toArray非泛型和泛型版本）；</li>
+<li>添加去除单个或多个元素（add,remove,addAll,removeAll,removeIf）；</li>
+<li>保留指定集合元素（retainAll）；</li>
+<li>判断是否包含的指定元素（contains，containsAll）；</li>
+<li>清除全部元素（clear）；</li>
+</ul>
+<p>以上是基本的定义，但还有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">boolean equals(Object paramObject);</span><br><span class="line"></span><br><span class="line">int hashCode();</span><br><span class="line"></span><br><span class="line">default Spliterator&lt;E&gt; spliterator() &#123; return Spliterators.spliterator(this, 0); &#125;</span><br><span class="line"></span><br><span class="line">default Stream&lt;E&gt; stream() &#123; return StreamSupport.stream(spliterator(), false); &#125;</span><br><span class="line"></span><br><span class="line">default Stream&lt;E&gt; parallelStream() &#123; return StreamSupport.stream(spliterator(), true); &#125;</span><br></pre></td></tr></table></figure>
+
+<p>等接口定义，占时先不讨论，因为涉及到数据结构外的知识。</p>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set接口继承自Collection接口，定义的接口方法全部几乎和Collection接口一样，知识参数有些许不同，除了少了以下两个接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">default Stream&lt;E&gt; stream() &#123; return StreamSupport.stream(spliterator(), false); &#125;</span><br><span class="line"></span><br><span class="line">default Stream&lt;E&gt; parallelStream() &#123; return StreamSupport.stream(spliterator(), true); &#125;</span><br></pre></td></tr></table></figure>
+
+<p>的重新定义，其他几乎都是覆盖定义了Collection接口的方法。</p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>List接口也是继承了Collection接口，大多数基本方法也和Collection接口定义一样。但是有以下新添加的接口方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">default void replaceAll(UnaryOperator&lt;E&gt; paramUnaryOperator)</span><br><span class="line">default void sort(Comparator&lt;? super E&gt; paramComparator);</span><br><span class="line">E get(int paramInt);</span><br><span class="line">E set(int paramInt, E paramE);</span><br><span class="line">void add(int paramInt, E paramE);</span><br><span class="line">E remove(int paramInt);</span><br><span class="line">int indexOf(Object paramObject);</span><br><span class="line">int lastIndexOf(Object paramObject);</span><br><span class="line">ListIterator&lt;E&gt; listIterator();</span><br><span class="line">ListIterator&lt;E&gt; listIterator(int paramInt);</span><br><span class="line">List&lt;E&gt; subList(int paramInt1, int paramInt2);</span><br></pre></td></tr></table></figure>
+
+<p>添加的具体公用如下。</p>
+<ul>
+<li>替换</li>
+<li>排序</li>
+<li>根据引索存取数据</li>
+<li>根据数据获取引索</li>
+<li>获取子列表</li>
+<li>获取列表迭代器</li>
+</ul>
+<p>列表迭代器ListIterator继承自Iterator接口，而且自身还添加了一些接口方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">boolean hasPrevious();</span><br><span class="line">E previous();</span><br><span class="line">int nextIndex();</span><br><span class="line">int previousIndex();</span><br><span class="line">void set(E paramE);</span><br><span class="line">void add(E paramE);</span><br></pre></td></tr></table></figure>
+
+<p>可以看见，列表迭代器接口相比较于迭代器接口，其有了前后位置的概念，也有了引索的概念。还可以对迭代器的位置元素进行放置。</p>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><p>Queue接口继承自Collection接口，提供了的基础功能如下：</p>
+<ul>
+<li>插入（offer）</li>
+<li>检索并清除（poll，remove）</li>
+<li>检索并不清除（peek，element）</li>
+</ul>
+<h3 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h3><p>Deque接口继承自Queue接口。其在Queue接口的概念上，添加了一些概念。</p>
+<ul>
+<li>第一和最后的位置</li>
+<li>push和pop</li>
+<li>大小</li>
+<li>迭代器</li>
+<li>包含判断</li>
+<li>去除指定元素</li>
+</ul>
+<p>在以上添加的概念中，就好似在队列的基础上添加了双向的这个概念。也就是说，队头和队尾都可以执行插入和删除操作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/25/java集合框架学习2/" data-id="ck26ed0gk0006xcv5bfh0rrse" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/26/java集合框架学习3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          java集合框架学习3-Map,Dictionary,Stack
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/25/java集合框架学习1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java集合框架学习1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/视图模板技术/">视图模板技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件开发方法/">软件开发方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">时间</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/26/java集合框架学习3/">java集合框架学习3-Map,Dictionary,Stack</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/25/java集合框架学习2/">java集合框架学习2-Collection,Set,List,Queue,Deque</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/25/java集合框架学习1/">java集合框架学习1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/25/黑格尔/">黑格尔</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/22/诗/">诗</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+<!--   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+   -->
+  
+    <a href="/categories/java" class="mobile-nav-link">java</a>
+  
+    <a href="/categories/哲学" class="mobile-nav-link">哲学</a>
+  
+    <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+  
+    <a href="/categories/视图模板技术" class="mobile-nav-link">视图模板技术</a>
+  
+    <a href="/categories/软件开发方法" class="mobile-nav-link">软件开发方法</a>
+  
+    <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
+  
+    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
+  
+    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
+  
+    <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
