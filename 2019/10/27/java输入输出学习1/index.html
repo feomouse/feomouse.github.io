@@ -5,19 +5,19 @@
   
 
   
-  <title>智慧的老人 | 格物才可致知</title>
+  <title>java输入输出学习1 | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我：爷爷你好。请问我去哪里找人生的导师呢？ 老人：不用找呀。 我：为什么不用找呢？ 老人：因为你自己就是呀。">
+  <meta name="description" content="前言输入输出，就是将外设，内存，和输入输出数据进行抽象表示与管理等的操作。 java.io的词语 Bits Buffered Input Output Stream Reader Writer Byte Array Char Closeable Console Data File System Cache Expiring Externalizable Descriptor Permission">
 <meta property="og:type" content="article">
-<meta property="og:title" content="智慧的老人">
-<meta property="og:url" content="http://yoursite.com/2019/10/12/智慧的老人/index.html">
+<meta property="og:title" content="java输入输出学习1">
+<meta property="og:url" content="http://yoursite.com/2019/10/27/java输入输出学习1/index.html">
 <meta property="og:site_name" content="格物才可致知">
-<meta property="og:description" content="我：爷爷你好。请问我去哪里找人生的导师呢？ 老人：不用找呀。 我：为什么不用找呢？ 老人：因为你自己就是呀。">
+<meta property="og:description" content="前言输入输出，就是将外设，内存，和输入输出数据进行抽象表示与管理等的操作。 java.io的词语 Bits Buffered Input Output Stream Reader Writer Byte Array Char Closeable Console Data File System Cache Expiring Externalizable Descriptor Permission">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-14T18:11:29.937Z">
+<meta property="og:updated_time" content="2019-10-27T16:04:58.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="智慧的老人">
-<meta name="twitter:description" content="我：爷爷你好。请问我去哪里找人生的导师呢？ 老人：不用找呀。 我：为什么不用找呢？ 老人：因为你自己就是呀。">
+<meta name="twitter:title" content="java输入输出学习1">
+<meta name="twitter:description" content="前言输入输出，就是将外设，内存，和输入输出数据进行抽象表示与管理等的操作。 java.io的词语 Bits Buffered Input Output Stream Reader Writer Byte Array Char Closeable Console Data File System Cache Expiring Externalizable Descriptor Permission">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -86,14 +86,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-智慧的老人" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-java输入输出学习1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/12/智慧的老人/" class="article-date">
-  <time datetime="2019-10-11T16:11:30.358Z" itemprop="datePublished">2019-10-12</time>
+    <a href="/2019/10/27/java输入输出学习1/" class="article-date">
+  <time datetime="2019-10-27T13:45:26.764Z" itemprop="datePublished">2019-10-27</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/哲学/">哲学</a>
+    <a class="article-category-link" href="/categories/java/">java</a>
   </div>
 
   </div>
@@ -104,7 +104,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      智慧的老人
+      java输入输出学习1
     </h1>
   
 
@@ -112,15 +112,159 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我：爷爷你好。请问我去哪里找人生的导师呢？</p>
-<p>老人：不用找呀。</p>
-<p>我：为什么不用找呢？</p>
-<p>老人：因为你自己就是呀。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>输入输出，就是将外设，内存，和输入输出数据进行抽象表示与管理等的操作。</p>
+<h3 id="java-io的词语"><a href="#java-io的词语" class="headerlink" title="java.io的词语"></a>java.io的词语</h3><ul>
+<li>Bits</li>
+<li>Buffered</li>
+<li>Input</li>
+<li>Output</li>
+<li>Stream</li>
+<li>Reader</li>
+<li>Writer</li>
+<li>Byte</li>
+<li>Array</li>
+<li>Char</li>
+<li>Closeable</li>
+<li>Console</li>
+<li>Data</li>
+<li>File</li>
+<li>System</li>
+<li>Cache</li>
+<li>Expiring</li>
+<li>Externalizable</li>
+<li>Descriptor</li>
+<li>Permission</li>
+<li>Filter</li>
+<li>Flushable</li>
+<li>IO</li>
+<li>Interrupted</li>
+<li>Invalid</li>
+<li>Line</li>
+<li>Number</li>
+<li>Serializable</li>
+<li>Validation</li>
+<li>Class</li>
+<li>Constants</li>
+<li>Field</li>
+<li>Piped</li>
+<li>print</li>
+<li>Pushback</li>
+<li>Random</li>
+<li>Access</li>
+<li>Tokenizer</li>
+</ul>
+<p>以上是我从java.io包下的类的类名给提取出来的列表。</p>
+<p>那其实，从本意上来讲，输入输出无非就是个：</p>
+<ul>
+<li>输入端抽象（Reader，Console）</li>
+<li>输出端抽象（Writer，Console）</li>
+<li>中间数据传输过程中的数据抽象（Bits，Stream，Byte，Array，Char，File，Line，Piped，print，Cache，Input，Output）</li>
+<li>对数据的描述词汇（Buffered，Closeable，Expiring，Externalizable，Descriptor，Permission，Flushable，Filter，Interrupted，Invalid，Number，Serializable，Validation，Random，Access等）</li>
+</ul>
+<p>以上便会组成基本的包下的类名的组成了。</p>
+<p>而且以上是原子化的。对包下类名的描述，也就是说，其实真实的类名，是以上一些元素的组合形式，而不仅仅是单个元素便构成了每个类。</p>
+<h5 id="原子数据描述接口"><a href="#原子数据描述接口" class="headerlink" title="原子数据描述接口"></a>原子数据描述接口</h5><ul>
+<li>Closeable</li>
+<li>Flushable</li>
+<li>Serializable</li>
+</ul>
+<h5 id="原子数据抽象"><a href="#原子数据抽象" class="headerlink" title="原子数据抽象"></a>原子数据抽象</h5><ul>
+<li>Bits</li>
+<li>File</li>
+</ul>
+<h5 id="数据终端"><a href="#数据终端" class="headerlink" title="数据终端"></a>数据终端</h5><ul>
+<li>Reader</li>
+<li>Writer</li>
+<li>Console</li>
+</ul>
+<h3 id="元素组合"><a href="#元素组合" class="headerlink" title="元素组合"></a>元素组合</h3><h5 id="组合而成的数据抽象"><a href="#组合而成的数据抽象" class="headerlink" title="组合而成的数据抽象"></a>组合而成的数据抽象</h5><ul>
+<li>BufferedInputStream</li>
+<li>BufferedOutputStream</li>
+<li>ByteArrayInputStream</li>
+<li>ByteArrayOutputStream</li>
+<li>DataInputStream</li>
+<li>DataOutputStream</li>
+<li>ExpiringCache</li>
+<li>FileInputStream</li>
+<li>FileOutputStream</li>
+<li>FilterInputStream</li>
+<li>FilterOutputStream</li>
+<li>InputStream</li>
+<li>LineNumberInputStream</li>
+<li>ObjectInputStream</li>
+<li>ObjectOutputStream</li>
+<li>ObjectStream</li>
+<li>OutputStream</li>
+<li>PipedInputStream</li>
+<li>PipedOutputStream</li>
+<li>PrintStream</li>
+<li>PushbackInputStream</li>
+<li>RandomAccessFile</li>
+<li>SequenceInputStream</li>
+<li>StringBufferInputStream</li>
+<li>DataInput</li>
+<li>DataOutput</li>
+<li>ObjectInput</li>
+<li>ObjectOutput</li>
+</ul>
+<h5 id="组合而成的数据终端"><a href="#组合而成的数据终端" class="headerlink" title="组合而成的数据终端"></a>组合而成的数据终端</h5><ul>
+<li>BufferedReader</li>
+<li>BufferedWriter</li>
+<li>CharArrayReader</li>
+<li>CharArrayWriter</li>
+<li>FileReader</li>
+<li>FileWriter</li>
+<li>FilterReader</li>
+<li>FilterWriter</li>
+<li>InputStreamReader</li>
+<li>LineNumberReader</li>
+<li>OutputStreamWriter</li>
+<li>PipedReader</li>
+<li>PipedWriter</li>
+<li>PrintWriter</li>
+<li>PushbackReader</li>
+<li>StringReader</li>
+<li>StringWriter</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过观察以上的类名，我们可以总结出：</p>
+<p>对于输入输出数据，既可以抽象成各种形式的流，比如：</p>
+<ul>
+<li>缓冲输入输出</li>
+<li>流字节数组输入输出流</li>
+<li>数据输入输出流</li>
+<li>文件输入输出流</li>
+<li>过滤器输入输出流</li>
+<li>对象流</li>
+<li>对象输入输出流</li>
+<li>管道输入输出流</li>
+<li>序列输入流</li>
+<li>字符串缓冲输入流</li>
+</ul>
+<p>等；</p>
+<p>又可以抽象成：</p>
+<ul>
+<li>文件</li>
+<li>随机访问文件</li>
+</ul>
+<p>等。</p>
+<p>对于输入输出终端，可以抽象成各种Reader和Writer，比如</p>
+<ul>
+<li>缓冲</li>
+<li>字符数组</li>
+<li>文件</li>
+<li>过滤器</li>
+<li>输入输出流</li>
+<li>行</li>
+<li>管道</li>
+<li>打印</li>
+<li>字符串</li>
+</ul>
+<p>等。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/12/智慧的老人/" data-id="ck29agmxb000ifsv5zgia3kah" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/27/java输入输出学习1/" data-id="ck29agmx0000cfsv5gumuz2fp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,19 +273,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/12/velocity-overview/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/28/java集合框架学习4/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          velocity总体概述
+          java集合框架学习4-以Abstract开头的抽象类
         
       </div>
     </a>
   
   
-    <a href="/2019/10/11/软件生命周期杂谈/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/26/java集合框架学习3/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">软件生命周期杂谈</div>
+      <div class="article-nav-title">java集合框架学习3-Map,Dictionary,Stack</div>
     </a>
   
 </nav>

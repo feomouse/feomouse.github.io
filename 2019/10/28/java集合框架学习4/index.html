@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2019 | 格物才可致知</title>
+  <title>java集合框架学习4-以Abstract开头的抽象类 | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="格物才可致知">
-<meta property="og:url" content="http://yoursite.com/archives/2019/page/4/index.html">
+  <meta name="description" content="前言在之前，我讨论了几个较为基础的接口，这几个接口也是我们日常比较常见到的，用到的；也是数据结构这门课强调最为多的几个接口。 而这次这几个接口会成为抽象类，也就是说直接实现了我前面讨论了的接口的抽象类。 接下来就直接进入正题了。 AbstractCollection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合框架学习4-以Abstract开头的抽象类">
+<meta property="og:url" content="http://yoursite.com/2019/10/28/java集合框架学习4/index.html">
 <meta property="og:site_name" content="格物才可致知">
+<meta property="og:description" content="前言在之前，我讨论了几个较为基础的接口，这几个接口也是我们日常比较常见到的，用到的；也是数据结构这门课强调最为多的几个接口。 而这次这几个接口会成为抽象类，也就是说直接实现了我前面讨论了的接口的抽象类。 接下来就直接进入正题了。 AbstractCollection">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-27T16:50:16.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="格物才可致知">
+<meta name="twitter:title" content="java集合框架学习4-以Abstract开头的抽象类">
+<meta name="twitter:description" content="前言在之前，我讨论了几个较为基础的接口，这几个接口也是我们日常比较常见到的，用到的；也是数据结构这门课强调最为多的几个接口。 而这次这几个接口会成为抽象类，也就是说直接实现了我前面讨论了的接口的抽象类。 接下来就直接进入正题了。 AbstractCollection">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -82,140 +86,58 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/categories/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/10/05/面向对象之代理模式/" class="archive-article-date">
-  <time datetime="2019-10-04T18:26:44.952Z" itemprop="datePublished">10月 5</time>
+        <section id="main"><article id="post-java集合框架学习4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/28/java集合框架学习4/" class="article-date">
+  <time datetime="2019-10-27T16:39:56.842Z" itemprop="datePublished">2019-10-28</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/05/面向对象之代理模式/">面向对象之代理模式</a>
+    <h1 class="article-title" itemprop="name">
+      java集合框架学习4-以Abstract开头的抽象类
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/10/04/面向对象之策略模式和模板方法/" class="archive-article-date">
-  <time datetime="2019-10-04T14:04:40.178Z" itemprop="datePublished">10月 4</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/04/面向对象之策略模式和模板方法/">面向对象之策略模式和模板方法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/10/04/面向对象之装饰器与访问者模式/" class="archive-article-date">
-  <time datetime="2019-10-04T09:39:33.113Z" itemprop="datePublished">10月 4</time>
-</a>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在之前，我讨论了几个较为基础的接口，这几个接口也是我们日常比较常见到的，用到的；也是数据结构这门课强调最为多的几个接口。</p>
+<p>而这次这几个接口会成为抽象类，也就是说直接实现了我前面讨论了的接口的抽象类。</p>
+<p>接下来就直接进入正题了。</p>
+<h3 id="AbstractCollection"><a href="#AbstractCollection" class="headerlink" title="AbstractCollection"></a>AbstractCollection</h3>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/04/面向对象之装饰器与访问者模式/">面向对象之装饰器与访问者模式</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/10/04/面向对象之适配器模式和桥接模式/" class="archive-article-date">
-  <time datetime="2019-10-04T05:36:01.191Z" itemprop="datePublished">10月 4</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/28/java集合框架学习4/" data-id="ck29agmvj000afsv5wo2i98ns" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/04/面向对象之适配器模式和桥接模式/">面向对象之适配器模式和桥接模式</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/09/29/反向控制容器和依赖注入模式/" class="archive-article-date">
-  <time datetime="2019-09-29T03:31:42.176Z" itemprop="datePublished">9月 29</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/29/反向控制容器和依赖注入模式/">反向控制容器和依赖注入模式</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/27/java输入输出学习1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java输入输出学习1</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/08/22/require-framework-model/" class="archive-article-date">
-  <time datetime="2019-08-21T16:39:04.365Z" itemprop="datePublished">8月 22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/require-framework-model/">基于在需求分析模型和web框架指定设计模型间的映射规则的开发经验</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/archives/2019/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
 
 </section>
         
