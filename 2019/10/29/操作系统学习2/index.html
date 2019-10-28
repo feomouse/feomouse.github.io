@@ -5,19 +5,19 @@
   
 
   
-  <title>面向对象之策略模式和模板方法 | 格物才可致知</title>
+  <title>操作系统学习-进程与线程2 | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言在不同的阶段和环境下，相同的事物会用不同的存在方式。因为其本身为了配合环境，融合环境，改变了自己，以使其自身的存在更加灵活与自然。 程序需要算法或逻辑原来的软件，无非就是数据结构和算法，在面向过程的软件设计中，算法和数据几乎是软件的全部。在模块化设计后，各模块内部还是算法和数据。就连现在统领软件开发的面向对象设计，还是需要数据结构和算法。 面向对象里的算法其实，从逻辑上和经验上看，在面向对象领">
+  <meta name="description" content="前言上一篇我总结出了在撇开操作系统层面，而在应用程序开发层面，我们需要用到多线程实现一些需求。 但是实现这些需求，需要考虑什么呢？因为现在线程只是个执行任务的抽象。如果想深入研究，便要将其想象成一个正在运行的实体。其需要运行，便需要交互，便需要资源。 这篇文章更多地是从应用开发的角度来认知线程。 状态 执行 就绪 阻塞  创建与终止任务线程都是从一个点开始执行，此时只有一个线程。 然后根据任务的工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象之策略模式和模板方法">
-<meta property="og:url" content="http://yoursite.com/2019/10/04/面向对象之策略模式和模板方法/index.html">
+<meta property="og:title" content="操作系统学习-进程与线程2">
+<meta property="og:url" content="http://yoursite.com/2019/10/29/操作系统学习2/index.html">
 <meta property="og:site_name" content="格物才可致知">
-<meta property="og:description" content="前言在不同的阶段和环境下，相同的事物会用不同的存在方式。因为其本身为了配合环境，融合环境，改变了自己，以使其自身的存在更加灵活与自然。 程序需要算法或逻辑原来的软件，无非就是数据结构和算法，在面向过程的软件设计中，算法和数据几乎是软件的全部。在模块化设计后，各模块内部还是算法和数据。就连现在统领软件开发的面向对象设计，还是需要数据结构和算法。 面向对象里的算法其实，从逻辑上和经验上看，在面向对象领">
+<meta property="og:description" content="前言上一篇我总结出了在撇开操作系统层面，而在应用程序开发层面，我们需要用到多线程实现一些需求。 但是实现这些需求，需要考虑什么呢？因为现在线程只是个执行任务的抽象。如果想深入研究，便要将其想象成一个正在运行的实体。其需要运行，便需要交互，便需要资源。 这篇文章更多地是从应用开发的角度来认知线程。 状态 执行 就绪 阻塞  创建与终止任务线程都是从一个点开始执行，此时只有一个线程。 然后根据任务的工">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-06T11:14:08.304Z">
+<meta property="og:updated_time" content="2019-10-28T19:47:37.742Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象之策略模式和模板方法">
-<meta name="twitter:description" content="前言在不同的阶段和环境下，相同的事物会用不同的存在方式。因为其本身为了配合环境，融合环境，改变了自己，以使其自身的存在更加灵活与自然。 程序需要算法或逻辑原来的软件，无非就是数据结构和算法，在面向过程的软件设计中，算法和数据几乎是软件的全部。在模块化设计后，各模块内部还是算法和数据。就连现在统领软件开发的面向对象设计，还是需要数据结构和算法。 面向对象里的算法其实，从逻辑上和经验上看，在面向对象领">
+<meta name="twitter:title" content="操作系统学习-进程与线程2">
+<meta name="twitter:description" content="前言上一篇我总结出了在撇开操作系统层面，而在应用程序开发层面，我们需要用到多线程实现一些需求。 但是实现这些需求，需要考虑什么呢？因为现在线程只是个执行任务的抽象。如果想深入研究，便要将其想象成一个正在运行的实体。其需要运行，便需要交互，便需要资源。 这篇文章更多地是从应用开发的角度来认知线程。 状态 执行 就绪 阻塞  创建与终止任务线程都是从一个点开始执行，此时只有一个线程。 然后根据任务的工">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -88,14 +88,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-面向对象之策略模式和模板方法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-操作系统学习2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/04/面向对象之策略模式和模板方法/" class="article-date">
-  <time datetime="2019-10-04T14:04:40.178Z" itemprop="datePublished">2019-10-04</time>
+    <a href="/2019/10/29/操作系统学习2/" class="article-date">
+  <time datetime="2019-10-28T19:00:50.179Z" itemprop="datePublished">2019-10-29</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/面向对象设计/">面向对象设计</a>
+    <a class="article-category-link" href="/categories/计算机基础/">计算机基础</a>
   </div>
 
   </div>
@@ -106,7 +106,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      面向对象之策略模式和模板方法
+      操作系统学习-进程与线程2
     </h1>
   
 
@@ -114,23 +114,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在不同的阶段和环境下，相同的事物会用不同的存在方式。因为其本身为了配合环境，融合环境，改变了自己，以使其自身的存在更加灵活与自然。</p>
-<h3 id="程序需要算法或逻辑"><a href="#程序需要算法或逻辑" class="headerlink" title="程序需要算法或逻辑"></a>程序需要算法或逻辑</h3><p>原来的软件，无非就是数据结构和算法，在面向过程的软件设计中，算法和数据几乎是软件的全部。在模块化设计后，各模块内部还是算法和数据。就连现在统领软件开发的面向对象设计，还是需要数据结构和算法。</p>
-<h3 id="面向对象里的算法"><a href="#面向对象里的算法" class="headerlink" title="面向对象里的算法"></a>面向对象里的算法</h3><p>其实，从逻辑上和经验上看，在面向对象领域，这样围绕算法的开发再明显和简单不过了-定义一个类，数据结构放里面称为字段，再按自己对算法的理解，定义一些方法，这些方法包含了完成一个算法的一系列逻辑步骤。于是，一个算法可以以一个方法为单位，也可以以一个类为单位。这样，如果外界想要调用算法的话，直接实例化一个类，然后调用曝露出来的算法接口。</p>
-<p>ok!!!一般的认知和简单的实践是这样的。</p>
-<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>我觉得，难一点的逻辑代码，才可以算是算法。日常实现一些简单逻辑的代码，充其量就是业务代码。而我下面讨论的装饰器和访问者模式，大多数时候是用在业务代码里的。</p>
-<h3 id="面向对象里的简单逻辑实现（业务代码）"><a href="#面向对象里的简单逻辑实现（业务代码）" class="headerlink" title="面向对象里的简单逻辑实现（业务代码）"></a>面向对象里的简单逻辑实现（业务代码）</h3><p>那其实，面向对象对算法实现的要求不止是可以满足第一次的需求。在之后，会发现如果对一个业务逻辑进行控制，还有许多相似的业务需求产生。这些相似的业务需求和各自独立的业务逻辑组在一起，最后才会成为一个完整的算法或逻辑需求。所以，我们需要一个组织方式，将相同的逻辑提取到一个类中，不同的逻辑提取到另一些类中，实现代码的复用，还有实现算法的组织。</p>
-<h3 id="基于组合和继承"><a href="#基于组合和继承" class="headerlink" title="基于组合和继承"></a>基于组合和继承</h3><p>直切主题：基于组合的是策略模式，基于继承的是模板方法。</p>
-<p>其实，两种模式都是将业务逻辑的共同部分提取在一个类中，然后把不同的实现方面分散到其它类中。</p>
-<h5 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h5><p>对于策略模式，其实这里面客户端访问的接口，应该是那个共有类对应的方法。而算法的不同实现，则被封装在那个共有类的对应的策略类型字段上。在共有类的接口方法里，通过执行自己的逻辑，还有接收（比如构造函数传参）具体的策略类（包含不同的逻辑），来调用不同的逻辑，从而实现一个整体逻辑。</p>
-<p>也就是说，公有类里，通过组合了实现同一策略接口的具体策略类，来实现多态。</p>
-<h5 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h5><p>对于模板方法，客户端还是用的同一个接口，而共有类还是实现的同一接口。只不过，这同一接口方法里的实现，其中需求比较多变的逻辑，则被抽象成立方法，独立出去，成为一个可以被子类方法覆盖的虚方法。于是通过面相对象里子类重写方法的多态概念，实现了在继承体系下的逻辑业务的分离和结构组合。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实说来，就是类库里，为了实现一个算法，同时兼顾面向对象的需求，而产生了这两种模式。就目前我的理解，这两种模式就是为了实现代码重用。还有实现客户端对不同算法的统一入口调用。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇我总结出了在撇开操作系统层面，而在应用程序开发层面，我们需要用到多线程实现一些需求。</p>
+<p>但是实现这些需求，需要考虑什么呢？因为现在线程只是个执行任务的抽象。如果想深入研究，便要将其想象成一个正在运行的实体。其需要运行，便需要交互，便需要资源。</p>
+<p>这篇文章更多地是从应用开发的角度来认知线程。</p>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><ul>
+<li>执行</li>
+<li>就绪</li>
+<li>阻塞</li>
+</ul>
+<h3 id="创建与终止"><a href="#创建与终止" class="headerlink" title="创建与终止"></a>创建与终止</h3><p>任务线程都是从一个点开始执行，此时只有一个线程。</p>
+<p>然后根据任务的工作细节，会将不同的任务分配给不同的线程。不同的时间段，会有不同的线程创建与终止。</p>
+<p>但核心是，线程的产生会与已经存在的线程产生关系，并相互制约，可能是在资源上，也可能是在执行逻辑上。所以在有多个线程执行一个任务时，相互间的制约关系会是一个重点。</p>
+<h3 id="线程间的同步与通信"><a href="#线程间的同步与通信" class="headerlink" title="线程间的同步与通信"></a>线程间的同步与通信</h3><p>所以，我们来到了重点：在每个线程都充当固定的角色，执行固定的逻辑，还有需要固定的资源时，如何使其相互合作，并利用有限的资源，按我们的需求来完成任务？</p>
+<p>是的，我们需要线程间的同步与通信机制，来确保不管是运行的顺畅，或是结果的正确性。</p>
+<ul>
+<li>互斥锁</li>
+<li>条件变量</li>
+<li>信号量</li>
+</ul>
+<p>互斥锁是为了防止同时对同一资源进行操作。</p>
+<p>条件变量是为了在互斥锁的基础之上，添加一个变量标识资源的情况，从而使其他线程根据这个标识，进行获取或等待资源的判断。</p>
+<p>信号量其实是标识此时资源被线程使用的情况，然后通过信号量，让其他线程认识到此时资源的使用情况，以做出判断，是否可以使用资源。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过这次对线程的理解，其实核心还是解决资源利用的矛盾问题。线程的创建，执行，阻塞，终止反而并不是难点，但是如何组织线程相互协作，并合理分配使用资源，从而达到最后任务目标的正确性，这才是我们需要花时间考虑的地方。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/04/面向对象之策略模式和模板方法/" data-id="ck2avkfzz001mh8v5r1xhxdcv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/29/操作系统学习2/" data-id="ck2avkfyk000th8v5zmv4yz8w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,19 +149,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/05/面向对象之代理模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/29/java线程学习1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          面向对象之代理模式
+          java线程学习1
         
       </div>
     </a>
   
   
-    <a href="/2019/10/04/面向对象之装饰器与访问者模式/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/29/操作系统学习1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">面向对象之装饰器与访问者模式</div>
+      <div class="article-nav-title">操作系统学习-进程与线程1</div>
     </a>
   
 </nav>
