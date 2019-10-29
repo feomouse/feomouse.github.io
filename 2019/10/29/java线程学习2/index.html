@@ -5,19 +5,19 @@
   
 
   
-  <title>面向对象之代理模式 | 格物才可致知</title>
+  <title>java线程学习2 | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现实代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。 比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。 那此时，业务">
+  <meta name="description" content="前言前一篇文章我介绍了最最基础的线程。现在我想介绍线程间的协调，以完成一些多线程并发执行任务。 方法 synchronized wait方法与notify方法与notifyAll方法 ReetrantLock类实例的lock和unlock方法 ReetrantReadWriteLock类实例的readLock().lock和unLock方法,writeLock().lock和unLock方法 Re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象之代理模式">
-<meta property="og:url" content="http://yoursite.com/2019/10/05/面向对象之代理模式/index.html">
+<meta property="og:title" content="java线程学习2">
+<meta property="og:url" content="http://yoursite.com/2019/10/29/java线程学习2/index.html">
 <meta property="og:site_name" content="格物才可致知">
-<meta property="og:description" content="现实代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。 比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。 那此时，业务">
+<meta property="og:description" content="前言前一篇文章我介绍了最最基础的线程。现在我想介绍线程间的协调，以完成一些多线程并发执行任务。 方法 synchronized wait方法与notify方法与notifyAll方法 ReetrantLock类实例的lock和unlock方法 ReetrantReadWriteLock类实例的readLock().lock和unLock方法,writeLock().lock和unLock方法 Re">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-09T17:25:29.028Z">
+<meta property="og:updated_time" content="2019-10-29T14:10:57.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象之代理模式">
-<meta name="twitter:description" content="现实代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。 比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。 那此时，业务">
+<meta name="twitter:title" content="java线程学习2">
+<meta name="twitter:description" content="前言前一篇文章我介绍了最最基础的线程。现在我想介绍线程间的协调，以完成一些多线程并发执行任务。 方法 synchronized wait方法与notify方法与notifyAll方法 ReetrantLock类实例的lock和unlock方法 ReetrantReadWriteLock类实例的readLock().lock和unLock方法,writeLock().lock和unLock方法 Re">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -88,14 +88,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-面向对象之代理模式" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-java线程学习2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/05/面向对象之代理模式/" class="article-date">
-  <time datetime="2019-10-04T18:26:44.952Z" itemprop="datePublished">2019-10-05</time>
+    <a href="/2019/10/29/java线程学习2/" class="article-date">
+  <time datetime="2019-10-29T13:45:48.205Z" itemprop="datePublished">2019-10-29</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/面向对象设计/">面向对象设计</a>
+    <a class="article-category-link" href="/categories/java/">java</a>
   </div>
 
   </div>
@@ -106,7 +106,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      面向对象之代理模式
+      java线程学习2
     </h1>
   
 
@@ -114,23 +114,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="现实"><a href="#现实" class="headerlink" title="现实"></a>现实</h3><p>代理模式很直白，就是让客户和代理打交道，而不是直接和背后的真正的“大佬”打交道。</p>
-<p>比如一个公司开展一个业务，然后打了广告，这个广告就是向客户曝露的接口。然后客户根据这个接口，找到业务员（代理），然后叫他办事。于是，业务员充当了背后大佬的意图，也就是说，在客户看来，业务员的意思，就是大佬的意思。至于业务员最终要怎么完成业务，并通报大佬，是业务员的事，跟客户没关系。至此，客户回家了。</p>
-<p>那此时，业务员可以自己在客户交代的任务中，掺杂自己的意志和行为，然后，再跟大佬打交道，看起来业务员和大佬对于客户来说，都完成的是同一样事情。但是最终背后事情是怎么完成的，谁都不知道。业务员按理来说都需要和大佬保持联络，但是事实，我们不得而知。</p>
-<h3 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h3><p>在面向对象里，代理模式更多就是一个概念-客户端和代理类交互。就完了。即使真实的需求实现也许在被代理的类中，但是这不是重点，重点是代理类。</p>
-<ol>
-<li>代理类和被代理的类是实现了相同的接口或抽象类。</li>
-<li>和用户交互的永远是代理类。</li>
-<li>代理类需要保存一个被代理类的实例。</li>
-<li>代理类在某种程度上才是大佬，因为其可以实现自己的逻辑，而且其实活实话，代理类不一定需要通知被代理类，他在理论上可以忽略被代理类。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在这里，代理者的用途就只是多了一层逻辑，然后让这多的一层去处理逻辑。</p>
-<p>代理者代理的任务可以很简单，也可以很复杂，他的应用场景，却是千奇百怪，而且十分复杂。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前一篇文章我介绍了最最基础的线程。现在我想介绍线程间的协调，以完成一些多线程并发执行任务。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>synchronized</li>
+<li>wait方法与notify方法与notifyAll方法</li>
+<li>ReetrantLock类实例的lock和unlock方法</li>
+<li>ReetrantReadWriteLock类实例的readLock().lock和unLock方法,writeLock().lock和unLock方法</li>
+<li>ReetrantLock类实例的newCondition方法返回的Condition对象上的await和signal和signalAll方法</li>
+<li>Semaphore信号量类实例的require和release方法</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/05/面向对象之代理模式/" data-id="ck2bxmzk7001hksv5eirkzeo2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/29/java线程学习2/" data-id="ck2bxmzgf0003ksv5gk9pa8e5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,19 +136,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/05/面向对象之观察者模式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          面向对象之观察者模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/04/面向对象之策略模式和模板方法/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/10/29/java线程学习1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">面向对象之策略模式和模板方法</div>
+      <div class="article-nav-title">java线程学习1</div>
     </a>
   
 </nav>
