@@ -15,3 +15,8 @@ categories: java
 * ReetrantReadWriteLock类实例的readLock().lock和unLock方法,writeLock().lock和unLock方法
 * ReetrantLock类实例的newCondition方法返回的Condition对象上的await和signal和signalAll方法
 * Semaphore信号量类实例的require和release方法
+
+其实大体上都是几个固定的概念：
+
+* 防止重入执行区域
+* 防止对资源的非法访问，无序更改
