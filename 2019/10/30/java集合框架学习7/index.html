@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>java集合框架学习7-Dictionary,Map,HashTable,HashMap | 格物才可致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言此次，我对数据结构-映射在哈希的存储与查找的概念下的实现进行了了解。 HashMap类是Map接口在添加哈希这个特点下的实现。 那Dictionary和HashTable呢？ Map和Dictionary刚开始学习集合框架的时候（也就是我写第一篇博文的时候），我其实是有些疑惑的。对于Map和Dictionary，我觉得都是对数据结构-键值对的接口定义，只不过Map是接口，Dictionary是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合框架学习7-Dictionary,Map,HashTable,HashMap">
+<meta property="og:url" content="http://yoursite.com/2019/10/30/java集合框架学习7/index.html">
+<meta property="og:site_name" content="格物才可致知">
+<meta property="og:description" content="前言此次，我对数据结构-映射在哈希的存储与查找的概念下的实现进行了了解。 HashMap类是Map接口在添加哈希这个特点下的实现。 那Dictionary和HashTable呢？ Map和Dictionary刚开始学习集合框架的时候（也就是我写第一篇博文的时候），我其实是有些疑惑的。对于Map和Dictionary，我觉得都是对数据结构-键值对的接口定义，只不过Map是接口，Dictionary是">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-30T08:35:24.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java集合框架学习7-Dictionary,Map,HashTable,HashMap">
+<meta name="twitter:description" content="前言此次，我对数据结构-映射在哈希的存储与查找的概念下的实现进行了了解。 HashMap类是Map接口在添加哈希这个特点下的实现。 那Dictionary和HashTable呢？ Map和Dictionary刚开始学习集合框架的时候（也就是我写第一篇博文的时候），我其实是有些疑惑的。对于Map和Dictionary，我觉得都是对数据结构-键值对的接口定义，只不过Map是接口，Dictionary是">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="feologo"></div>
+        <a href="/" id="logo">格物才可致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+<!--         
+          <a href="/categories/java" class="main-nav-link">java</a>
+        
+          <a href="/categories/哲学" class="main-nav-link">哲学</a>
+        
+          <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+        
+          <a href="/categories/视图模板技术" class="main-nav-link">视图模板技术</a>
+        
+          <a href="/categories/计算机基础" class="main-nav-link">计算机基础</a>
+        
+          <a href="/categories/软件开发方法" class="main-nav-link">软件开发方法</a>
+        
+          <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
+        
+          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
+        
+          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
+        
+          <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
+         -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java集合框架学习7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/30/java集合框架学习7/" class="article-date">
+  <time datetime="2019-10-30T07:38:58.854Z" itemprop="datePublished">2019-10-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java集合框架学习7-Dictionary,Map,HashTable,HashMap
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>此次，我对数据结构-映射在哈希的存储与查找的概念下的实现进行了了解。</p>
+<p>HashMap类是Map接口在添加哈希这个特点下的实现。</p>
+<p>那Dictionary和HashTable呢？</p>
+<h3 id="Map和Dictionary"><a href="#Map和Dictionary" class="headerlink" title="Map和Dictionary"></a>Map和Dictionary</h3><p>刚开始学习集合框架的时候（也就是我写第一篇博文的时候），我其实是有些疑惑的。对于Map和Dictionary，我觉得都是对数据结构-键值对的接口定义，只不过Map是接口，Dictionary是抽象类，但是申明的方法操作，都是对基本的键值对数据结构的接口操作方法，简单的获取，移除，替换等操作，只不过Map接口定义的方法多了一些，复杂一些。</p>
+<p>但重点是，他们的概念有重合，接口定义也有重合，那，为何？</p>
+<p>唯一的解释，我觉得就只有用实现的时间不同来解释吧。Dictionary应该是早期的键值对数据结构的接口规则定义，而Map应该是后来，可能有更加复杂的需求产生，于是重新定义的一个接口。</p>
+<p>所以基本上，由于Map接口更加完整，Dictionary现在是用不上了，用的更多的应该是Map下定义的方法还有实现类了。</p>
+<h3 id="HashMap与HashTable"><a href="#HashMap与HashTable" class="headerlink" title="HashMap与HashTable"></a>HashMap与HashTable</h3><p>这两个类都是将哈希的特性添加到键值对数据结构的实现。所以和Map和Dictionary类似，都是有实现功能重合的。解释也只有一种，便是实现的时期不同，但为了兼容，而没有将先开发的HashTable类舍弃。但现在因该都用的是HashMap了。</p>
+<p>那两者有啥不同呢？</p>
+<h5 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h5><p>HashTable</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class Hashtable&lt;K, V&gt;</span><br><span class="line">  extends Dictionary&lt;K, V&gt;</span><br><span class="line">  implements Map&lt;K, V&gt;, Cloneable, Serializable</span><br></pre></td></tr></table></figure>
+
+<p>HashMap</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class HashMap&lt;K, V&gt;</span><br><span class="line">  extends AbstractMap&lt;K, V&gt;</span><br><span class="line">  implements Map&lt;K, V&gt;, Cloneable, Serializable</span><br></pre></td></tr></table></figure>
+
+<p>从以上的继承看来，虽然，两者都实现了Map接口。可是HashTable是继承自Dictionary抽象类的，HashMap是继承自AbstractMap抽象类的。</p>
+<ol>
+<li><p>所以首先，HashMap有小部分方法的实现是委托给AbstractMap(因为其里面有一些方法的实现)。而为了实现Map接口，HashTable有许多方法是要自己实现的（毕竟Dictionary几乎和接口没什么区别，都只是方法的定义，并没有实现）。</p>
+</li>
+<li><p>HashTable内部储存键值对是定义了内部静态类Entry作为储存类型的。而HashMap则是使用了内部静态类Node作为储存类型的。</p>
+</li>
+</ol>
+<p>Entry</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private static class Entry&lt;K, V&gt;</span><br><span class="line">  extends Object</span><br><span class="line">  implements Map.Entry&lt;K, V&gt;</span><br><span class="line">&#123;</span><br><span class="line">  final int hash;</span><br><span class="line">  final K key;</span><br><span class="line">  V value;</span><br><span class="line">  Entry&lt;K, V&gt; next;</span><br><span class="line">  </span><br><span class="line">  protected Entry(int param1Int, K param1K, V param1V, Entry&lt;K, V&gt; param1Entry) &#123;</span><br><span class="line">    this.hash = param1Int;</span><br><span class="line">    this.key = param1K;</span><br><span class="line">    this.value = param1V;</span><br><span class="line">    this.next = param1Entry;</span><br><span class="line">  &#125;</span><br><span class="line">  ......</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
+
+<p>Node</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">static class Node&lt;K, V&gt;</span><br><span class="line">  extends Object</span><br><span class="line">  implements Map.Entry&lt;K, V&gt;</span><br><span class="line">&#123;</span><br><span class="line">  final int hash;</span><br><span class="line">  final K key;</span><br><span class="line">  V value;</span><br><span class="line">  Node&lt;K, V&gt; next;</span><br><span class="line">  </span><br><span class="line">  Node(int param1Int, K param1K, V param1V, Node&lt;K, V&gt; param1Node) &#123;</span><br><span class="line">    this.hash = param1Int;</span><br><span class="line">    this.key = param1K;</span><br><span class="line">    this.value = param1V;</span><br><span class="line">    this.next = param1Node;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  public final K getKey() &#123; return (K)this.key; &#125;</span><br><span class="line">  public final V getValue() &#123; return (V)this.value; &#125;</span><br><span class="line">  public final String toString() &#123; return this.key + &quot;=&quot; + this.value; &#125;</span><br><span class="line"></span><br><span class="line">  ......</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>HashTable对存储的话直接使用的是哈希，但HashMap内部还定义了一个TreeNode的内部类，作为存储，获取键值对的数据结构。也就是说，应该是在存储和获取的时候，存储在Node数组里，但其实存储的是将Node类型节点转换成TreeNode类型的节点后，按照树操作进行了优化。</li>
+</ol>
+<p>TreeNode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">static final class TreeNode&lt;K, V&gt;</span><br><span class="line">  extends LinkedHashMap.Entry&lt;K, V&gt;</span><br><span class="line">&#123;</span><br><span class="line">  TreeNode&lt;K, V&gt; parent;</span><br><span class="line">  </span><br><span class="line">  TreeNode&lt;K, V&gt; left;</span><br><span class="line">  </span><br><span class="line">  TreeNode&lt;K, V&gt; right;</span><br><span class="line">  </span><br><span class="line">  TreeNode&lt;K, V&gt; prev;</span><br><span class="line">  </span><br><span class="line">  boolean red;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  TreeNode(int param1Int, K param1K, V param1V, HashMap.Node&lt;K, V&gt; param1Node) &#123; super(param1Int, param1K, param1V, param1Node); &#125;</span><br><span class="line"></span><br><span class="line">  ......</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>当然，对HashTable和HashMap，从客户端的使用角度来说，都是基于Map接口的，所以具体类内部的实现，其实在使用集合类库的时候可以当成是黑箱，对键值对的操作还是Map接口里定义的方法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/30/java集合框架学习7/" data-id="ck2d1g18h000jk4v5mzuiisvu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/30/java集合框架学习8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          java集合框架学习8-HashSet
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/30/java集合框架学习6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java集合框架学习6-Set，SortedSet，NavigableSet，AbstractSet，TreeSet</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/视图模板技术/">视图模板技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件开发方法/">软件开发方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">时间</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习8/">java集合框架学习8-HashSet</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习7/">java集合框架学习7-Dictionary,Map,HashTable,HashMap</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习6/">java集合框架学习6-Set，SortedSet，NavigableSet，AbstractSet，TreeSet</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习5/">java集合框架学习5-Map，SortedMap，NavigableMap，AbstractMap，TreeMap</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/29/java线程学习2/">java线程学习2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+<!--   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+   -->
+  
+    <a href="/categories/java" class="mobile-nav-link">java</a>
+  
+    <a href="/categories/哲学" class="mobile-nav-link">哲学</a>
+  
+    <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+  
+    <a href="/categories/视图模板技术" class="mobile-nav-link">视图模板技术</a>
+  
+    <a href="/categories/计算机基础" class="mobile-nav-link">计算机基础</a>
+  
+    <a href="/categories/软件开发方法" class="mobile-nav-link">软件开发方法</a>
+  
+    <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
+  
+    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
+  
+    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
+  
+    <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>java集合框架学习5-Map，SortedMap，NavigableMap，AbstractMap，TreeMap | 格物才可致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言Map接口和对应的AbstractMap抽象类在以前的文章中我已大致讲过。今天这篇文章是由于想要认识TreeMap而写的。 继承体系TreeMap： 123public class TreeMap&amp;lt;K, V&amp;gt;  extends AbstractMap&amp;lt;K, V&amp;gt;  implements NavigableMap&amp;lt;K, V&amp;gt;, Cloneable, Seria">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合框架学习5-Map，SortedMap，NavigableMap，AbstractMap，TreeMap">
+<meta property="og:url" content="http://yoursite.com/2019/10/30/java集合框架学习5/index.html">
+<meta property="og:site_name" content="格物才可致知">
+<meta property="og:description" content="前言Map接口和对应的AbstractMap抽象类在以前的文章中我已大致讲过。今天这篇文章是由于想要认识TreeMap而写的。 继承体系TreeMap： 123public class TreeMap&amp;lt;K, V&amp;gt;  extends AbstractMap&amp;lt;K, V&amp;gt;  implements NavigableMap&amp;lt;K, V&amp;gt;, Cloneable, Seria">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-30T06:00:23.602Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java集合框架学习5-Map，SortedMap，NavigableMap，AbstractMap，TreeMap">
+<meta name="twitter:description" content="前言Map接口和对应的AbstractMap抽象类在以前的文章中我已大致讲过。今天这篇文章是由于想要认识TreeMap而写的。 继承体系TreeMap： 123public class TreeMap&amp;lt;K, V&amp;gt;  extends AbstractMap&amp;lt;K, V&amp;gt;  implements NavigableMap&amp;lt;K, V&amp;gt;, Cloneable, Seria">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="feologo"></div>
+        <a href="/" id="logo">格物才可致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+<!--         
+          <a href="/categories/java" class="main-nav-link">java</a>
+        
+          <a href="/categories/哲学" class="main-nav-link">哲学</a>
+        
+          <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+        
+          <a href="/categories/视图模板技术" class="main-nav-link">视图模板技术</a>
+        
+          <a href="/categories/计算机基础" class="main-nav-link">计算机基础</a>
+        
+          <a href="/categories/软件开发方法" class="main-nav-link">软件开发方法</a>
+        
+          <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
+        
+          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
+        
+          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
+        
+          <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
+         -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java集合框架学习5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/30/java集合框架学习5/" class="article-date">
+  <time datetime="2019-10-30T03:37:14.410Z" itemprop="datePublished">2019-10-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java集合框架学习5-Map，SortedMap，NavigableMap，AbstractMap，TreeMap
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Map接口和对应的AbstractMap抽象类在以前的文章中我已大致讲过。今天这篇文章是由于想要认识TreeMap而写的。</p>
+<h3 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h3><p>TreeMap：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class TreeMap&lt;K, V&gt;</span><br><span class="line">  extends AbstractMap&lt;K, V&gt;</span><br><span class="line">  implements NavigableMap&lt;K, V&gt;, Cloneable, Serializable</span><br></pre></td></tr></table></figure>
+
+<p>NavigableMap：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface NavigableMap&lt;K, V&gt; extends SortedMap&lt;K, V&gt;</span><br></pre></td></tr></table></figure>
+
+<p>SortedMap：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface SortedMap&lt;K, V&gt; extends Map&lt;K, V&gt;</span><br></pre></td></tr></table></figure>
+
+<p>AbstractMap：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public abstract class AbstractMap&lt;K, V&gt;</span><br><span class="line">  extends Object</span><br><span class="line">  implements Map&lt;K, V&gt;</span><br></pre></td></tr></table></figure>
+
+<p>以上是源码里的继承体系，其实从类名便可以得知每一个接口与类的含义和作用与特点。</p>
+<ul>
+<li>SortedMap便是具有排序特点的映射接口定义；</li>
+<li>NavigableMap便是在有序的特点的映射的基础上具有导航特点的映射接口定义；</li>
+<li>TreeMap类是集齐基本的抽象映射类实现，排序映射，可导航映射接口方法的实现；</li>
+</ul>
+<h3 id="SortedMap"><a href="#SortedMap" class="headerlink" title="SortedMap"></a>SortedMap</h3><p>这个接口很明显是为了让映射具有排序特点而诞生的。其添加的特性有：</p>
+<ul>
+<li>根据键值指定映射子集</li>
+<li>头尾映射</li>
+<li>头尾键值</li>
+<li>键值比较</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;? super K&gt; comparator();</span><br><span class="line"></span><br><span class="line">SortedMap&lt;K, V&gt; subMap(K paramK1, K paramK2);</span><br><span class="line"></span><br><span class="line">SortedMap&lt;K, V&gt; headMap(K paramK);</span><br><span class="line"></span><br><span class="line">SortedMap&lt;K, V&gt; tailMap(K paramK);</span><br><span class="line"></span><br><span class="line">K firstKey();</span><br><span class="line"></span><br><span class="line">K lastKey();</span><br><span class="line"></span><br><span class="line">Set&lt;K&gt; keySet();</span><br><span class="line"></span><br><span class="line">Collection&lt;V&gt; values();</span><br><span class="line"></span><br><span class="line">Set&lt;Map.Entry&lt;K, V&gt;&gt; entrySet();</span><br></pre></td></tr></table></figure>
+
+<p>从以上接口定义我们不难看出，最突出的便是对键值的可比较性带来的映射数据结构的先后概念。从而实现了排序的概念。</p>
+<h3 id="NaviableMap"><a href="#NaviableMap" class="headerlink" title="NaviableMap"></a>NaviableMap</h3><p>这个接口是在映射数据结构已经具有有序这个特点的情况下，对映射数据相比SortedMap接口有更多定义的操作。</p>
+<p>比如返回比指定值都大或都小的映射，返回最前或最后的映射，或返回倒排序的映射等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">Map.Entry&lt;K, V&gt; lowerEntry(K paramK);</span><br><span class="line"></span><br><span class="line">K lowerKey(K paramK);</span><br><span class="line"></span><br><span class="line">Map.Entry&lt;K, V&gt; floorEntry(K paramK);</span><br><span class="line"></span><br><span class="line">K floorKey(K paramK);</span><br><span class="line"></span><br><span class="line">Map.Entry&lt;K, V&gt; ceilingEntry(K paramK);</span><br><span class="line"></span><br><span class="line">K ceilingKey(K paramK);</span><br><span class="line"></span><br><span class="line">Map.Entry&lt;K, V&gt; higherEntry(K paramK);</span><br><span class="line"></span><br><span class="line">K higherKey(K paramK);</span><br><span class="line"></span><br><span class="line">Map.Entry&lt;K, V&gt; firstEntry();</span><br><span class="line"></span><br><span class="line">Map.Entry&lt;K, V&gt; lastEntry();</span><br><span class="line"></span><br><span class="line">Map.Entry&lt;K, V&gt; pollFirstEntry();</span><br><span class="line"></span><br><span class="line">Map.Entry&lt;K, V&gt; pollLastEntry();</span><br><span class="line"></span><br><span class="line">NavigableMap&lt;K, V&gt; descendingMap();</span><br><span class="line"></span><br><span class="line">NavigableSet&lt;K&gt; navigableKeySet();</span><br><span class="line"></span><br><span class="line">NavigableSet&lt;K&gt; descendingKeySet();</span><br><span class="line"></span><br><span class="line">NavigableMap&lt;K, V&gt; subMap(K paramK1, boolean paramBoolean1, K paramK2, boolean paramBoolean2);</span><br><span class="line"></span><br><span class="line">NavigableMap&lt;K, V&gt; headMap(K paramK, boolean paramBoolean);</span><br><span class="line"></span><br><span class="line">NavigableMap&lt;K, V&gt; tailMap(K paramK, boolean paramBoolean);</span><br><span class="line"></span><br><span class="line">SortedMap&lt;K, V&gt; subMap(K paramK1, K paramK2);</span><br><span class="line"></span><br><span class="line">SortedMap&lt;K, V&gt; headMap(K paramK);</span><br><span class="line"></span><br><span class="line">SortedMap&lt;K, V&gt; tailMap(K paramK);</span><br></pre></td></tr></table></figure>
+
+<p>不管怎样，都是在映射已经具有排序特点的情况下，添加了更多的操作，使数据结构使用起来更加方便。</p>
+<h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h3><p>我观察了以下，树实现映射，在公有接口上，几乎都和在Map，SortedMap，NavigableMap接口里的方法定义匹配。</p>
+<p>所以其实可以把其当成实现了映射，排序和可导航特点的数据结构。那Tree呢？怎么体现Tree呢？</p>
+<p>其实可以把树这个概念当成其内部概念，也就是说，在使用的时候，我们并不会和Tree这个概念打交道，Tree这个概念是其实现映射方法的概念。就好像这个类是个黑箱，而我们用户在使用这个类提供的数据结构方法时，其实只需要意识到其是一个映射，而且具有有序，可导航等特点的映射就可以了。</p>
+<p>TreeMap这个类的内部实现比较复杂，这次我也没打算跟你们分析这方面，因为有大量的内部类和私有方法的实现，其体现了树这个概念。</p>
+<p>而树这种数据结构在大学里教的时候，更多的是运用在提升类似算法的效率，降低其时间复杂度和空间复杂度等角度上去认知与理解的。其本身更多是抽象概念上的，具体在计算机里的实现其实即可用数组或链表实现。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>java的集合框架包含了许多基础的数据结构，包括映射。对于映射的定义，其实是大同小异的，在此数据结构上添加一些特性，如可排序等，也是无可厚非的。</p>
+<p>但是就实现来说，在不同的情况下，可以运用不同的思想，比如将树和映射结合，以将树的一些优点运用到基础数据结构的实现当中，也是java集合框架的特点之一。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/30/java集合框架学习5/" data-id="ck2d1g18c000fk4v56vc963dg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/30/java集合框架学习6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          java集合框架学习6-Set，SortedSet，NavigableSet，AbstractSet，TreeSet
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/29/java线程学习2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java线程学习2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/视图模板技术/">视图模板技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件开发方法/">软件开发方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">时间</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习8/">java集合框架学习8-HashSet</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习7/">java集合框架学习7-Dictionary,Map,HashTable,HashMap</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习6/">java集合框架学习6-Set，SortedSet，NavigableSet，AbstractSet，TreeSet</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习5/">java集合框架学习5-Map，SortedMap，NavigableMap，AbstractMap，TreeMap</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/29/java线程学习2/">java线程学习2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+<!--   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+   -->
+  
+    <a href="/categories/java" class="mobile-nav-link">java</a>
+  
+    <a href="/categories/哲学" class="mobile-nav-link">哲学</a>
+  
+    <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+  
+    <a href="/categories/视图模板技术" class="mobile-nav-link">视图模板技术</a>
+  
+    <a href="/categories/计算机基础" class="mobile-nav-link">计算机基础</a>
+  
+    <a href="/categories/软件开发方法" class="mobile-nav-link">软件开发方法</a>
+  
+    <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
+  
+    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
+  
+    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
+  
+    <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
