@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>java线程学习3-线程执行器与线程池 | 格物才可致知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言之前我们了解的线程都是自己实例化一个Thread类对象，然后在对其进行操作。 那其实，这样的话，需要人工地对线程进行维护，费时费力，而且出错风险也比较大，所以便有了线程池的这个概念的产生。 正题线程池的作用不止是代替我们实例化，管理，执行，终止线程，而且提供了许多可供选择的特性。 要得到线程池，需要调用Executors类的静态方法如下：  newCachedThreadPool newFix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java线程学习3-线程执行器与线程池">
+<meta property="og:url" content="http://yoursite.com/2019/10/30/java线程学习3/index.html">
+<meta property="og:site_name" content="格物才可致知">
+<meta property="og:description" content="前言之前我们了解的线程都是自己实例化一个Thread类对象，然后在对其进行操作。 那其实，这样的话，需要人工地对线程进行维护，费时费力，而且出错风险也比较大，所以便有了线程池的这个概念的产生。 正题线程池的作用不止是代替我们实例化，管理，执行，终止线程，而且提供了许多可供选择的特性。 要得到线程池，需要调用Executors类的静态方法如下：  newCachedThreadPool newFix">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-30T12:09:14.506Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java线程学习3-线程执行器与线程池">
+<meta name="twitter:description" content="前言之前我们了解的线程都是自己实例化一个Thread类对象，然后在对其进行操作。 那其实，这样的话，需要人工地对线程进行维护，费时费力，而且出错风险也比较大，所以便有了线程池的这个概念的产生。 正题线程池的作用不止是代替我们实例化，管理，执行，终止线程，而且提供了许多可供选择的特性。 要得到线程池，需要调用Executors类的静态方法如下：  newCachedThreadPool newFix">
+  
+    <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <div id="feologo"></div>
+        <a href="/" id="logo">格物才可致知</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+<!--         
+          <a href="/categories/java" class="main-nav-link">java</a>
+        
+          <a href="/categories/哲学" class="main-nav-link">哲学</a>
+        
+          <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
+        
+          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+        
+          <a href="/categories/视图模板技术" class="main-nav-link">视图模板技术</a>
+        
+          <a href="/categories/计算机基础" class="main-nav-link">计算机基础</a>
+        
+          <a href="/categories/软件开发方法" class="main-nav-link">软件开发方法</a>
+        
+          <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
+        
+          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
+        
+          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
+        
+          <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
+         -->
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java线程学习3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/30/java线程学习3/" class="article-date">
+  <time datetime="2019-10-30T11:28:42.728Z" itemprop="datePublished">2019-10-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java线程学习3-线程执行器与线程池
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前我们了解的线程都是自己实例化一个Thread类对象，然后在对其进行操作。</p>
+<p>那其实，这样的话，需要人工地对线程进行维护，费时费力，而且出错风险也比较大，所以便有了线程池的这个概念的产生。</p>
+<h3 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h3><p>线程池的作用不止是代替我们实例化，管理，执行，终止线程，而且提供了许多可供选择的特性。</p>
+<p>要得到线程池，需要调用Executors类的静态方法如下：</p>
+<ul>
+<li>newCachedThreadPool</li>
+<li>newFixedThreadPool</li>
+<li>newScheduledThreadPool</li>
+</ul>
+<p>这些方法返回的是一个实现了ExecutorService接口的对象。</p>
+<p>ExecutorService</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public interface ExecutorService extends Executor &#123;</span><br><span class="line">  void shutdown();</span><br><span class="line">  </span><br><span class="line">  List&lt;Runnable&gt; shutdownNow();</span><br><span class="line">  </span><br><span class="line">  boolean isShutdown();</span><br><span class="line">  </span><br><span class="line">  boolean isTerminated();</span><br><span class="line">  </span><br><span class="line">  boolean awaitTermination(long paramLong, TimeUnit paramTimeUnit) throws InterruptedException;</span><br><span class="line">  </span><br><span class="line">  &lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; paramCallable);</span><br><span class="line">  </span><br><span class="line">  &lt;T&gt; Future&lt;T&gt; submit(Runnable paramRunnable, T paramT);</span><br><span class="line">  </span><br><span class="line">  Future&lt;?&gt; submit(Runnable paramRunnable);</span><br><span class="line">  </span><br><span class="line">  &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; paramCollection) throws InterruptedException;</span><br><span class="line">  </span><br><span class="line">  &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; paramCollection, long paramLong, TimeUnit paramTimeUnit) throws InterruptedException;</span><br><span class="line">  </span><br><span class="line">  &lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; paramCollection) throws InterruptedException, ExecutionException;</span><br><span class="line">  </span><br><span class="line">  &lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; paramCollection, long paramLong, TimeUnit paramTimeUnit) throws InterruptedException, ExecutionException, TimeoutException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Executor</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Executor &#123;</span><br><span class="line">  void execute(Runnable paramRunnable);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由其上接口的定义可知，调用接口的话，可以使用submit，invokeAll或invokeAny。</p>
+<p>然后传递的参数任务需要根据对应的方法实现Callable接口或Runnable接口。</p>
+<p>最后的结果返回是一个Future类型的对象。</p>
+<p>Future</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public interface Future&lt;V&gt; &#123;</span><br><span class="line">  boolean cancel(boolean paramBoolean);</span><br><span class="line">  </span><br><span class="line">  boolean isCancelled();</span><br><span class="line">  </span><br><span class="line">  boolean isDone();</span><br><span class="line">  </span><br><span class="line">  V get() throws InterruptedException, ExecutionException;</span><br><span class="line">  </span><br><span class="line">  V get(long paramLong, TimeUnit paramTimeUnit) throws InterruptedException, ExecutionException, TimeoutException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Callable</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface Callable&lt;V&gt; &#123;</span><br><span class="line">  V call() throws Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Runnable</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface Runnable &#123;</span><br><span class="line">  void run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，传递给线程池的任务需要继承Callable接口或Runnable接口。作为结果返回的Future接口类型的对象可以用get方法获取执行结果，cancel方法可以取消可取消执行的线程。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上述有三种线程池，为的是减少线程创建的开销，控制线程的数量，还有有计划延迟地执行线程等。</p>
+<p>主要的使用如上述接口的方法所示。便可以做到维护线程的创建，执行，销毁等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/30/java线程学习3/" data-id="ck2d97orr00068cv55tuodflq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/30/java集合框架学习8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java集合框架学习8-HashSet</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/视图模板技术/">视图模板技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件开发方法/">软件开发方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">时间</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/30/java线程学习3/">java线程学习3-线程执行器与线程池</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习8/">java集合框架学习8-HashSet</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习7/">java集合框架学习7-Dictionary,Map,HashTable,HashMap</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习6/">java集合框架学习6-Set，SortedSet，NavigableSet，AbstractSet，TreeSet</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/java集合框架学习5/">java集合框架学习5-Map，SortedMap，NavigableMap，AbstractMap，TreeMap</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 feomouse<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+<!--   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+   -->
+  
+    <a href="/categories/java" class="mobile-nav-link">java</a>
+  
+    <a href="/categories/哲学" class="mobile-nav-link">哲学</a>
+  
+    <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
+  
+    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+  
+    <a href="/categories/视图模板技术" class="mobile-nav-link">视图模板技术</a>
+  
+    <a href="/categories/计算机基础" class="mobile-nav-link">计算机基础</a>
+  
+    <a href="/categories/软件开发方法" class="mobile-nav-link">软件开发方法</a>
+  
+    <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
+  
+    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
+  
+    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
+  
+    <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
