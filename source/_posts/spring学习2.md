@@ -369,6 +369,8 @@ categories: java
   ......
 ```
 
+在部分2中，我们调用了getMergedLocalBeanDefinition方法获取了RootBeanDefinition类型变量mdb。在之后我会讲解此方法。
+
 部分3：
 
 ```
@@ -428,8 +430,6 @@ categories: java
     }
   }
 ```
-
-在部分2中，我们调用了getMergedLocalBeanDefinition方法获取了RootBeanDefinition类型变量mdb。在之后我会讲解此方法。
 
 在这部分中，判断mdb变量的生命周期后都会调用createBean方法，并将beanName，mdb，和args作为参数产生一个bean实例。并再调用getObjectForBeanInstance方法作为最后的bean实例返回。
 
