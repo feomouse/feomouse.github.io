@@ -1251,7 +1251,7 @@ instantiateWithMethodInjection方法：
   }
 ```
 
-此部分重要的是调用了populateBean这两个方法，将在之后讨论。最后生成的exposeObject作为返回值返回。
+此部分重要的是调用了populateBean这个方法，将在之后讨论。最后生成的exposeObject作为返回值返回。
 
 ##### populateBean
 
@@ -1350,7 +1350,11 @@ instantiateWithMethodInjection方法：
   if (pvs != null) {
     applyPropertyValues(beanName, mbd, bw, pvs);
   }
+```
 
+以上当pvs，也就是属性值集不为空时，会调用：
+
+```
   // AbstractAutowireCapableBeanFactory类
 	protected void applyPropertyValues(String beanName, BeanDefinition mbd, BeanWrapper bw, PropertyValues pvs) {
 		if (pvs.isEmpty()) {
@@ -1452,9 +1456,9 @@ instantiateWithMethodInjection方法：
 
 ```
   ......
-		BeanDefinitionValueResolver valueResolver = new BeanDefinitionValueResolver(this, beanName, mbd, converter);
+  BeanDefinitionValueResolver valueResolver = new BeanDefinitionValueResolver(this, beanName, mbd, converter);
 
-    Object resolvedValue = valueResolver.resolveValueIfNecessary(pv, originalValue);
+  Object resolvedValue = valueResolver.resolveValueIfNecessary(pv, originalValue);
   ......
 ```
 
