@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="格物才可致知">
 <meta property="og:description" content="前言上一篇我总结出了在撇开操作系统层面，而在应用程序开发层面，我们需要用到多线程实现一些需求。 但是实现这些需求，需要考虑什么呢？因为现在线程只是个执行任务的抽象。如果想深入研究，便要将其想象成一个正在运行的实体。其需要运行，便需要交互，便需要资源。 这篇文章更多地是从应用开发的角度来认知线程。 状态 执行 就绪 阻塞  创建与终止任务线程都是从一个点开始执行，此时只有一个线程。 然后根据任务的工">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-28T19:47:37.742Z">
+<meta property="og:updated_time" content="2019-11-04T07:13:39.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统学习-进程与线程2">
 <meta name="twitter:description" content="前言上一篇我总结出了在撇开操作系统层面，而在应用程序开发层面，我们需要用到多线程实现一些需求。 但是实现这些需求，需要考虑什么呢？因为现在线程只是个执行任务的抽象。如果想深入研究，便要将其想象成一个正在运行的实体。其需要运行，便需要交互，便需要资源。 这篇文章更多地是从应用开发的角度来认知线程。 状态 执行 就绪 阻塞  创建与终止任务线程都是从一个点开始执行，此时只有一个线程。 然后根据任务的工">
@@ -52,25 +52,19 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
 <!--         
-          <a href="/categories/java" class="main-nav-link">java</a>
+          <a href="/categories/web技术" class="main-nav-link">web技术</a>
         
           <a href="/categories/哲学" class="main-nav-link">哲学</a>
         
           <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
         
-          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+          <a href="/categories/持久层技术" class="main-nav-link">持久层技术</a>
         
-          <a href="/categories/视图模板技术" class="main-nav-link">视图模板技术</a>
+          <a href="/categories/数据结构与算法" class="main-nav-link">数据结构与算法</a>
         
-          <a href="/categories/计算机基础" class="main-nav-link">计算机基础</a>
-        
-          <a href="/categories/软件开发方法" class="main-nav-link">软件开发方法</a>
+          <a href="/categories/编程基础" class="main-nav-link">编程基础</a>
         
           <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
-        
-          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
-        
-          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
         
           <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
          -->
@@ -95,7 +89,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/计算机基础/">计算机基础</a>
+    <a class="article-category-link" href="/categories/编程基础/">编程基础</a>
   </div>
 
   </div>
@@ -140,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/29/操作系统学习2/" data-id="ck2jelfml0011c0v5h1ykoa3w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/29/操作系统学习2/" data-id="ck2k3clnz001dn4v5r8jy4ynz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +171,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/视图模板技术/">视图模板技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件开发方法/">软件开发方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/web技术/">web技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/持久层技术/">持久层技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构与算法/">数据结构与算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程基础/">编程基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
     </div>
   </div>
 
@@ -249,25 +243,19 @@
     <a href="/archives" class="mobile-nav-link">Archives</a>
    -->
   
-    <a href="/categories/java" class="mobile-nav-link">java</a>
+    <a href="/categories/web技术" class="mobile-nav-link">web技术</a>
   
     <a href="/categories/哲学" class="mobile-nav-link">哲学</a>
   
     <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
   
-    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+    <a href="/categories/持久层技术" class="mobile-nav-link">持久层技术</a>
   
-    <a href="/categories/视图模板技术" class="mobile-nav-link">视图模板技术</a>
+    <a href="/categories/数据结构与算法" class="mobile-nav-link">数据结构与算法</a>
   
-    <a href="/categories/计算机基础" class="mobile-nav-link">计算机基础</a>
-  
-    <a href="/categories/软件开发方法" class="mobile-nav-link">软件开发方法</a>
+    <a href="/categories/编程基础" class="mobile-nav-link">编程基础</a>
   
     <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
-  
-    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
-  
-    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
   
     <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
   

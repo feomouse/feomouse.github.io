@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="格物才可致知">
 <meta property="og:description" content="继承体系123public class HashSet&amp;lt;E&amp;gt;  extends AbstractSet&amp;lt;E&amp;gt;  implements Set&amp;lt;E&amp;gt;, Cloneable, Serializable  实现分析其实，HashSet类里面维护了一个HashMap&amp;lt;E, Object&amp;gt;类型的变量。那就很明显了，对HashSet的元素操作，其实都是作为Has">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-30T08:47:14.668Z">
+<meta property="og:updated_time" content="2019-11-04T07:12:03.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java集合框架学习8-HashSet">
 <meta name="twitter:description" content="继承体系123public class HashSet&amp;lt;E&amp;gt;  extends AbstractSet&amp;lt;E&amp;gt;  implements Set&amp;lt;E&amp;gt;, Cloneable, Serializable  实现分析其实，HashSet类里面维护了一个HashMap&amp;lt;E, Object&amp;gt;类型的变量。那就很明显了，对HashSet的元素操作，其实都是作为Has">
@@ -52,25 +52,19 @@
           <a class="main-nav-link" href="/archives">Archives</a>
         
 <!--         
-          <a href="/categories/java" class="main-nav-link">java</a>
+          <a href="/categories/web技术" class="main-nav-link">web技术</a>
         
           <a href="/categories/哲学" class="main-nav-link">哲学</a>
         
           <a href="/categories/外语学习" class="main-nav-link">外语学习</a>
         
-          <a href="/categories/数据库设计" class="main-nav-link">数据库设计</a>
+          <a href="/categories/持久层技术" class="main-nav-link">持久层技术</a>
         
-          <a href="/categories/视图模板技术" class="main-nav-link">视图模板技术</a>
+          <a href="/categories/数据结构与算法" class="main-nav-link">数据结构与算法</a>
         
-          <a href="/categories/计算机基础" class="main-nav-link">计算机基础</a>
-        
-          <a href="/categories/软件开发方法" class="main-nav-link">软件开发方法</a>
+          <a href="/categories/编程基础" class="main-nav-link">编程基础</a>
         
           <a href="/categories/软件构造思想" class="main-nav-link">软件构造思想</a>
-        
-          <a href="/categories/软件测试" class="main-nav-link">软件测试</a>
-        
-          <a href="/categories/软件质量" class="main-nav-link">软件质量</a>
         
           <a href="/categories/面向对象设计" class="main-nav-link">面向对象设计</a>
          -->
@@ -95,7 +89,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a>
   </div>
 
   </div>
@@ -120,12 +114,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">private HashMap&lt;E, Object&gt; map;</span><br><span class="line">private static final Object PRESENT = new Object();</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">public boolean add(E paramE) &#123; return (this.map.put(paramE, PRESENT) == null); &#125;</span><br><span class="line"></span><br><span class="line">public boolean contains(Object paramObject) &#123; return this.map.containsKey(paramObject); &#125;</span><br><span class="line"></span><br><span class="line">public boolean isEmpty() &#123; return this.map.isEmpty(); &#125;</span><br><span class="line"></span><br><span class="line">public Iterator&lt;E&gt; iterator() &#123; return this.map.keySet().iterator(); &#125;</span><br><span class="line"></span><br><span class="line">public boolean remove(Object paramObject) &#123; return (this.map.remove(paramObject) == PRESENT); &#125;</span><br><span class="line"></span><br><span class="line">public int size() &#123; return this.map.size(); &#125;</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 
 <p>如以上代码，其实HashSet的元素操作其实都委托给了HashMap类型的成员变量m。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>简单点说，HashSet就是在实现Set接口的前提下，将操作逻辑都委派给了HashMap。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>简单点说，HashSet就是在实现Set接口的前提下，将操作逻辑都委派给了HashMap。HashMap的具体实现请看我以前的分析。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/30/java集合框架学习8/" data-id="ck2jelfm9000lc0v5xex7a5fb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/30/java集合框架学习8/" data-id="ck2k3clnf000qn4v5gnq4eccy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -162,7 +156,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库设计/">数据库设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/视图模板技术/">视图模板技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件开发方法/">软件开发方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件测试/">软件测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件质量/">软件质量</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/web技术/">web技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/哲学/">哲学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/外语学习/">外语学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/持久层技术/">持久层技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构与算法/">数据结构与算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程基础/">编程基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件构造思想/">软件构造思想</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面向对象设计/">面向对象设计</a></li></ul>
     </div>
   </div>
 
@@ -234,25 +228,19 @@
     <a href="/archives" class="mobile-nav-link">Archives</a>
    -->
   
-    <a href="/categories/java" class="mobile-nav-link">java</a>
+    <a href="/categories/web技术" class="mobile-nav-link">web技术</a>
   
     <a href="/categories/哲学" class="mobile-nav-link">哲学</a>
   
     <a href="/categories/外语学习" class="mobile-nav-link">外语学习</a>
   
-    <a href="/categories/数据库设计" class="mobile-nav-link">数据库设计</a>
+    <a href="/categories/持久层技术" class="mobile-nav-link">持久层技术</a>
   
-    <a href="/categories/视图模板技术" class="mobile-nav-link">视图模板技术</a>
+    <a href="/categories/数据结构与算法" class="mobile-nav-link">数据结构与算法</a>
   
-    <a href="/categories/计算机基础" class="mobile-nav-link">计算机基础</a>
-  
-    <a href="/categories/软件开发方法" class="mobile-nav-link">软件开发方法</a>
+    <a href="/categories/编程基础" class="mobile-nav-link">编程基础</a>
   
     <a href="/categories/软件构造思想" class="mobile-nav-link">软件构造思想</a>
-  
-    <a href="/categories/软件测试" class="mobile-nav-link">软件测试</a>
-  
-    <a href="/categories/软件质量" class="mobile-nav-link">软件质量</a>
   
     <a href="/categories/面向对象设计" class="mobile-nav-link">面向对象设计</a>
   

@@ -5,19 +5,15 @@
   
 
   
-  <title>面向对象之组合模式 | 格物才可致知</title>
+  <title>Category: 编程基础 | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单刀直入组合模式：将实现同一接口的对象实例按前后顺序放置到一个列表中，再将这个列表放到实现同一个接口的类当中作为类成员。 也就是以聚合的方式，将对同一接口的调用委派给多个实现同一接口的类的不同实例。 再说得明白些，就像是煮饭。煮一道菜，需要烧水，择菜，煎煮，加调料，摆盘等步骤。对于不同工种相互配合完成这道菜，你可以将他们的工作都抽象成一个-“煮菜”。然后对于一个经理来说，做这道菜，就只是做这道菜。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="面向对象之组合模式">
-<meta property="og:url" content="http://yoursite.com/2019/10/14/面向对象之组合模式/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="格物才可致知">
+<meta property="og:url" content="http://yoursite.com/categories/编程基础/index.html">
 <meta property="og:site_name" content="格物才可致知">
-<meta property="og:description" content="单刀直入组合模式：将实现同一接口的对象实例按前后顺序放置到一个列表中，再将这个列表放到实现同一个接口的类当中作为类成员。 也就是以聚合的方式，将对同一接口的调用委派给多个实现同一接口的类的不同实例。 再说得明白些，就像是煮饭。煮一道菜，需要烧水，择菜，煎煮，加调料，摆盘等步骤。对于不同工种相互配合完成这道菜，你可以将他们的工作都抽象成一个-“煮菜”。然后对于一个经理来说，做这道菜，就只是做这道菜。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-14T12:08:56.095Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象之组合模式">
-<meta name="twitter:description" content="单刀直入组合模式：将实现同一接口的对象实例按前后顺序放置到一个列表中，再将这个列表放到实现同一个接口的类当中作为类成员。 也就是以聚合的方式，将对同一接口的调用委派给多个实现同一接口的类的不同实例。 再说得明白些，就像是煮饭。煮一道菜，需要烧水，择菜，煎煮，加调料，摆盘等步骤。对于不同工种相互配合完成这道菜，你可以将他们的工作都抽象成一个-“煮菜”。然后对于一个经理来说，做这道菜，就只是做这道菜。">
+<meta name="twitter:title" content="格物才可致知">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -82,68 +78,135 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-面向对象之组合模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/14/面向对象之组合模式/" class="article-date">
-  <time datetime="2019-10-14T11:48:58.480Z" itemprop="datePublished">2019-10-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/面向对象设计/">面向对象设计</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      面向对象之组合模式
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/categories/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2019/10/30/java线程学习3/" class="archive-article-date">
+  <time datetime="2019-10-30T11:28:42.728Z" itemprop="datePublished">10月 30</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/30/java线程学习3/">java线程学习3-线程执行器与线程池</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="单刀直入"><a href="#单刀直入" class="headerlink" title="单刀直入"></a>单刀直入</h3><p>组合模式：将实现同一接口的对象实例按前后顺序放置到一个列表中，再将这个列表放到实现同一个接口的类当中作为类成员。</p>
-<p>也就是以聚合的方式，将对同一接口的调用委派给多个实现同一接口的类的不同实例。</p>
-<p>再说得明白些，就像是煮饭。煮一道菜，需要烧水，择菜，煎煮，加调料，摆盘等步骤。对于不同工种相互配合完成这道菜，你可以将他们的工作都抽象成一个-“煮菜”。然后对于一个经理来说，做这道菜，就只是做这道菜。所以可以理解成不同的职员都是在帮经理完成同样一件事，但让经理做菜时，经理只需下单一个操作，但是便可实现一道复杂的菜的完成。每一个员工，就是列表成员。经理便是拥有列表的类。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>当用户调用一个接口，接口实现需要一系列不同的逻辑，而每步逻辑都可具体化成一个类，但是都是为同一个接口服务的，于是便可用组合模式来实现。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/14/面向对象之组合模式/" data-id="ck2k3clpb0034n4v5216nfwtw" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    </header>
   </div>
+</article>
   
     
-<nav id="article-nav">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2019/10/29/java线程学习2/" class="archive-article-date">
+  <time datetime="2019-10-29T13:45:48.205Z" itemprop="datePublished">10月 29</time>
+</a>
+      
   
-    <a href="/2019/10/16/javaweb学习笔记2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          javaweb之hibernate基本实现
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/29/java线程学习2/">java线程学习2</a>
+    </h1>
   
-  
-    <a href="/2019/10/14/javaweb学习笔记1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">javaweb之spring与springmvc</div>
-    </a>
-  
-</nav>
 
-  
+    </header>
+  </div>
 </article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2019/10/29/java线程学习1/" class="archive-article-date">
+  <time datetime="2019-10-28T19:50:05.726Z" itemprop="datePublished">10月 29</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/29/java线程学习1/">java线程学习1</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2019/10/29/操作系统学习2/" class="archive-article-date">
+  <time datetime="2019-10-28T19:00:50.179Z" itemprop="datePublished">10月 29</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/29/操作系统学习2/">操作系统学习-进程与线程2</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2019/10/29/操作系统学习1/" class="archive-article-date">
+  <time datetime="2019-10-28T17:27:12.369Z" itemprop="datePublished">10月 29</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/29/操作系统学习1/">操作系统学习-进程与线程1</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2019/10/27/java输入输出学习1/" class="archive-article-date">
+  <time datetime="2019-10-27T13:45:26.764Z" itemprop="datePublished">10月 27</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/27/java输入输出学习1/">java输入输出学习1</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
 
 </section>
         
