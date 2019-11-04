@@ -1,6 +1,6 @@
 ---
 title: velocity用户引导
-categories: 视图模板技术
+categories: web技术
 ---
 
 ### 原文地址

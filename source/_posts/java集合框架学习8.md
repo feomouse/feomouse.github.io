@@ -1,6 +1,6 @@
 ---
 title: java集合框架学习8-HashSet
-categories: java
+categories: 数据结构与算法
 ---
 
 ### 继承体系
@@ -45,4 +45,4 @@ public class HashSet<E>
 
 ### 总结
 
-简单点说，HashSet就是在实现Set接口的前提下，将操作逻辑都委派给了HashMap。
+简单点说，HashSet就是在实现Set接口的前提下，将操作逻辑都委派给了HashMap。HashMap的具体实现请看我以前的分析。

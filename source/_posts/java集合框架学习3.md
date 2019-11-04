@@ -1,6 +1,6 @@
 ---
 title: java集合框架学习3-Map,Dictionary,Stack
-categories: java
+categories: 数据结构与算法
 ---
 
 ### Map

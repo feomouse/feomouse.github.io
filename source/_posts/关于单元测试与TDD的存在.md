@@ -1,6 +1,6 @@
 ---
 title: 关于单元测试与TDD的存在
-categories: 软件测试
+categories: 软件构造思想
 ---
 
 ### 测试存在的意义

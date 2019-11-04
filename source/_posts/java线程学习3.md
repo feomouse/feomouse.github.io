@@ -1,6 +1,6 @@
 ---
 title: java线程学习3-线程执行器与线程池
-categories: java
+categories: 编程基础
 ---
 
 ### 前言

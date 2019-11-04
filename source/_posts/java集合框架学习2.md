@@ -1,6 +1,6 @@
 ---
 title: java集合框架学习2-Collection,Set,List,Queue,Deque
-categories: java
+categories: 数据结构与算法
 ---
 
 ### 前言

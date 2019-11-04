@@ -1,6 +1,6 @@
 ---
 title: java线程学习2
-categories: java
+categories: 编程基础
 ---
 
 ### 前言

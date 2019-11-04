@@ -1,6 +1,6 @@
 ---
 title: javaweb之mybatis基本实现
-categories: java
+categories: 持久层技术
 ---
 
 ### 前言

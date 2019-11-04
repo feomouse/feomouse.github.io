@@ -1,6 +1,6 @@
 ---
 title: javaweb之spring与springmvc
-categories: java
+categories: web技术
 ---
 
 ### 前言

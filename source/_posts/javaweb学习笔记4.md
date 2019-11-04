@@ -1,6 +1,6 @@
 ---
 title: javaweb之struts2基本实现
-categories: java
+categories: web技术
 ---
 
 ### 前言

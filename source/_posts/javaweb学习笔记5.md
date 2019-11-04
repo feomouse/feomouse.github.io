@@ -1,6 +1,6 @@
 ---
 title: javaweb之hibernate表关系创建
-categories: java
+categories: 持久层技术
 ---
 
 ### 前言

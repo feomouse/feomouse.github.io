@@ -1,6 +1,6 @@
 ---
 title: spring初识1
-categories: java
+categories: web技术
 ---
 
 ### 前言

@@ -1,6 +1,6 @@
 ---
 title: javaweb之springmvc视图与控制器数据传输
-categories: java
+categories: web技术
 ---
 
 ### 前言
