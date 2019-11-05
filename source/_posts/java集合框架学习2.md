@@ -1,5 +1,5 @@
 ---
-title: java集合框架学习2-Collection,Set,List,Queue,Deque
+title: java集合框架-接口Collection,Set,List,Queue,Deque
 categories: 数据结构与算法
 ---
 

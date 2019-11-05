@@ -1,5 +1,5 @@
 ---
-title: java集合框架学习5-Map，SortedMap，NavigableMap，AbstractMap，TreeMap
+title: java集合框架-Map，SortedMap，NavigableMap，AbstractMap，TreeMap
 categories: 数据结构与算法
 ---
 

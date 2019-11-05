@@ -1,5 +1,5 @@
 ---
-title: java集合框架学习8-HashSet
+title: java集合框架-HashSet
 categories: 数据结构与算法
 ---
 

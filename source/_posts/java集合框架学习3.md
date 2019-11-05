@@ -1,5 +1,5 @@
 ---
-title: java集合框架学习3-Map,Dictionary,Stack
+title: java集合框架-接口或抽象类Map,Dictionary,Stack
 categories: 数据结构与算法
 ---
 

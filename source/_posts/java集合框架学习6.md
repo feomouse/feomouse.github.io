@@ -1,5 +1,5 @@
 ---
-title: java集合框架学习6-Set，SortedSet，NavigableSet，AbstractSet，TreeSet
+title: java集合框架-Set，SortedSet，NavigableSet，AbstractSet，TreeSet
 categories: 数据结构与算法
 ---
 

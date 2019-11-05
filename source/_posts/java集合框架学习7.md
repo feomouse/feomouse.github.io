@@ -1,5 +1,5 @@
 ---
-title: java集合框架学习7-Dictionary,Map,HashTable,HashMap
+title: java集合框架-Dictionary,Map,HashTable,HashMap
 categories: 数据结构与算法
 ---
 

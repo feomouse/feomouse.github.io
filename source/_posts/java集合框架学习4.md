@@ -1,5 +1,5 @@
 ---
-title: java集合框架学习4-以Abstract开头的抽象类
+title: java集合框架-以Abstract开头的抽象类
 categories: 数据结构与算法
 ---
 
