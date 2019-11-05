@@ -7,17 +7,17 @@
   
   <title>javaweb之springmvc视图与控制器数据传输 | 格物才可致知</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言在mvc模式的下进行web编程，控制器和视图的逻辑是分离的，也就是java代码并不会侵入到视图的模板代码，所以现在控制器承担的工作有：  接受客户端发送而来的数据； 为视图层设置数据模型 选择视图层返回  这也是现有典型mvc模式的流程。 springmvc实现v层与c层的数据传递简单地讲，现在springmvc框架下的控制器编写已经十分简化，而且实现上面三项已讨论的工作也十分简单。  web">
+  <meta name="description" content="前言在mvc模式的下进行web编程，控制器和视图的逻辑是分离的，也就是java代码并不会侵入到视图的模板代码，所以现在控制器承担的工作有：  接受客户端发送而来的数据； 为视图层设置数据模型 选择视图层返回  这也是现有典型mvc模式的流程。 springmvc实现v层与c层的数据传递简单地讲，现在springmvc框架下的控制器编写已经十分简化，而且实现上面三项已讨论的工作也十分简单。  为控制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaweb之springmvc视图与控制器数据传输">
 <meta property="og:url" content="http://yoursite.com/2019/11/03/javaweb学习笔记6/index.html">
 <meta property="og:site_name" content="格物才可致知">
-<meta property="og:description" content="前言在mvc模式的下进行web编程，控制器和视图的逻辑是分离的，也就是java代码并不会侵入到视图的模板代码，所以现在控制器承担的工作有：  接受客户端发送而来的数据； 为视图层设置数据模型 选择视图层返回  这也是现有典型mvc模式的流程。 springmvc实现v层与c层的数据传递简单地讲，现在springmvc框架下的控制器编写已经十分简化，而且实现上面三项已讨论的工作也十分简单。  web">
+<meta property="og:description" content="前言在mvc模式的下进行web编程，控制器和视图的逻辑是分离的，也就是java代码并不会侵入到视图的模板代码，所以现在控制器承担的工作有：  接受客户端发送而来的数据； 为视图层设置数据模型 选择视图层返回  这也是现有典型mvc模式的流程。 springmvc实现v层与c层的数据传递简单地讲，现在springmvc框架下的控制器编写已经十分简化，而且实现上面三项已讨论的工作也十分简单。  为控制">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-11-04T07:10:09.960Z">
+<meta property="og:updated_time" content="2019-11-05T07:37:38.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaweb之springmvc视图与控制器数据传输">
-<meta name="twitter:description" content="前言在mvc模式的下进行web编程，控制器和视图的逻辑是分离的，也就是java代码并不会侵入到视图的模板代码，所以现在控制器承担的工作有：  接受客户端发送而来的数据； 为视图层设置数据模型 选择视图层返回  这也是现有典型mvc模式的流程。 springmvc实现v层与c层的数据传递简单地讲，现在springmvc框架下的控制器编写已经十分简化，而且实现上面三项已讨论的工作也十分简单。  web">
+<meta name="twitter:description" content="前言在mvc模式的下进行web编程，控制器和视图的逻辑是分离的，也就是java代码并不会侵入到视图的模板代码，所以现在控制器承担的工作有：  接受客户端发送而来的数据； 为视图层设置数据模型 选择视图层返回  这也是现有典型mvc模式的流程。 springmvc实现v层与c层的数据传递简单地讲，现在springmvc框架下的控制器编写已经十分简化，而且实现上面三项已讨论的工作也十分简单。  为控制">
   
     <link rel="alternate" href="/atom.xml" title="格物才可致知" type="application/atom+xml">
   
@@ -117,8 +117,6 @@
 <p>这也是现有典型mvc模式的流程。</p>
 <h3 id="springmvc实现v层与c层的数据传递"><a href="#springmvc实现v层与c层的数据传递" class="headerlink" title="springmvc实现v层与c层的数据传递"></a>springmvc实现v层与c层的数据传递</h3><p>简单地讲，现在springmvc框架下的控制器编写已经十分简化，而且实现上面三项已讨论的工作也十分简单。</p>
 <ol>
-<li>web.xml配置我在以前的博文中已讨论；</li>
-<li>springmvc的配置文件spring-mvc.xml以前我也讨论过了；</li>
 <li>为控制器类添加标注@Controller声明其为控制器类；</li>
 <li>为需要返回视图的的控制器方法添加一个Model类型的参数，在控制器中将这个参数作为map类型的变量操作，设置数据，然后作为viewmodel数据传递给视图；</li>
 <li>自定义控制器方法接受客户端数据类型的ViewModel类(POJO数据类)； </li>
@@ -165,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/03/javaweb学习笔记6/" data-id="ck2lejqld002rm8v5mt392r4i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/03/javaweb学习笔记6/" data-id="ck2lk5ni4003aggv51gmuqo2q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +176,7 @@
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          javaweb之spring-aop与log4j2的简单结合实现
         
       </div>
     </a>
@@ -238,7 +236,7 @@
           </li>
         
           <li>
-            <a href="/2019/11/04/javaweb学习笔记7/">(no title)</a>
+            <a href="/2019/11/04/javaweb学习笔记7/">javaweb之spring-aop与log4j2的简单结合实现</a>
           </li>
         
           <li>
