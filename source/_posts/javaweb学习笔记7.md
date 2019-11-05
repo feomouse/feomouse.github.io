@@ -136,7 +136,7 @@ aop也就是面向切面编程。其概念与技术的产生是因为软件解�
 
 主要是定义了一个日志输入流地址-文件/logs/app.log，输出格式，还有对应的日志输出级别定义。
 
-接下来便是切面类的实现了。
+以下是我之前申明的程序的主体业务逻辑方法-getSex，也就是切面需要运用到的逻辑方法。
 
 ```
 package controllers;
@@ -172,7 +172,7 @@ public class NameController {
 
 ```
 
-以上是我之前申明的程序的主体业务逻辑方法-getSex。
+以下是对应的切面类。
 
 ```
 package aspects;
@@ -199,7 +199,7 @@ public class WriterName {
 }
 ```
 
-以上是对应的切面类。里面定义了pointcut和advice。需要注意的有几点：
+里面定义了pointcut和advice。需要注意的有几点：
 
 * 对应切面类需要添加@Aspect和@Component注解（@Aspect标注为切面，@Component标注让spring可以注入）；
 * 获取日志对象；
@@ -208,8 +208,8 @@ public class WriterName {
   protected static final Logger logger = LogManager.getLogger();
 ```
 
-* @Pointcut定义切点，其参数申明将advice应用到那个方法中；
-* @After为advice申明逻辑在函数内部具体的切入时间点，以及对应的执行逻辑；
+* @Pointcut定义切点，其参数申明将advice应用到哪个方法中，这里是getSex；
+* @After为advice申明逻辑在函数内部具体的切入时间点，以及对应的执行逻辑，也就是getSex方法执行过后会调用切面里面定义的returnRes方法；
 
 ```        
   logger.info("get sex operation");
